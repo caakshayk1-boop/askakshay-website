@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Why every founder needs to understand the difference between profit and cash — Essay № 001 — askakshay</title>
+<meta name="description" content="Profitable businesses die broke every year. The difference between profit and cash is not a technicality — it is the most dangerous gap in business finance."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.essay-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.essay-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(34px,5.5vw,60px);line-height:1.04;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:32px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.highlight-box{margin:40px 0;padding:32px 36px;background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));border-left:3px solid var(--accent);border-radius:2px}
+.highlight-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.highlight-box ul{list-style:none}
+.highlight-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft);line-height:1.55}
+.highlight-box li:last-child{border-bottom:none;padding-bottom:0}
+.highlight-box li::before{content:'→';color:var(--accent);margin-right:12px;font-family:'JetBrains Mono',monospace}
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+.pn-spacer{display:block}
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="essays.html" class="back-link">← All essays</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="essay-header">
+    <div class="essay-meta-top">Essay № 001 · Foundations · Jan 2026</div>
+    <h1>Why every founder needs to understand the difference between <em>profit and cash.</em></h1>
+    <p class="dek">Profitable businesses die broke every year. This is not a paradox — it is accounting working exactly as designed. The gap between profit and cash is the most dangerous hole in business finance.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>6 min</span></div>
+      <div>Topic <span>Foundations</span></div>
+      <div>Level <span>Essential</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>In 2015, a profitable Mumbai-based distributor of construction materials filed for insolvency.</strong> Its audited books showed a profit of ₹1.2 crore in the year it went under. The owner had no idea what happened. His accountant had been telling him every quarter that the business was doing well. It was. It just had no cash.</p>
+    <p>This is not a rare story. It plays out in warehouses, restaurants, consulting firms, and manufacturing units across India every year. The founder who cannot distinguish between profit and cash is not ignorant — in many cases, they are running a genuinely good business. They are just reading the wrong number.</p>
+
+    <h2 data-num="01 · The core distinction">Profit is an opinion. Cash is a fact.</h2>
+    <p>Profit is what your income statement says you earned after subtracting expenses. Cash is what sits in your bank account. The two numbers are calculated differently, updated at different times, and mean completely different things for the survival of a business.</p>
+    <p>Profit is recorded when a sale is <em>made</em> — not when money arrives. If you invoice a client ₹10 lakhs on March 31st, your P&L shows that ₹10 lakhs as revenue for the year. Your bank account shows nothing until the client pays — which might be 60, 90, or 120 days later. Meanwhile, you have already paid the salaries, the raw materials, and the rent that went into producing that sale. The cash went out. The profit came in. The gap between those two events is where businesses die.</p>
+    <blockquote>Revenue is vanity. Profit is sanity. Cash is reality.</blockquote>
+    <p>The accounting term for this is <strong>accrual basis accounting</strong>. Every business that issues invoices operates on it. Every business that operates on it has a gap between profit and cash. The question is not whether the gap exists — it always does. The question is whether you are managing it.</p>
+
+    <h2 data-num="02 · Why the gap exists">Three reasons your profitable business has no cash.</h2>
+    <p><strong>Debtors (receivables).</strong> You have sold goods or services and not yet been paid. Your P&L records the revenue. Your bank account is empty. The longer your credit terms — 30 days, 60 days, 90 days — the larger this gap grows. A business growing 30% year-on-year on 60-day payment terms is essentially funding its own growth by lending money to its customers interest-free.</p>
+    <p><strong>Inventory.</strong> You have bought raw material or finished goods that sit in your warehouse. The purchase was an expense on your P&L (or will be, when sold). The cash has already left your account. Until those goods are sold and paid for, you are holding cash in physical form. A business that builds inventory aggressively before a season — textiles, FMCG, agriculture — can look profitable on paper while watching its bank balance drain every week.</p>
+    <p><strong>Capital expenditure.</strong> You bought a machine for ₹50 lakhs. On your P&L, only ₹5 lakhs shows up as depreciation this year (10-year life). Your profit looks almost unaffected. But ₹50 lakhs left your bank account on day one. Founders who invest heavily in assets — equipment, vehicles, fit-outs — routinely find their cash position deteriorating even as profits look healthy.</p>
+
+    <div class="data-block">
+      <div class="data-label">Profit vs Cash — a simple example</div>
+      <table>
+        <thead><tr><th>Item</th><th>P&L Impact</th><th>Cash Impact</th><th>Timing Gap</th></tr></thead>
+        <tbody>
+          <tr><td>₹10L sale on credit (60 days)</td><td class="num pos">+₹10L revenue</td><td class="num neg">₹0 now</td><td class="num">60 days</td></tr>
+          <tr><td>₹6L raw material (paid upfront)</td><td class="num neg">−₹6L cost</td><td class="num neg">−₹6L now</td><td class="num">Immediate</td></tr>
+          <tr><td>₹50L machine (10-yr life)</td><td class="num neg">−₹5L depreciation</td><td class="num neg">−₹50L now</td><td class="num">9-yr shortfall</td></tr>
+          <tr><td>₹2L advance from customer</td><td class="num">No revenue yet</td><td class="num pos">+₹2L now</td><td class="num">Reversed</td></tr>
+          <tr><td>Loan repayment (principal)</td><td class="num">No P&L impact</td><td class="num neg">−₹X now</td><td class="num">Invisible</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 data-num="03 · The statement you must read">The cash flow statement is not optional.</h2>
+    <p>Every set of accounts has three statements: the P&L, the balance sheet, and the cash flow statement. Most founders look at the first two. Almost none read the third. This is the mistake.</p>
+    <p>The cash flow statement shows you exactly where cash came from and where it went during a period. It breaks down into three sections: <strong>operating cash flow</strong> (cash generated by running the business), <strong>investing cash flow</strong> (cash spent on buying assets or received from selling them), and <strong>financing cash flow</strong> (cash raised from loans or equity, and repaid).</p>
+    <p>The number to watch is <strong>operating cash flow (OCF)</strong>. A business that consistently generates positive OCF is self-funding its operations. A business with positive profit but negative OCF is funding its operations from somewhere else — usually debt or equity injections. That is a warning signal, not a death sentence. But it needs to be understood.</p>
+    <p>The simple check: take your net profit, add back depreciation, subtract the increase in working capital (receivables + inventory − payables). That approximation of OCF tells you whether your profit is turning into real cash or sitting in invoices and inventory. If the number is consistently lower than your profit by a wide margin, you have a working capital problem that needs fixing before it becomes a survival problem.</p>
+
+    <h2 data-num="04 · What to do about it">Managing the gap, not ignoring it.</h2>
+    <p>You cannot eliminate the gap between profit and cash. You can manage it. Four levers matter most:</p>
+    <div class="highlight-box">
+      <h4>The four levers</h4>
+      <ul>
+        <li><strong>Shorten receivables.</strong> Invoice immediately. Follow up on day 30, not day 60. Offer 1–2% early payment discounts to large clients. The cost of the discount is almost always less than the cost of the working capital gap it closes.</li>
+        <li><strong>Stretch payables (ethically).</strong> Negotiate 45–60 day terms with suppliers. Pay on the last day, not the first. Every day of extra credit from your supplier is a free loan. Do not abuse it — suppliers remember — but use it.</li>
+        <li><strong>Keep inventory lean.</strong> Inventory is cash in a box. The discipline of running lean SKUs and tight reorder points is not just an operations decision — it is a cash management decision. Every rupee sitting in a warehouse is a rupee not in your bank account.</li>
+        <li><strong>Separate your capex logic.</strong> Before buying an asset, answer two questions: does the P&L benefit (lower cost or higher revenue) justify the total cash outflow, and when? A machine that pays back in 4 years is fine if you have the cash to survive 4 years. The same machine, bought when your bank balance is thin, is a trap.</li>
+      </ul>
+    </div>
+    <p>The broader principle: <strong>manage your business on a 13-week cash flow forecast, not on monthly P&L alone.</strong> A 13-week (rolling 3-month) cash view forces you to see exactly when cash comes in, when it goes out, and whether the gap between the two is survivable. Every finance team that uses one has fewer surprises. Every founder who ignores one eventually gets one.</p>
+
+    <h2 data-num="05 · The bottom line">One number to watch.</h2>
+    <p>If you remember only one thing from this essay, make it this: <strong>check your operating cash flow, not just your profit, at the end of every month.</strong> If operating cash flow is consistently less than 70–80% of your net profit over a rolling 6 months, you have a working capital leak that needs to be found and fixed. The leak does not close by itself. It gets larger as you grow.</p>
+    <p>The Mumbai distributor from the opening of this essay was not a bad businessman. He was a profitable one who never looked at his cash flow statement. His receivables had grown from 45 days to 90 days over two years as he chased growth with credit-friendly terms. By the time his bank called the overdraft, the gap was too large to close. The business was worth more than its debt. But cash timing had made it technically insolvent.</p>
+    <p>Profit tells you whether your business model works. Cash tells you whether the business survives long enough to prove it.</p>
+  </article>
+
+  <div class="inline-nl">
+    <h3>Get the next essay in your inbox.</h3>
+    <p>Margin Notes — one framework every Monday. Ten-minute read, free forever.</p>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
+  </div>
+
+  <div class="prev-next">
+    <span class="pn-spacer"></span>
+    <a href="essay-002.html" style="text-align:right">
+      <div class="pn-label">Next essay · № 002 →</div>
+      <div class="pn-title">The debt trap — why cheap capital is the most expensive mistake.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="essays.html">All essays</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+</script>
+</body>
+</html>

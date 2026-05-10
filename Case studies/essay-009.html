@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Evaluating a startup job offer — the equity math nobody teaches. — Essay № 009 — askakshay</title>
+<meta name="description" content="A startup job offer is a financial instrument. Most candidates read only the salary line. The equity section is where the real decision lives — and almost no one knows how to read it."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.essay-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.essay-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(34px,5.5vw,60px);line-height:1.04;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:32px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.highlight-box{margin:40px 0;padding:32px 36px;background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));border-left:3px solid var(--accent);border-radius:2px}
+.highlight-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.highlight-box ul{list-style:none}
+.highlight-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft);line-height:1.55}
+.highlight-box li:last-child{border-bottom:none;padding-bottom:0}
+.highlight-box li::before{content:'→';color:var(--accent);margin-right:12px;font-family:'JetBrains Mono',monospace}
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="essays.html" class="back-link">← All essays</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="essay-header">
+    <div class="essay-meta-top">Essay № 009 · Decisions · Mar 2026</div>
+    <h1>Evaluating a startup job offer — the <em>equity math nobody teaches.</em></h1>
+    <p class="dek">A startup job offer is a financial instrument. Most candidates read only the salary line. The equity section is where the real decision lives — and almost no one knows how to read it.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>10 min</span></div>
+      <div>Topic <span>Decisions</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>A startup job offer is a financial instrument.</strong> It has a salary component — straightforward to evaluate — and an equity component that most candidates either ignore, misunderstand, or take at face value from a founder who has every incentive to present it optimistically. The equity section is where the real financial decision lives. It is also where the math almost no one outside venture finance actually knows how to run.</p>
+    <p>This essay walks through the complete framework: how to value equity in a private company, what the liquidation preference means for your payout, what dilution will do to your stake before any exit, and how to build a realistic expected value model for a startup offer versus a corporate salary.</p>
+
+    <h2 data-num="01 · The option grant">What you are actually receiving.</h2>
+    <p>Most startup equity grants to employees come in the form of options — the right to buy shares at a predetermined price (the strike price, also called exercise price) at some point in the future. You are not receiving shares. You are receiving the right to buy shares at a fixed price, subject to a vesting schedule, usually after a cliff period.</p>
+    <p>The standard vesting schedule in Indian and global startups: 4-year vesting with a 1-year cliff. This means you receive 0% of your grant until you complete 12 months (the cliff), at which point you vest 25% all at once. The remaining 75% vests monthly or quarterly over the next 36 months. Leave before the cliff: you get nothing. Leave at 18 months: you keep roughly 37.5% of your grant.</p>
+    <p>The strike price matters enormously. If the company's latest valuation is ₹100 Cr and the strike price on your options is ₹10 Cr (set at an earlier round), your options are already "in the money" — intrinsically valuable even before any further appreciation. If the strike price is at the current valuation, the options only have value if the company grows.</p>
+
+    <h2 data-num="02 · The dilution reality">Your percentage will shrink. Model it.</h2>
+    <p>Whatever percentage of the company your option grant represents today, it will be smaller at exit. Every subsequent fundraising round issues new shares to new investors, and your percentage ownership is diluted proportionally unless there are anti-dilution provisions protecting you (there almost never are for employee options at Indian startups).</p>
+    <p>A typical startup raises multiple rounds between when you join and any liquidity event. If the company raises a Series B (15% dilution), Series C (20%), and a pre-IPO round (12%), your initial 0.5% stake becomes approximately 0.5% × 0.85 × 0.80 × 0.88 = 0.30%. This is standard and expected — the value of each share should increase as capital is raised — but the percentage calculation matters for understanding absolute payout.</p>
+    <blockquote>Your equity percentage at grant is not your equity percentage at exit. Model the dilution. Then model it again.</blockquote>
+
+    <div class="data-block">
+      <div class="data-label">Option value model — three exit scenarios</div>
+      <table>
+        <thead><tr><th>Assumption</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead>
+        <tbody>
+          <tr><td>Exit valuation</td><td class="num neg">₹200 Cr</td><td class="num">₹800 Cr</td><td class="num pos">₹3,000 Cr</td></tr>
+          <tr><td>Probability</td><td class="num">40%</td><td class="num">40%</td><td class="num">20%</td></tr>
+          <tr><td>Post-dilution stake (0.5% → 0.30%)</td><td class="num">0.30%</td><td class="num">0.30%</td><td class="num">0.30%</td></tr>
+          <tr><td>Gross payout</td><td class="num neg">₹60L</td><td class="num">₹240L</td><td class="num pos">₹900L</td></tr>
+          <tr><td>Less: Strike price exercise cost</td><td class="num neg">−₹8L</td><td class="num neg">−₹8L</td><td class="num neg">−₹8L</td></tr>
+          <tr><td>Less: Liquidation preference (est.)</td><td class="num neg">−₹48L</td><td class="num neg">−₹60L</td><td class="num neg">−₹60L</td></tr>
+          <tr><td>Net payout</td><td class="num neg">₹4L</td><td class="num">₹172L</td><td class="num pos">₹832L</td></tr>
+          <tr><td>Expected value (probability-weighted)</td><td class="num" colspan="3">₹4L×0.4 + ₹172L×0.4 + ₹832L×0.2 = <strong>₹237L</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 data-num="03 · The liquidation preference">The clause that can zero out employee equity.</h2>
+    <p>This is the section of every term sheet that employees never see and rarely understand. Investors almost always receive preferred shares, not common shares. Preferred shares typically carry a liquidation preference: investors receive their invested capital back (1x preference) — and sometimes a multiple of it (2x, 3x) — before any proceeds are distributed to common shareholders.</p>
+    <p>In a small exit, liquidation preferences can consume the entire payout. If investors have put in ₹120 Cr across multiple rounds, each with 1x liquidation preference, and the company exits at ₹150 Cr, investors receive ₹120 Cr and the remaining ₹30 Cr is shared among all common shareholders. Your 0.30% of common is worth ₹90,000 — not ₹45 lakhs as the headline percentage would suggest.</p>
+    <p>Some preferences are "participating" — investors get their 1x back and then also participate in the remaining distribution pro-rata as if they were common shareholders. This structure is particularly punishing for common equity holders in a moderate exit.</p>
+    <p>Ask the startup directly: what is the total liquidation preference overhang? What multiple? Are preferences participating or non-participating? What is the breakeven exit value at which common shareholders receive more than zero?</p>
+
+    <h2 data-num="04 · The salary gap analysis">The number the offer letter never shows you.</h2>
+    <p>A startup will typically offer 20–40% less base salary than an equivalent corporate role, compensated by the equity grant. To evaluate whether this trade is rational, you need to calculate the <em>implied value of the equity at which the salary sacrifice is justified</em>.</p>
+    <p>If the corporate salary is ₹40L and the startup offers ₹28L, the annual salary sacrifice is ₹12L. Over 4 years (the vesting period), that is ₹48L foregone in certain, taxable compensation — ignoring time value of money and the fact that your corporate salary grows while the startup salary may not keep pace.</p>
+    <p>For the equity to justify ₹48L of salary sacrifice at a 3x hurdle (you need 3x the sacrifice to compensate for the risk), your net equity payout needs to be at least ₹144L. Back-calculate: at your post-dilution stake and assuming a realistic liquidation preference, what exit value does the company need to achieve to put ₹144L in your hands? Is that exit value realistic — in the top 20–30% of outcomes for a company at this stage?</p>
+
+    <h2 data-num="05 · The questions to ask">Before signing, get answers to these.</h2>
+    <div class="highlight-box">
+      <h4>The five questions every candidate should ask</h4>
+      <ul>
+        <li><strong>What is the total fully diluted share count, and what percentage does my grant represent?</strong> "You're getting 10,000 options" is meaningless without this context.</li>
+        <li><strong>What is the total liquidation preference stack?</strong> Sum of all investor capital raised, multiplied by preference multiples. This is the hurdle before common shareholders see anything.</li>
+        <li><strong>What is the strike price, and how was it determined?</strong> Options priced at the latest 409A valuation (US) or board-approved fair market value. A strike price at par value (₹10 face value) is very different from one set at the latest fundraising valuation.</li>
+        <li><strong>What is the post-termination exercise window?</strong> Standard is 90 days after leaving. Some companies offer 5 or 10 years. If you leave after 3 years and have 90 days to exercise, and the company is still private, you may be paying cash for shares in an illiquid company with no immediate payout.</li>
+        <li><strong>Has the company had a secondary transaction?</strong> If early employees or founders have sold shares in a secondary transaction, liquidity is possible. Knowing this tells you whether there is a path to realise value before IPO.</li>
+      </ul>
+    </div>
+    <p>Equity is a lottery ticket with known odds if you do the work. Do the work before you sign.</p>
+  </article>
+
+  <div class="inline-nl">
+    <h3>Get the next essay in your inbox.</h3>
+    <p>Margin Notes — one framework every Monday. Ten-minute read, free forever.</p>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
+  </div>
+
+  <div class="prev-next">
+    <a href="essay-008.html">
+      <div class="pn-label">← Previous essay · № 008</div>
+      <div class="pn-title">Budget vs Forecast — the distinction that separates good finance teams from great ones.</div>
+    </a>
+    <a href="essay-010.html">
+      <div class="pn-label">Next essay · № 010 →</div>
+      <div class="pn-title">How to read an annual report in thirty minutes.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="essays.html">All essays</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+</script>
+</body>
+</html>

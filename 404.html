@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Page Not Found — askakshay</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#06090F;--orange:#F05023;--white:#FFFFFF;--w50:rgba(255,255,255,.5);--w12:rgba(255,255,255,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
+body::before{content:"404";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-size:clamp(200px,35vw,420px);font-weight:300;line-height:1;color:rgba(255,255,255,.025);pointer-events:none;z-index:0;letter-spacing:-.05em}
+.inner{position:relative;z-index:1;max-width:520px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:2rem}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;letter-spacing:-.03em;margin-bottom:1.2rem}
+h1 em{font-style:italic;color:var(--orange)}
+p{color:var(--w50);font-size:1rem;line-height:1.65;margin-bottom:2.5rem}
+.links{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:all .25s}
+.btn-primary{background:var(--orange);color:var(--white)}
+.btn-primary:hover{background:#FF6B3D;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--w50);border:1px solid var(--w12)}
+.btn-ghost:hover{color:var(--white);border-color:var(--orange)}
+.logo{position:fixed;top:1.5rem;left:2rem;font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.logo span{color:var(--orange)}
+</style>
+</head>
+<body>
+<a href="/" class="logo">[ask<span>akshay</span>]</a>
+<div class="inner">
+  <div class="eyebrow">Error 404 · Page not found</div>
+  <h1>This page doesn't <em>exist.</em></h1>
+  <p>The URL you followed may be broken, the page may have moved, or you may have typed something wrong. The useful stuff is one click away.</p>
+  <div class="links">
+    <a href="/" class="btn btn-primary">← Back to home</a>
+    <a href="/essays.html" class="btn btn-ghost">Essays</a>
+    <a href="/cases.html" class="btn btn-ghost">Case studies</a>
+    <a href="/calculators.html" class="btn btn-ghost">Tools</a>
+  </div>
+</div>
+</body>
+</html>

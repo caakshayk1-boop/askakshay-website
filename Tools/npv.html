@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPV Calculator — [ASKAKSHAY]</title>
+<meta name="description" content="Model cash flows with a discount rate. Understand whether an investment creates or destroys value in today's money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--o:#E8673A;--of:rgba(232,103,58,0.1);--bg:#080c10;--s1:#0d1117;--s2:#161b22;--brd:#21262d;--t1:#e6edf3;--t2:#8b949e;--t3:#484f58;--green:#3fb950;--red:#f85149}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Mono',monospace;min-height:100vh}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:rgba(8,12,16,0.9);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--brd)}
+.nav-logo{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--t1);text-decoration:none}
+.nav-logo span{color:var(--o)}
+.nav-back{font-size:11px;color:var(--t2);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--t1)}
+.tool-header{padding:90px 1.5rem 32px;max-width:700px;margin:0 auto}
+.tool-eyebrow{font-size:10px;letter-spacing:.12em;color:var(--o);margin-bottom:.75rem}
+.tool-title{font-size:26px;font-weight:500;margin-bottom:.5rem}
+.tool-desc{font-size:13px;color:var(--t2);line-height:1.7;font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.tool-body{max-width:700px;margin:0 auto;padding:0 1.5rem 4rem}
+.section{background:var(--s1);border:0.5px solid var(--brd);border-radius:6px;padding:1.25rem;margin-bottom:10px}
+.sec-lbl{font-size:10px;letter-spacing:.1em;color:var(--t2);margin-bottom:.85rem}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.field{margin-bottom:10px}
+.field:last-child{margin-bottom:0}
+label{font-size:11px;color:var(--t2);display:block;margin-bottom:5px}
+.iw{display:flex;align-items:center;border:0.5px solid var(--brd);border-radius:5px;background:var(--bg);overflow:hidden}
+.ipre,.isuf{font-size:12px;color:var(--t2);padding:0 8px;background:var(--s2);white-space:nowrap;line-height:36px}
+.ipre{border-right:0.5px solid var(--brd)}
+.isuf{border-left:0.5px solid var(--brd)}
+.iw input{flex:1;border:none;background:transparent;color:var(--t1);font-size:13px;padding:8px 8px;font-family:'IBM Plex Mono',monospace;min-width:0}
+.iw input:focus{outline:none}
+select{width:100%;font-size:13px;padding:8px 10px;border-radius:5px;border:0.5px solid var(--brd);background:var(--s1);color:var(--t1);font-family:'IBM Plex Mono',monospace}
+.sl-row{display:flex;align-items:center;gap:10px}
+input[type=range]{flex:1;accent-color:var(--o);cursor:pointer}
+.sv{font-size:12px;font-weight:500;min-width:38px;text-align:right}
+.btn{padding:9px 16px;border-radius:5px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--brd);background:transparent;color:var(--t1);letter-spacing:.04em;font-family:'IBM Plex Mono',monospace;transition:all .15s}
+.btn:hover{border-color:var(--t2)}
+.btn.primary{background:var(--o);border-color:var(--o);color:#fff;width:100%}
+.btn.primary:hover{opacity:.9}
+.btn.sm{padding:6px 12px;font-size:11px}
+.cashflow-rows{margin-bottom:10px}
+.cf-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.cf-yr{font-size:11px;color:var(--t2);width:44px;flex-shrink:0;text-align:right}
+.cf-inp{flex:1}
+.cf-pv{font-size:11px;color:var(--t2);width:80px;text-align:right;flex-shrink:0}
+.cf-del{background:none;border:none;color:var(--t3);cursor:pointer;font-size:16px;padding:0 2px;line-height:1}
+.cf-del:hover{color:var(--red)}
+.add-cf-row{display:flex;gap:8px}
+.result-card{border:0.5px solid var(--brd);border-radius:6px;padding:1.5rem;background:var(--s1);margin-bottom:10px}
+.result-main{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}
+.result-val{font-size:32px;font-weight:500;line-height:1}
+.result-lbl{font-size:11px;color:var(--t2);margin-top:5px}
+.result-verdict{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:500}
+.pos-v{background:rgba(63,185,80,.12);color:var(--green);border:0.5px solid rgba(63,185,80,.3)}
+.neg-v{background:rgba(248,81,73,.1);color:var(--red);border:0.5px solid rgba(248,81,73,.3)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:1rem}
+.stat{background:var(--bg);border:0.5px solid var(--brd);border-radius:5px;padding:12px}
+.stat-lbl{font-size:10px;color:var(--t2);margin-bottom:4px;letter-spacing:.06em}
+.stat-val{font-size:17px;font-weight:500}
+.good{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--o)}
+.insight{font-size:12px;color:var(--t2);line-height:1.7;padding-top:.75rem;border-top:0.5px solid var(--brd);font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.insight span{color:var(--t1)}
+.chart-wrap{position:relative;width:100%;height:220px;margin-bottom:10px}
+.sensitivity-table{overflow-x:auto;margin-top:.5rem}
+.sensitivity-table table{width:100%;border-collapse:collapse;font-size:11px}
+.sensitivity-table th{font-size:10px;color:var(--t2);padding:6px 8px;text-align:center;border-bottom:0.5px solid var(--brd)}
+.sensitivity-table td{padding:7px 8px;text-align:center;border-bottom:0.5px solid rgba(255,255,255,0.04)}
+.sens-pos{color:var(--green)}.sens-neg{color:var(--red)}
+footer{padding:2rem 1.5rem;border-top:0.5px solid var(--brd);font-size:11px;color:var(--t3);display:flex;justify-content:space-between;max-width:700px;margin:0 auto}
+footer a{color:var(--t3);text-decoration:none}
+footer a:hover{color:var(--t2)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">[ ASK<span>AKSHAY</span> ]</a>
+  <a href="index.html" class="nav-back">← All tools</a>
+</nav>
+
+<div class="tool-header">
+  <div class="tool-eyebrow">TOOLS</div>
+  <h1 class="tool-title">NPV Calculator</h1>
+  <p class="tool-desc">Net Present Value tells you what future cash flows are worth in today's money. A positive NPV means the investment creates value; negative means it destroys it.</p>
+</div>
+
+<div class="tool-body">
+  <!-- INPUTS -->
+  <div class="section">
+    <div class="sec-lbl">DISCOUNT RATE & INITIAL INVESTMENT</div>
+    <div class="row2">
+      <div class="field"><label>Initial investment (Year 0)</label><div class="iw"><span class="ipre" id="cur-inv">USD</span><input type="number" id="initialInv" value="100000" min="0" oninput="calc()"></div></div>
+      <div class="field"><label>Currency</label><select id="currency" onchange="updateCurrency();calc()"><option value="USD" selected>USD</option><option value="SGD">SGD</option><option value="RM">RM</option><option value="INR">INR</option></select></div>
+    </div>
+    <div class="field"><label>Discount rate (WACC / required return)</label>
+      <div class="sl-row"><input type="range" min="0.5" max="30" step="0.5" value="10" id="discRate" oninput="syncSl('discRate','drOut','%');calc()"><span class="sv" id="drOut">10%</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:3px"><span>Risk-free</span><span>FD rate</span><span>Equity avg</span><span>High risk</span><span>Speculative</span></div>
+    </div>
+    <div class="field"><label>Terminal growth rate (for perpetuity)</label>
+      <div class="sl-row"><input type="range" min="0" max="10" step="0.5" value="3" id="termGrowth" oninput="syncSl('termGrowth','tgOut','%');calc()"><span class="sv" id="tgOut">3%</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-lbl">ANNUAL CASH FLOWS</div>
+    <div class="cashflow-rows" id="cfRows"></div>
+    <div class="add-cf-row">
+      <div class="iw" style="flex:1"><span class="ipre" id="cur-new">USD</span><input type="number" id="newCF" placeholder="New cash flow..." oninput=""></div>
+      <button class="btn sm" onclick="addCF()">+ Add year</button>
+      <button class="btn sm" onclick="removeCF()">− Year</button>
+    </div>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button class="btn sm" onclick="applyGrowth()">Apply growth rate to all</button>
+      <div class="iw" style="flex:1"><span class="ipre">%</span><input type="number" id="growthApply" value="5" placeholder="5"></div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-card" id="resultCard"></div>
+
+  <!-- CHART -->
+  <div class="section">
+    <div class="sec-lbl">CUMULATIVE CASH FLOWS vs NPV</div>
+    <div class="chart-wrap"><canvas id="npvChart"></canvas></div>
+  </div>
+
+  <!-- SENSITIVITY -->
+  <div class="section">
+    <div class="sec-lbl">SENSITIVITY — NPV BY DISCOUNT RATE</div>
+    <div class="sensitivity-table" id="sensitivityTable"></div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">← askakshay.com</a>
+  <span>NPV is a model, not a guarantee</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+let cashFlows=[50000,60000,70000,80000,90000];
+let npvChart;
+function syncSl(id,outId,suf){document.getElementById(outId).textContent=document.getElementById(id).value+(suf||'')}
+function v(id){return parseFloat(document.getElementById(id).value)||0}
+function fmt(n){const c=document.getElementById('currency').value;return c+' '+Math.round(Math.abs(n)).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}
+function updateCurrency(){const c=document.getElementById('currency').value;['cur-inv','cur-new'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=c})}
+
+function calcNPV(flows,inv,rate){
+  const r=rate/100;
+  let npv=-inv;
+  flows.forEach((cf,i)=>{npv+=cf/Math.pow(1+r,i+1)});
+  return npv
+}
+
+function calcIRR(flows,inv){
+  let lo=0,hi=500;
+  for(let i=0;i<100;i++){
+    const mid=(lo+hi)/2;
+    calcNPV(flows,inv,mid)>0?lo=mid:hi=mid
+  }
+  return (lo+hi)/2
+}
+
+function buildCFRows(){
+  document.getElementById('cfRows').innerHTML=cashFlows.map((cf,i)=>{
+    const rate=v('discRate')/100;
+    const pv=cf/Math.pow(1+rate,i+1);
+    return`<div class="cf-row"><div class="cf-yr">Yr ${i+1}</div><div class="cf-inp"><div class="iw"><span class="ipre" style="font-size:11px">${document.getElementById('currency').value}</span><input type="number" value="${cf}" oninput="cashFlows[${i}]=parseFloat(this.value)||0;calc()"></div></div><div class="cf-pv">${fmt(pv)}</div><button class="cf-del" onclick="deleteCF(${i})">×</button></div>`
+  }).join('')
+}
+
+function addCF(){
+  const val=parseFloat(document.getElementById('newCF').value)||0;
+  cashFlows.push(val);
+  document.getElementById('newCF').value='';
+  calc()
+}
+function removeCF(){if(cashFlows.length>1){cashFlows.pop();calc()}}
+function deleteCF(i){cashFlows.splice(i,1);calc()}
+function applyGrowth(){
+  const g=parseFloat(document.getElementById('growthApply').value)||5;
+  const base=cashFlows[0];
+  cashFlows=cashFlows.map((_,i)=>Math.round(base*Math.pow(1+g/100,i)));
+  calc()
+}
+
+function buildResult(){
+  const inv=v('initialInv'),rate=v('discRate'),tg=v('termGrowth');
+  const npv=calcNPV(cashFlows,inv,rate);
+  const irr=calcIRR(cashFlows,inv);
+  const tv=cashFlows[cashFlows.length-1]*(1+tg/100)/((rate-tg)/100);
+  const tvPV=tv/Math.pow(1+rate/100,cashFlows.length);
+  const npvWithTV=npv+tvPV;
+  const payback=calcPayback(cashFlows,inv);
+  const multiple=(cashFlows.reduce((s,c)=>s+c,0))/inv;
+  const isPos=npv>=0;
+
+  document.getElementById('resultCard').innerHTML=`
+    <div class="result-main">
+      <div><div class="result-val" style="color:${isPos?'#3fb950':'#f85149'}">${isPos?'+':'−'}${fmt(Math.abs(npv))}</div><div class="result-lbl">Net Present Value (without terminal value)</div></div>
+      <span class="result-verdict ${isPos?'pos-v':'neg-v'}">${isPos?'Value creating':'Value destroying'}</span>
+    </div>
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-lbl">NPV + TERMINAL VALUE</div><div class="stat-val ${npvWithTV>=0?'good':'bad'}">${npvWithTV>=0?'+':'−'}${fmt(Math.abs(npvWithTV))}</div></div>
+      <div class="stat"><div class="stat-lbl">INTERNAL RATE OF RETURN</div><div class="stat-val ${irr>=rate?'good':'bad'}">${irr.toFixed(1)}%</div></div>
+      <div class="stat"><div class="stat-lbl">PAYBACK PERIOD</div><div class="stat-val ${payback<=cashFlows.length?'good':'warn'}">${payback<=cashFlows.length?payback+' yrs':'> '+cashFlows.length+' yrs'}</div></div>
+      <div class="stat"><div class="stat-lbl">CASH MULTIPLE</div><div class="stat-val ${multiple>=2?'good':multiple>=1?'warn':'bad'}">${multiple.toFixed(2)}×</div></div>
+    </div>
+    <div class="insight">
+      ${isPos?`This investment <span>creates ${document.getElementById('currency').value} ${Math.round(Math.abs(npv)).toLocaleString('en-US')}</span> of value at a <span>${rate}% discount rate</span>.`:`This investment <span>destroys ${document.getElementById('currency').value} ${Math.round(Math.abs(npv)).toLocaleString('en-US')}</span> of value at a <span>${rate}% discount rate</span>.`}
+      The IRR of <span>${irr.toFixed(1)}%</span> is <span>${irr>=rate?'above':'below'}</span> your required return — meaning this investment ${irr>=rate?'clears':'fails'} your hurdle rate.
+      ${cashFlows.length>=2?`The terminal value adds <span>${fmt(tvPV)}</span> (assuming ${tg}% perpetuity growth), bringing total NPV to <span>${npvWithTV>=0?'+':'−'}${fmt(Math.abs(npvWithTV))}</span>.`:''}
+    </div>`
+}
+
+function calcPayback(flows,inv){
+  let cum=0;
+  for(let i=0;i<flows.length;i++){cum+=flows[i];if(cum>=inv)return i+1}
+  return flows.length+1
+}
+
+function buildChart(){
+  const inv=v('initialInv'),rate=v('discRate')/100;
+  const labels=['Year 0',...cashFlows.map((_,i)=>`Year ${i+1}`)];
+  let cumNom=-inv,cumPV=-inv;
+  const nomData=[-inv],pvData=[-inv];
+  cashFlows.forEach((cf,i)=>{cumNom+=cf;cumPV+=cf/Math.pow(1+rate,i+1);nomData.push(Math.round(cumNom));pvData.push(Math.round(cumPV))});
+  if(npvChart)npvChart.destroy();
+  npvChart=new Chart(document.getElementById('npvChart'),{type:'line',data:{labels,datasets:[{label:'Cumulative (nominal)',data:nomData,borderColor:'rgba(139,148,158,0.6)',borderWidth:1.5,pointRadius:3,tension:0.2,borderDash:[4,4]},{label:'Cumulative (PV)',data:pvData,borderColor:'#E8673A',borderWidth:2,pointRadius:3,tension:0.2,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8b949e',font:{size:10,family:'IBM Plex Mono'},boxWidth:12}}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8b949e',font:{size:9}}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8b949e',font:{size:9},callback:n=>{const c=document.getElementById('currency').value;return n<0?'−'+c+' '+(Math.abs(n)/1000).toFixed(0)+'k':c+' '+(n/1000).toFixed(0)+'k'}}}}}})
+}
+
+function buildSensitivity(){
+  const inv=v('initialInv');
+  const rates=[2,4,6,8,10,12,15,20];
+  const rows=rates.map(r=>{const npv=calcNPV(cashFlows,inv,r);const cls=npv>=0?'sens-pos':'sens-neg';return`<tr><td>${r}%</td><td class="${cls}">${npv>=0?'+':'−'}${fmt(Math.abs(npv))}</td><td class="${cls}">${npv>=0?'✓ Positive':'✗ Negative'}</td></tr>`}).join('');
+  document.getElementById('sensitivityTable').innerHTML=`<table><thead><tr><th>Discount Rate</th><th>NPV</th><th>Verdict</th></tr></thead><tbody>${rows}</tbody></table>`
+}
+
+function calc(){buildCFRows();buildResult();buildChart();buildSensitivity()}
+calc();
+</script>
+</body>
+</html>

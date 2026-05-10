@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DMart — Why the Cheapest Operator Wins — Case Study № 014 — askakshay</title>
+<meta name="description" content="No frills, no celebrity CEO, no flashy tech. DMart's moat lives entirely in the working capital cycle. We find it."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 32px}
+
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+.case-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.case-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(19px,2.2vw,24px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:34px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+
+.bull-bear{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px 0}
+@media(max-width:720px){.bull-bear{grid-template-columns:1fr}}
+.case-box{padding:28px;border-radius:2px}
+.bull{background:color-mix(in srgb,var(--green) 8%,var(--bg-elev));border-left:3px solid var(--green)}
+.bear{background:color-mix(in srgb,var(--red) 8%,var(--bg-elev));border-left:3px solid var(--red)}
+.case-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.bull h4{color:var(--green)}
+.bear h4{color:var(--red)}
+.case-box ul{list-style:none}
+.case-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:14.5px;color:var(--ink);line-height:1.5}
+.case-box li:last-child{border-bottom:none;padding-bottom:0}
+.case-box li::before{content:'—';color:var(--accent);margin-right:10px}
+
+.case-verdict{background:var(--ink);color:#F5F1E8;padding:52px 48px;margin:56px 0;position:relative;overflow:hidden}
+.case-verdict::before{content:'§';position:absolute;top:-60px;right:-20px;font-family:'Fraunces',serif;font-size:400px;line-height:1;color:rgba(255,255,255,.04);pointer-events:none}
+.case-verdict .data-label{color:var(--accent-soft);position:relative}
+.case-verdict h3{font-family:'Fraunces',serif;font-weight:300;font-size:34px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;position:relative;color:#F5F1E8}
+.case-verdict h3 em{font-style:italic;color:var(--accent-soft)}
+.case-verdict p{opacity:.88;position:relative;color:#D8D0BE;font-size:16.5px;line-height:1.7;margin-bottom:16px}
+.case-verdict p:last-child{margin-bottom:0}
+
+.moat-embed{background:var(--ink);color:#F5F1E8;padding:56px 0;margin:64px 0;position:relative;overflow:hidden}
+.moat-embed::before{content:'MOAT';position:absolute;bottom:-40px;right:-20px;font-family:'Fraunces',serif;font-style:italic;font-size:260px;line-height:1;color:rgba(255,255,255,.03);pointer-events:none;letter-spacing:-.05em}
+.moat-header{margin-bottom:48px;position:relative}
+.moat-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.moat-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.03em;color:#F5F1E8}
+.moat-title em{font-style:italic;color:var(--accent-soft)}
+.moat-sub{color:rgba(245,241,232,.7);font-size:16px;line-height:1.55;max-width:580px;margin-top:12px}
+.moat-dims{position:relative}
+.moat-dim{padding:32px 0;border-bottom:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:100px 1fr 300px;gap:40px;align-items:start}
+@media(max-width:900px){.moat-dim{grid-template-columns:1fr;gap:20px}}
+.moat-dim-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;padding-top:4px}
+.moat-dim h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#F5F1E8;margin-bottom:10px;line-height:1.1}
+.moat-dim p{color:rgba(245,241,232,.7);font-size:14.5px;line-height:1.55}
+.score-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:2px}
+.score-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:12px}
+.score-lbl .tag{color:var(--accent)}
+.score-display{font-family:'Fraunces',serif;font-size:52px;font-weight:300;letter-spacing:-.04em;color:#F5F1E8;line-height:1;margin-bottom:14px}
+.score-display .denom{color:rgba(245,241,232,.4);font-size:24px}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:rgba(255,255,255,.2);outline:none;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--accent);border-radius:50%;cursor:pointer;border:2px solid rgba(14,26,43,1);transition:background .2s}
+input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
+.range-marks{display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(245,241,232,.4);letter-spacing:.08em}
+
+.moat-composite{margin-top:48px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:40px;position:relative}
+.composite-score{font-family:'Fraunces',serif;font-size:clamp(80px,12vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;color:#F5F1E8;margin-bottom:8px}
+.composite-score .denom{font-size:.35em;color:rgba(245,241,232,.4)}
+.composite-tier{font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300;margin-bottom:20px;color:var(--accent-soft)}
+.composite-text{color:rgba(245,241,232,.8);font-size:16px;line-height:1.65;max-width:640px}
+.composite-breakdown{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
+@media(max-width:720px){.composite-breakdown{grid-template-columns:repeat(2,1fr);gap:16px}}
+.bd-item{border-right:1px solid rgba(255,255,255,.1);padding:0 16px}
+.bd-item:first-child{padding-left:0}
+.bd-item:last-child{border-right:none}
+.bd-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:8px}
+.bd-val{font-family:'Fraunces',serif;font-size:30px;font-weight:400;color:var(--accent-soft)}
+.bd-val.low{color:rgba(245,241,232,.3)}
+
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="cases.html" class="back-link">← All case studies</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="case-header">
+    <div class="case-meta-top">Case Study № 014 · Retail · Mar 2026</div>
+    <h1>DMart — why the <em>cheapest operator</em> wins.</h1>
+    <p class="dek">No frills, no celebrity CEO, no flashy tech. Avenue Supermarts' moat lives entirely in the working capital cycle and a 25-year obsession with cost. We find the number that makes it work.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>10 min</span></div>
+      <div>Sector <span>Organised Retail</span></div>
+      <div>Market Cap <span>~₹2.3L Cr</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>Avenue Supermarts — the company behind DMart — is India's most profitable large-format retailer by a significant margin.</strong> It does this without loyalty programmes, without celebrity endorsements, without an exciting e-commerce play, and without owning a single unprofitable store for long. The business is so deliberately boring that most analysts underestimate it. This case is an attempt to understand why boring, executed at scale, is worth ₹2.3 lakh crore.</p>
+
+    <h2 data-num="01 · The business">What they actually do — and what they refuse to.</h2>
+    <p>DMart operates approximately 375 large-format hypermarkets across India, concentrated in western India (Maharashtra, Gujarat) and expanding into south and north. The model is simple to describe and extraordinarily hard to replicate: every day low prices (EDLP) on a curated range of groceries, staples, FMCG, and general merchandise. The customer who walks in knows she will not find a better price on Tata Salt or Ariel nearby. That trust is the product.</p>
+    <p>What makes DMart structurally different from every peer — from Reliance Retail to Big Bazaar to D'Mart clones — is a single decision made early and never reversed: <strong>own the land and building wherever possible.</strong> Roughly 80% of DMart stores are owned, not leased. This removes the rent escalation risk that has killed every Indian retail chain that tried to scale on leases. It also means the P&L looks worse in the early years and dramatically better after year five. Most listed companies never survive long enough to find out.</p>
+    <p>The product range is intentionally narrow. DMart stocks about 5,000–6,000 SKUs in a typical store against 40,000+ in a Western hypermarket. Every SKU earns its shelf space on velocity. Slow movers get cut without sentiment. This keeps inventory turns high and wastage negligible — a discipline that compounds quietly over decades.</p>
+
+    <h2 data-num="02 · Unit economics">The working capital trick nobody talks about.</h2>
+    <p>The genuine edge in DMart's business is not the low prices. It is the working capital cycle. Understanding this is understanding everything.</p>
+    <p>FMCG companies — HUL, Nestle, P&G — give DMart credit terms of roughly 20–30 days. But DMart's customers pay at the checkout counter, in cash or card, instantly. This means DMart collects payment from customers <em>before</em> it pays its suppliers. With inventory turning every 25–30 days and payables sitting at 25–30 days, the working capital gap is close to zero — sometimes slightly negative. DMart is, structurally, being funded by its own suppliers.</p>
+    <p>The consequence: even at 8% EBITDA margins (modest for any business), DMart generates very high returns on capital because the capital employed is so small. A business that needs almost no working capital and owns its buildings has a fundamentally different return profile than one that leases stores and finances inventory on credit.</p>
+
+    <div class="data-block">
+      <div class="data-label">DMart — FY2025 Financials (Avenue Supermarts)</div>
+      <table>
+        <thead><tr><th>Metric</th><th>FY2024</th><th>FY2025E</th><th>Trend</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue</td><td class="num">₹50,789 Cr</td><td class="num">₹58,500 Cr</td><td class="num pos">+15%</td></tr>
+          <tr><td>Gross Margin</td><td class="num">14.8%</td><td class="num">15.1%</td><td class="num pos">▲</td></tr>
+          <tr><td>EBITDA Margin</td><td class="num">8.6%</td><td class="num">8.5%</td><td class="num">Flat</td></tr>
+          <tr><td>PAT</td><td class="num">₹2,694 Cr</td><td class="num">₹3,100 Cr</td><td class="num pos">+15%</td></tr>
+          <tr><td>Stores (count)</td><td class="num">365</td><td class="num">~400</td><td class="num pos">+35</td></tr>
+          <tr><td>Revenue / Store</td><td class="num">₹139 Cr</td><td class="num">₹146 Cr</td><td class="num pos">+5%</td></tr>
+          <tr><td>Inventory Days</td><td class="num">28</td><td class="num">27</td><td class="num pos">▼</td></tr>
+          <tr><td>Creditor Days</td><td class="num">26</td><td class="num">25</td><td class="num">~</td></tr>
+          <tr><td>Return on Equity</td><td class="num pos">17.8%</td><td class="num pos">18.2%</td><td class="num pos">▲</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The 8.6% EBITDA margin looks unimpressive until you benchmark it. Big Bazaar (Future Retail) ran at 6–7% and couldn't service its debt. Reliance Retail crosses 9–10% but benefits from an entirely different group subsidy structure. DMart hits 8.6% on a standalone basis with no conglomerate backstop. That is the actual comparison.</p>
+    <blockquote>The moat is not the price. The moat is that nobody else can afford to match the price.</blockquote>
+
+    <h2 data-num="03 · The one number">Revenue per square foot — the retail truth test.</h2>
+    <p>Every retail model gets tested by one number: how much revenue does each square foot generate? For DMart, this was approximately ₹35,000–38,000 per sq ft in FY2024. To understand why that matters, compare: Spencer's runs at ₹15,000–18,000. Big Bazaar (in its operational prime) peaked at ₹20,000–22,000. DMart's productivity is 70–100% above every listed Indian retail peer.</p>
+    <p>High sales density does two things simultaneously. First, it means the fixed cost of the store (staff, maintenance, depreciation on owned building) is spread across more rupees of revenue — driving operating leverage. Second, it signals that suppliers prefer to stock DMart because the sell-through rate is high and returns are low. That preference shows up as better trade terms: slightly longer credit, better fill rates, and occasionally exclusive early access on new SKUs.</p>
+    <p>The risk in the number is also visible. DMart's same-store sales growth (SSSG) has been decelerating — from 18–20% in FY2018–19 to 8–10% in FY2024. As the store base matures, the marginal new store is opened further from the dense urban core, in locations with lower inherent footfall. The revenue productivity of the FY2025 cohort of new stores will likely never match the FY2015 cohort. The economics are still good — just not as extraordinary.</p>
+
+    <h2 data-num="04 · Bull and bear">Both cases, laid out flat.</h2>
+    <div class="bull-bear">
+      <div class="case-box bull">
+        <h4>Bull Case</h4>
+        <ul>
+          <li>India's organised retail penetration sits at ~12%. The runway to 25–30% is a decade of compounding with the model unchanged.</li>
+          <li>Quick-commerce disrupts unorganised kiranas, not DMart — the value-seeking customer driving a vehicle to a DMart is not switching to Blinkit for groceries.</li>
+          <li>Private label expansion from ~2% to 8–10% of GMV adds 300–400 bps gross margin structurally.</li>
+          <li>Owned store base means no rent inflation risk — as peers struggle with lease renewals, DMart's cost structure stays fixed.</li>
+          <li>D-Mart Ready (e-commerce) reaching 5–8% contribution could unlock dense urban cohorts that are currently under-served.</li>
+        </ul>
+      </div>
+      <div class="case-box bear">
+        <h4>Bear Case</h4>
+        <ul>
+          <li>At ~95x P/E, the stock prices in perfect execution for 10+ years. One bad year reprices it to 60–70x and destroys 30% of market cap with no operational failure.</li>
+          <li>Store opening pace is slowing as owned-real-estate pipeline in Tier 1 cities exhausts. Growth moves to Tier 2/3 where unit economics are genuinely untested at scale.</li>
+          <li>Quick-commerce advertising reach reduces FMCG brand spend — if brands can reach customers through Blinkit ads, DMart's negotiating position as a mass-reach vehicle weakens.</li>
+          <li>SSSG deceleration continues: if it falls below 6%, the store-level payback period extends beyond 8 years and destroys the capital efficiency thesis.</li>
+          <li>Succession risk. Radhakishan Damani is the strategy. The business has no evidence of institutional culture that survives founder exit at the same quality level.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 data-num="05 · Verdict">The call.</h2>
+    <div class="case-verdict">
+      <div class="data-label">The verdict · Case № 014</div>
+      <h3>One of India's best businesses — at a price that forgives <em>no mistakes.</em></h3>
+      <p>DMart is a genuinely exceptional business: real cost advantage, real working capital efficiency, real returns on equity, and a customer value proposition that is structurally difficult to replicate. The moat is proven — 25 years of operation without a single year of losses, through demonetisation, GST disruption, and a pandemic.</p>
+      <p>The investment question is whether ₹2.3 lakh crore of market cap is the right price for those facts. At ~95x trailing earnings, the market is pricing in SSSG of 12–15% indefinitely, margin expansion to 9–10%, and continued execution as the store base moves into lower-productivity geographies. That is an optimistic set of assumptions. Any two of them disappointing simultaneously — slower SSSG and flat margins, for instance — produces a fair value closer to ₹3,500–4,000 per share, against a current price well above that.</p>
+      <p>The business deserves to trade at a premium. The question is whether this premium already prices in the optimism. Our read: DMart is a hold for long-term investors who own it. For new capital at current prices, the margin of safety is thin. Wait for a 20–25% correction that brings the P/E to 70–75x — still a premium, but one that leaves room for reality to be slightly imperfect.</p>
+    </div>
+  </article>
+
+</div>
+
+<section class="moat-embed" id="moat">
+  <div class="wide">
+    <div class="moat-header">
+      <div class="moat-eyebrow">Embedded tool — score this business</div>
+      <div class="moat-title">Moat Scorecard: <em>DMart.</em></div>
+      <p class="moat-sub">Use the sliders to score DMart across the five dimensions of durable competitive advantage. The composite verdict updates live. Adjust the scores to reflect your own read of the evidence.</p>
+    </div>
+    <div class="moat-dims" id="moatDims"></div>
+    <div class="moat-composite">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:16px">Composite score · Weighted</div>
+      <div class="composite-score" id="compScore">—<span class="denom">/10</span></div>
+      <div class="composite-tier" id="compTier">Enter scores above to generate verdict</div>
+      <div class="composite-text" id="compText">Score each dimension based on what DMart actually shows in its numbers and behavior — not what management says in the annual report.</div>
+      <div class="composite-breakdown" id="compBreakdown"></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="inline-nl">
+    <h3>Get the next breakdown in your inbox.</h3>
+    <p>One business dissected every Monday. Ten-minute read.</p>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
+  </div>
+
+  <div class="prev-next">
+    <a href="case-nykaa.html">
+      <div class="pn-label">← Previous case · № 013</div>
+      <div class="pn-title">Nykaa — is beauty really a moat?</div>
+    </a>
+    <a href="case-zepto.html">
+      <div class="pn-label">Next case · № 015 →</div>
+      <div class="pn-title">Zepto at $5B — the quick-commerce math, stress-tested.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="cases.html">All cases</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+const dims=[
+  {num:'01',title:'Switching Costs',desc:'How painful is it for a DMart shopper to switch to Spencer\'s or Reliance Smart? Price trust, location habit, and familiarity with store layout create mild but real stickiness.',weight:.22},
+  {num:'02',title:'Network Effects',desc:'Does DMart benefit from more customers making it better for all customers? Indirect — more footfall improves supplier terms which improves prices which attracts more footfall.',weight:.22},
+  {num:'03',title:'Cost Advantage',desc:'Can DMart produce at a structurally lower cost than any rival? This is the core moat: owned real estate, superior working capital cycle, and 25 years of supply chain optimisation.',weight:.20},
+  {num:'04',title:'Intangible Assets',desc:'Brand trust ("DMart price is the best price") is a genuine intangible. Regulatory and zoning approvals for large-format retail are also quietly valuable barriers.',weight:.20},
+  {num:'05',title:'Efficient Scale',desc:'Indian organised large-format retail is large enough that many players can coexist — efficient scale is weaker here. DMart doesn\'t operate in a niche.',weight:.16}
+];
+
+const dimsEl=document.getElementById('moatDims');
+const bkEl=document.getElementById('compBreakdown');
+const scores=new Array(dims.length).fill(0);
+const touched=new Array(dims.length).fill(false);
+
+const tagFor=v=>{if(v===0)return'None';if(v<=2)return'Weak';if(v<=5)return'Moderate';if(v<=8)return'Strong';return'Fortress'};
+const verdictFor=total=>{
+  if(total<2)return{tier:'Commodity business.',text:'No identifiable moat. Returns will trend to cost of capital. Only worth owning at deep discount with a catalyst.'};
+  if(total<4)return{tier:'Thin moat — erosion risk.',text:'Some advantage visible but not durable. Competitors can replicate with capital or time. Unlikely to compound undisturbed.'};
+  if(total<6)return{tier:'Workable moat.',text:'A defensible business, not a fortress. Expect steady but unspectacular returns. Price discipline matters here.'};
+  if(total<8)return{tier:'Wide moat.',text:'Genuine structural advantage. Returns on capital should persist above cost of capital for a decade. This is a compounder.'};
+  return{tier:'Fortress — generational.',text:'Multiple reinforcing moats, decades of pricing power. Extraordinarily rare. If you find one at a fair price, size up and hold.'};
+};
+
+dims.forEach((d,i)=>{
+  const el=document.createElement('div');
+  el.className='moat-dim';
+  el.innerHTML=`
+    <div class="moat-dim-num">Dim. ${d.num}</div>
+    <div>
+      <h4>${d.title}</h4>
+      <p>${d.desc}</p>
+    </div>
+    <div class="score-box">
+      <div class="score-lbl">Score · <span class="tag" id="tag-${i}">Not scored</span></div>
+      <div class="score-display"><span id="val-${i}">—</span><span class="denom">/10</span></div>
+      <input type="range" min="0" max="10" value="0" step="1" id="rng-${i}"/>
+      <div class="range-marks"><span>NONE</span><span>WEAK</span><span>MOD</span><span>STRONG</span><span>FORTRESS</span></div>
+    </div>`;
+  dimsEl.appendChild(el);
+
+  const bd=document.createElement('div');
+  bd.className='bd-item';
+  bd.innerHTML=`<div class="bd-lbl">${d.title}</div><div class="bd-val low" id="bd-${i}">—</div>`;
+  bkEl.appendChild(bd);
+});
+
+function recalc(){
+  let w=0,any=touched.some(x=>x);
+  dims.forEach((d,i)=>{w+=scores[i]*d.weight});
+  const scEl=document.getElementById('compScore');
+  const trEl=document.getElementById('compTier');
+  const txEl=document.getElementById('compText');
+  if(!any){
+    scEl.innerHTML='—<span class="denom">/10</span>';
+    trEl.textContent='Enter scores above to generate verdict';
+    txEl.textContent='Score each dimension based on what the business actually shows in its numbers and behavior.';
+  } else {
+    scEl.innerHTML=w.toFixed(1)+'<span class="denom">/10</span>';
+    const v=verdictFor(w);
+    trEl.textContent=v.tier;
+    txEl.textContent=v.text;
+  }
+  dims.forEach((d,i)=>{
+    const bd=document.getElementById(`bd-${i}`);
+    bd.textContent=touched[i]?scores[i]:'—';
+    bd.classList.toggle('low',scores[i]<5);
+  });
+}
+
+dims.forEach((d,i)=>{
+  const rng=document.getElementById(`rng-${i}`);
+  const val=document.getElementById(`val-${i}`);
+  const tag=document.getElementById(`tag-${i}`);
+  rng.addEventListener('input',e=>{
+    const v=parseInt(e.target.value);
+    scores[i]=v;touched[i]=true;
+    val.textContent=v;tag.textContent=tagFor(v);
+    recalc();
+  });
+});
+</script>
+</body>
+</html>

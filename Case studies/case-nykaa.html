@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nykaa — Is Beauty Really a Moat? — Case Study № 012 — askakshay</title>
+<meta name="description" content="Premium positioning, proprietary brands, physical stores. The contribution margin tells the truth the earnings call doesn't."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 32px}
+
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+.case-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.case-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(19px,2.2vw,24px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:34px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+
+.bull-bear{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px 0}
+@media(max-width:720px){.bull-bear{grid-template-columns:1fr}}
+.case-box{padding:28px;border-radius:2px}
+.bull{background:color-mix(in srgb,var(--green) 8%,var(--bg-elev));border-left:3px solid var(--green)}
+.bear{background:color-mix(in srgb,var(--red) 8%,var(--bg-elev));border-left:3px solid var(--red)}
+.case-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.bull h4{color:var(--green)}
+.bear h4{color:var(--red)}
+.case-box ul{list-style:none}
+.case-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:14.5px;color:var(--ink);line-height:1.5}
+.case-box li:last-child{border-bottom:none;padding-bottom:0}
+.case-box li::before{content:'—';color:var(--accent);margin-right:10px}
+
+.case-verdict{background:var(--ink);color:#F5F1E8;padding:52px 48px;margin:56px 0;position:relative;overflow:hidden}
+.case-verdict::before{content:'§';position:absolute;top:-60px;right:-20px;font-family:'Fraunces',serif;font-size:400px;line-height:1;color:rgba(255,255,255,.04);pointer-events:none}
+.case-verdict .data-label{color:var(--accent-soft);position:relative}
+.case-verdict h3{font-family:'Fraunces',serif;font-weight:300;font-size:34px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;position:relative;color:#F5F1E8}
+.case-verdict h3 em{font-style:italic;color:var(--accent-soft)}
+.case-verdict p{opacity:.88;position:relative;color:#D8D0BE;font-size:16.5px;line-height:1.7;margin-bottom:16px}
+.case-verdict p:last-child{margin-bottom:0}
+
+.moat-embed{background:var(--ink);color:#F5F1E8;padding:56px 0;margin:64px 0;position:relative;overflow:hidden}
+.moat-embed::before{content:'MOAT';position:absolute;bottom:-40px;right:-20px;font-family:'Fraunces',serif;font-style:italic;font-size:260px;line-height:1;color:rgba(255,255,255,.03);pointer-events:none;letter-spacing:-.05em}
+.moat-header{margin-bottom:48px;position:relative}
+.moat-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.moat-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.03em;color:#F5F1E8}
+.moat-title em{font-style:italic;color:var(--accent-soft)}
+.moat-sub{color:rgba(245,241,232,.7);font-size:16px;line-height:1.55;max-width:580px;margin-top:12px}
+.moat-dims{position:relative}
+.moat-dim{padding:32px 0;border-bottom:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:100px 1fr 300px;gap:40px;align-items:start}
+@media(max-width:900px){.moat-dim{grid-template-columns:1fr;gap:20px}}
+.moat-dim-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;padding-top:4px}
+.moat-dim h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#F5F1E8;margin-bottom:10px;line-height:1.1}
+.moat-dim p{color:rgba(245,241,232,.7);font-size:14.5px;line-height:1.55}
+.score-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:2px}
+.score-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:12px}
+.score-lbl .tag{color:var(--accent)}
+.score-display{font-family:'Fraunces',serif;font-size:52px;font-weight:300;letter-spacing:-.04em;color:#F5F1E8;line-height:1;margin-bottom:14px}
+.score-display .denom{color:rgba(245,241,232,.4);font-size:24px}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:rgba(255,255,255,.2);outline:none;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--accent);border-radius:50%;cursor:pointer;border:2px solid rgba(14,26,43,1);transition:background .2s}
+input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
+.range-marks{display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(245,241,232,.4);letter-spacing:.08em}
+
+.moat-composite{margin-top:48px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:40px;position:relative}
+.composite-score{font-family:'Fraunces',serif;font-size:clamp(80px,12vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;color:#F5F1E8;margin-bottom:8px}
+.composite-score .denom{font-size:.35em;color:rgba(245,241,232,.4)}
+.composite-tier{font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300;margin-bottom:20px;color:var(--accent-soft)}
+.composite-text{color:rgba(245,241,232,.8);font-size:16px;line-height:1.65;max-width:640px}
+.composite-breakdown{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
+@media(max-width:720px){.composite-breakdown{grid-template-columns:repeat(2,1fr);gap:16px}}
+.bd-item{border-right:1px solid rgba(255,255,255,.1);padding:0 16px}
+.bd-item:first-child{padding-left:0}
+.bd-item:last-child{border-right:none}
+.bd-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:8px}
+.bd-val{font-family:'Fraunces',serif;font-size:30px;font-weight:400;color:var(--accent-soft)}
+.bd-val.low{color:rgba(245,241,232,.3)}
+
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="cases.html" class="back-link">← All case studies</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="case-header">
+    <div class="case-meta-top">Case Study № 012 · D2C / E-Commerce · Mar 2026</div>
+    <h1>Nykaa — is <em>beauty</em> really a moat?</h1>
+    <p class="dek">Premium positioning, proprietary brands, a loyal customer cohort, and physical stores. The contribution margin tells the truth the earnings call doesn't — and the fashion bet complicates everything.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>11 min</span></div>
+      <div>Sector <span>D2C · Beauty · E-Commerce</span></div>
+      <div>Market Cap <span>~₹55,000 Cr</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>Nykaa (FSN E-Commerce Ventures) went public in November 2021 at a market cap of ₹1.09 lakh crore, making founder Falguni Nayar one of India's wealthiest self-made women and triggering a wave of think-pieces about the Indian beauty economy.</strong> Three years later, the stock has corrected sharply, the fashion vertical continues to disappoint, and the core beauty business is finally — barely — profitable. The question worth asking now is simpler: does the beauty business have an actual moat, or did the IPO price in a story that the numbers don't yet support?</p>
+
+    <h2 data-num="01 · The business">What Nykaa actually is — and what it isn't.</h2>
+    <p>Nykaa operates as an inventory-led beauty e-commerce platform. Unlike a pure marketplace, Nykaa buys products from brands, warehouses them, and delivers to customers. This is a deliberate choice: it gives Nykaa control over the customer experience, authenticity guarantees (a real concern in luxury beauty), and supplier relationships that go beyond a simple listing fee. The trade-off is working capital intensity — inventory sits on the balance sheet until sold.</p>
+    <p>The second leg is <strong>Nykaa-owned brands</strong>: Nykaa Beauty, Nykaa Naturals, Kay Beauty (with Katrina Kaif), Nykd (lingerie), and several others. Own-brand products carry gross margins of 60–70% versus 30–35% for third-party brands. The private label mix is currently about 5–7% of beauty GMV, but it is the part of the business the market is ultimately paying for.</p>
+    <p>The third leg — the one creating the valuation confusion — is <strong>Nykaa Fashion</strong>. Launched in 2018 to extend the brand's premium positioning, Nykaa Fashion competes in apparel and footwear e-commerce against Myntra, Ajio, and increasingly Meesho. This vertical has not found product-market fit at a contribution-positive level and has been a persistent drag on the consolidated P&L. The beauty moat question and the fashion question need to be answered separately.</p>
+
+    <h2 data-num="02 · Unit economics">The contribution margin tells the real story.</h2>
+    <p>The honest financial picture for FY2024: Nykaa's consolidated revenue was approximately ₹6,386 crore, EBITDA about ₹225 crore, and PAT around ₹40 crore. For a company trading at ₹55,000 crore of market cap, that's a P/E ratio that only makes sense if you are pricing the FY2030 business, not the FY2024 one.</p>
+    <p>But the consolidated number hides a split. The <strong>beauty vertical alone</strong> is meaningfully more profitable. Strip out the fashion losses and the beauty business operates at contribution margins of roughly 10–12% on GMV, with EBITDA margins approaching 8–9%. That's a real business. The problem is that fashion keeps funding from the same equity pool, and the beauty business is subsidising an experiment that hasn't worked in six years.</p>
+
+    <div class="data-block">
+      <div class="data-label">Nykaa — FY2024 Segment Economics (Estimated Split)</div>
+      <table>
+        <thead><tr><th>Metric</th><th>Beauty vertical</th><th>Fashion vertical</th><th>Consolidated</th></tr></thead>
+        <tbody>
+          <tr><td>GMV</td><td class="num">~₹9,200 Cr</td><td class="num">~₹2,700 Cr</td><td class="num">~₹11,900 Cr</td></tr>
+          <tr><td>Revenue</td><td class="num">~₹5,500 Cr</td><td class="num">~₹886 Cr</td><td class="num">₹6,386 Cr</td></tr>
+          <tr><td>Gross Margin</td><td class="num pos">36%</td><td class="num">22%</td><td class="num">33%</td></tr>
+          <tr><td>Contribution Margin</td><td class="num pos">~11%</td><td class="num neg">~(4%)</td><td class="num">~7%</td></tr>
+          <tr><td>EBITDA</td><td class="num pos">~₹440 Cr</td><td class="num neg">~(₹215 Cr)</td><td class="num">₹225 Cr</td></tr>
+          <tr><td>Own Brand Mix</td><td class="num pos">~6%</td><td class="num">~3%</td><td class="num">~5%</td></tr>
+          <tr><td>Repeat Purchase Rate</td><td class="num pos">~76%</td><td class="num">~42%</td><td class="num">~65%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The 76% repeat purchase rate in beauty is the number worth anchoring on. Customers who buy beauty products on Nykaa come back. This is partly habit (a woman who discovers her foundation shade on Nykaa has no reason to go elsewhere) and partly the trust that comes from verified authentic products — a meaningful differentiator in a market where grey-market goods are common.</p>
+    <blockquote>The beauty business earns the right to exist. The fashion business earns the right to be questioned.</blockquote>
+
+    <h2 data-num="03 · The one number">CAC vs LTV — the cohort truth.</h2>
+    <p>The most important question for any e-commerce business is: does a customer acquired today generate lifetime value that justifies the acquisition cost? For Nykaa beauty, the answer appears to be yes — but only in mature cohorts.</p>
+    <p>Nykaa's blended customer acquisition cost is roughly ₹1,200–1,500 per new customer. A beauty customer who has transacted for two or more years buys approximately 4–5 times per year at an average order value of ₹1,800–2,200. At 11% contribution margin per order, that's roughly ₹800–1,200 of annual contribution per active customer. <em>Payback on a new customer: 15–20 months.</em> For a beauty brand with high repeat rates, that's a reasonable LTV:CAC — typically 3.5–4.5x over a five-year customer life.</p>
+    <p>The problem is customer mix. Nykaa's customer base has two segments: loyal, high-AOV beauty enthusiasts who are genuinely profitable in year two onwards; and deal-seeking occasional buyers who respond to discounts, buy once, and churn. The latter segment pads GMV and depresses unit economics simultaneously. The ratio between these two cohorts determines whether Nykaa is building a moat or renting one.</p>
+
+    <div class="data-block">
+      <div class="data-label">Nykaa Beauty — Illustrative Customer LTV Economics</div>
+      <table>
+        <thead><tr><th>Metric</th><th>Year 1 Cohort</th><th>Year 2+ Cohort</th></tr></thead>
+        <tbody>
+          <tr><td>Orders / Year</td><td class="num">2.1</td><td class="num pos">4.6</td></tr>
+          <tr><td>Avg Order Value (₹)</td><td class="num">1,650</td><td class="num pos">2,050</td></tr>
+          <tr><td>Annual Revenue / Customer</td><td class="num">₹3,465</td><td class="num pos">₹9,430</td></tr>
+          <tr><td>Contribution Margin (11%)</td><td class="num">₹381</td><td class="num pos">₹1,037</td></tr>
+          <tr><td>CAC (amortised Y1)</td><td class="num neg">(₹1,350)</td><td class="num pos">—</td></tr>
+          <tr><td><strong>Net Year 1 Contribution</strong></td><td class="num neg"><strong>(₹969)</strong></td><td class="num pos"><strong>₹1,037</strong></td></tr>
+          <tr><td>Payback Period</td><td class="num">~16 months</td><td class="num pos">Year 2 profitable</td></tr>
+          <tr><td>5-Year LTV:CAC</td><td class="num pos">3.8x</td><td class="num pos">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>This math works. The catch is execution: Nykaa needs to improve the Year 1 to Year 2 conversion rate (currently losing roughly 35–40% of new customers before they reach the profitable cohort) and keep marketing spend disciplined as competition from Myntra Beauty, Tira (Reliance), and brand-direct channels intensifies. Each new entrant makes the CAC more expensive and retention more contested.</p>
+
+    <h2 data-num="04 · Bull and bear">Both cases, laid out flat.</h2>
+    <div class="bull-bear">
+      <div class="case-box bull">
+        <h4>Bull Case</h4>
+        <ul>
+          <li>Indian beauty market growing at 10–12% CAGR, massively underpenetrated in Tier 2/3 cities. Nykaa's brand recognition gives a head start that competitors cannot easily buy.</li>
+          <li>Own-brand mix reaching 12–15% of GMV by FY2028 dramatically changes the P&L — each percentage point of mix shift adds approximately ₹150–200 crore to EBITDA.</li>
+          <li>The "beauty authority" positioning creates word-of-mouth and influencer relationships that cost far less than paid CAC. This flywheel strengthens with time, not weakens.</li>
+          <li>Nykaa Fashion pivot or disposal unlocks beauty business at a standalone multiple — the sum-of-parts trade here is genuinely interesting.</li>
+          <li>Skincare and wellness categories still early — the premium skincare wave in India creates years of GMV tailwind without heavy discounting.</li>
+        </ul>
+      </div>
+      <div class="case-box bear">
+        <h4>Bear Case</h4>
+        <ul>
+          <li>Tira (Reliance Industries) has 400+ physical stores, deeper supplier leverage, and an unlimited subsidy budget. If they decide to buy market share, Nykaa's economics deteriorate overnight.</li>
+          <li>Brand-direct selling (Lakme, SUGAR, Minimalist on their own apps and websites) structurally reduces Nykaa's take rate over time. The marketplace model is weaker than it looks.</li>
+          <li>The repeat purchase rate advantage disappears if competitors match on authenticity (Tira is solving this too) and delivery speed (Blinkit beauty is growing rapidly).</li>
+          <li>Fashion losses are a capital black hole — ₹200+ crore of EBITDA losses per year in a business with no clear path to profitability is a real risk to the balance sheet.</li>
+          <li>Founder-dependence: Falguni Nayar is the face, the strategy, and the supplier relationship anchor. No obvious institutional succession plan visible.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 data-num="05 · Verdict">The call.</h2>
+    <div class="case-verdict">
+      <div class="data-label">The verdict · Case № 012</div>
+      <h3>Beauty has a real moat. Fashion is a <em>liability dressed as optionality.</em></h3>
+      <p>The answer to the headline question is: yes, beauty is a real moat — but a moderate one, not a fortress. Nykaa's repeat purchase rates, brand trust in authentic products, and emerging private label margin are genuine structural advantages. A beauty-only Nykaa, priced fairly, is a buy at the right multiple. The problem is that it isn't a beauty-only company.</p>
+      <p>Nykaa Fashion has consumed approximately ₹1,000–1,200 crore of losses since inception with no clear path to contribution positivity. Every rupee lost in fashion makes the beauty moat more expensive to fund. The market's current pricing of ₹55,000 crore gives management credit for eventually fixing fashion. We'd want to see two consecutive quarters of fashion contribution margin turning positive — or a decisive exit from the vertical — before paying that premium.</p>
+      <p>At 70–75x earnings on a beauty-only DCF basis, Nykaa is fairly valued. At current consolidated pricing, it is a moderately expensive bet on management doing two things right simultaneously: deepening the beauty moat and fixing or exiting fashion. That's a reasonable bet on a strong founder. It is not a no-brainer at ₹55,000 crore.</p>
+    </div>
+  </article>
+
+</div>
+
+<section class="moat-embed" id="moat">
+  <div class="wide">
+    <div class="moat-header">
+      <div class="moat-eyebrow">Embedded tool — score this business</div>
+      <div class="moat-title">Moat Scorecard: <em>Nykaa.</em></div>
+      <p class="moat-sub">Use the sliders to score Nykaa across the five dimensions of durable competitive advantage. The composite verdict updates live. Score the beauty vertical separately from the consolidated entity if you want a cleaner signal.</p>
+    </div>
+    <div class="moat-dims" id="moatDims"></div>
+    <div class="moat-composite">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:16px">Composite score · Weighted</div>
+      <div class="composite-score" id="compScore">—<span class="denom">/10</span></div>
+      <div class="composite-tier" id="compTier">Enter scores above to generate verdict</div>
+      <div class="composite-text" id="compText">Score each dimension based on what Nykaa actually shows in its numbers and behavior — not the IPO prospectus.</div>
+      <div class="composite-breakdown" id="compBreakdown"></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="inline-nl">
+    <h3>Get the next breakdown in your inbox.</h3>
+    <p>One business dissected every Monday. Ten-minute read.</p>
+    <form class="nl-form" action="https://embeds.beehiiv.com/REPLACE_WITH_YOUR_FORM_ID" method="post" target="_blank">
+      <input type="email" name="email" placeholder="you@workemail.com" required/>
+      <button type="submit">Subscribe →</button>
+    </form>
+  </div>
+
+  <div class="prev-next">
+    <a href="cases.html">
+      <div class="pn-label">← All case studies</div>
+      <div class="pn-title">View all cases in the archive.</div>
+    </a>
+    <a href="case-dmart.html">
+      <div class="pn-label">Next case · № 013 →</div>
+      <div class="pn-title">DMart — why the cheapest operator wins.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="cases.html">All cases</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+const dims=[
+  {num:'01',title:'Switching Costs',desc:'A Nykaa customer who has found her foundation shade, skincare routine, and saved wishlist has real switching friction. Loyalty data, saved payment info, and beauty profile add to stickiness — though a competitor matching on price can still break it.',weight:.22},
+  {num:'02',title:'Network Effects',desc:'Nykaa benefits from indirect network effects: more customers means more reviews and ratings, making the platform more useful. Beauty influencer relationships also compound with size. But these are mild — Nykaa is not a marketplace where buyers and sellers directly reinforce each other.',weight:.22},
+  {num:'03',title:'Cost Advantage',desc:'No structural cost advantage over peers. Nykaa\'s inventory model is more expensive to run than a marketplace. COGS are similar to what any large buyer gets. The only cost edge is in own-brand margins — which are real but currently a small share of GMV.',weight:.20},
+  {num:'04',title:'Intangible Assets',desc:'The Nykaa brand is a genuine intangible — it signals authenticity and curation in a category where fakes are a real problem. The "beauty authority" positioning, built over 12 years, carries real consumer trust. Luxury brand distribution relationships are also hard to replicate quickly.',weight:.20},
+  {num:'05',title:'Efficient Scale',desc:'The Indian premium beauty e-commerce market is small enough that one or two focused players can profitably serve it. Nykaa is the clear leader. New entrants face a credibility gap in authenticity that takes years to close.',weight:.16}
+];
+
+const dimsEl=document.getElementById('moatDims');
+const bkEl=document.getElementById('compBreakdown');
+const scores=new Array(dims.length).fill(0);
+const touched=new Array(dims.length).fill(false);
+
+const tagFor=v=>{if(v===0)return'None';if(v<=2)return'Weak';if(v<=5)return'Moderate';if(v<=8)return'Strong';return'Fortress'};
+const verdictFor=total=>{
+  if(total<2)return{tier:'Commodity business.',text:'No identifiable moat. Returns will trend to cost of capital. Only worth owning at deep discount with a catalyst.'};
+  if(total<4)return{tier:'Thin moat — erosion risk.',text:'Some advantage visible but not durable. Competitors can replicate with capital or time. Unlikely to compound undisturbed.'};
+  if(total<6)return{tier:'Workable moat.',text:'A defensible business, not a fortress. Expect steady but unspectacular returns. Price discipline matters here.'};
+  if(total<8)return{tier:'Wide moat.',text:'Genuine structural advantage. Returns on capital should persist above cost of capital for a decade. This is a compounder.'};
+  return{tier:'Fortress — generational.',text:'Multiple reinforcing moats, decades of pricing power. Extraordinarily rare. If you find one at a fair price, size up and hold.'};
+};
+
+dims.forEach((d,i)=>{
+  const el=document.createElement('div');
+  el.className='moat-dim';
+  el.innerHTML=`
+    <div class="moat-dim-num">Dim. ${d.num}</div>
+    <div>
+      <h4>${d.title}</h4>
+      <p>${d.desc}</p>
+    </div>
+    <div class="score-box">
+      <div class="score-lbl">Score · <span class="tag" id="tag-${i}">Not scored</span></div>
+      <div class="score-display"><span id="val-${i}">—</span><span class="denom">/10</span></div>
+      <input type="range" min="0" max="10" value="0" step="1" id="rng-${i}"/>
+      <div class="range-marks"><span>NONE</span><span>WEAK</span><span>MOD</span><span>STRONG</span><span>FORTRESS</span></div>
+    </div>`;
+  dimsEl.appendChild(el);
+
+  const bd=document.createElement('div');
+  bd.className='bd-item';
+  bd.innerHTML=`<div class="bd-lbl">${d.title}</div><div class="bd-val low" id="bd-${i}">—</div>`;
+  bkEl.appendChild(bd);
+});
+
+function recalc(){
+  let w=0,any=touched.some(x=>x);
+  dims.forEach((d,i)=>{w+=scores[i]*d.weight});
+  const scEl=document.getElementById('compScore');
+  const trEl=document.getElementById('compTier');
+  const txEl=document.getElementById('compText');
+  if(!any){
+    scEl.innerHTML='—<span class="denom">/10</span>';
+    trEl.textContent='Enter scores above to generate verdict';
+    txEl.textContent='Score each dimension based on what the business actually shows in its numbers and behavior.';
+  } else {
+    scEl.innerHTML=w.toFixed(1)+'<span class="denom">/10</span>';
+    const v=verdictFor(w);
+    trEl.textContent=v.tier;
+    txEl.textContent=v.text;
+  }
+  dims.forEach((d,i)=>{
+    const bd=document.getElementById(`bd-${i}`);
+    bd.textContent=touched[i]?scores[i]:'—';
+    bd.classList.toggle('low',scores[i]<5);
+  });
+}
+
+dims.forEach((d,i)=>{
+  const rng=document.getElementById(`rng-${i}`);
+  const val=document.getElementById(`val-${i}`);
+  const tag=document.getElementById(`tag-${i}`);
+  rng.addEventListener('input',e=>{
+    const v=parseInt(e.target.value);
+    scores[i]=v;touched[i]=true;
+    val.textContent=v;tag.textContent=tagFor(v);
+    recalc();
+  });
+});
+</script>
+</body>
+</html>

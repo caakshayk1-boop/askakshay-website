@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The debt trap — why cheap capital is the most expensive mistake — Essay № 002 — askakshay</title>
+<meta name="description" content="Debt is not inherently dangerous. Misunderstood debt is. The businesses that blow up on leverage almost always knew the interest rate — they just never stress-tested the assumptions underneath it."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.essay-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.essay-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(34px,5.5vw,60px);line-height:1.04;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:32px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.highlight-box{margin:40px 0;padding:32px 36px;background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));border-left:3px solid var(--accent);border-radius:2px}
+.highlight-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.highlight-box ul{list-style:none}
+.highlight-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft);line-height:1.55}
+.highlight-box li:last-child{border-bottom:none;padding-bottom:0}
+.highlight-box li::before{content:'→';color:var(--accent);margin-right:12px;font-family:'JetBrains Mono',monospace}
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="essays.html" class="back-link">← All essays</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="essay-header">
+    <div class="essay-meta-top">Essay № 002 · Capital · Jan 2026</div>
+    <h1>The debt trap — why <em>cheap capital</em> is the most expensive mistake.</h1>
+    <p class="dek">Debt is not inherently dangerous. Misunderstood debt is. The businesses that blow up on leverage almost always knew the interest rate — they just never stress-tested the assumptions underneath it.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>8 min</span></div>
+      <div>Topic <span>Capital</span></div>
+      <div>Level <span>Intermediate</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>India's real estate sector produced some of the most spectacular corporate implosions of the 2010s.</strong> HDIL, Unitech, Jaypee, Amrapali — all went under while holding enormous asset bases. In almost every case, the diagnosis was the same: too much debt, taken on assumptions that collapsed, against assets that couldn't be liquidated fast enough to repay it. Cheap capital, borrowed at 9–11% when projects were returning 20%, looked like pure arithmetic genius. Until it wasn't.</p>
+    <p>Debt is the single most misunderstood tool in a founder's or finance manager's toolkit. Used correctly, leverage amplifies returns on equity and allows businesses to grow faster than retained earnings alone would permit. Used incorrectly — or used correctly under assumptions that later prove wrong — it converts a solvent business into an insolvent one with terrifying speed.</p>
+
+    <h2 data-num="01 · What debt actually does">The leverage equation, honestly stated.</h2>
+    <p>When a business borrows money to invest, it is making a bet: that the return on the deployed capital exceeds the cost of borrowing it. If you borrow at 10% and deploy the funds into an asset returning 18%, the spread — 8% — accrues to equity holders. This is the arithmetic of leverage.</p>
+    <p>The catch is that debt does not care about your arithmetic. Interest is due whether the asset performs or not. A 10% loan on ₹10 crore demands ₹1 crore per year in interest payments, regardless of whether your revenue grew, your project was delayed, or your major customer stopped paying. <strong>Equity is patient. Debt is not.</strong></p>
+    <p>The second catch is the denominator effect. When a business earns 18% on assets and borrows 80% of those assets at 10%, the return on equity is not 18% — it is significantly higher. This looks wonderful going up. When the asset return falls to 9% (one percentage point below the borrowing cost), equity holders earn nothing. When it falls to 6%, equity is being consumed at a rate proportional to the leverage. The same mathematical amplifier that created the upside now accelerates the destruction.</p>
+    <blockquote>Leverage does not create returns. It amplifies whatever returns already exist — including negative ones.</blockquote>
+
+    <h2 data-num="02 · The three failure modes">How debt actually kills businesses.</h2>
+    <p><strong>Failure mode 1: Asset-liability mismatch.</strong> This is the classic. A business borrows short (working capital lines, 1-year loans) to fund long assets (real estate, manufacturing capacity, 5-year projects). The asset takes five years to generate returns. The loan matures in one. When the loan comes due, the business must either refinance (at whatever rate the market offers) or sell the asset (at whatever price the market offers). IL&FS, the infrastructure lender whose collapse triggered India's 2018 NBFC crisis, was essentially a massive asset-liability mismatch dressed in AAA ratings.</p>
+    <p><strong>Failure mode 2: Concentration risk.</strong> A business takes on debt backed by a single customer, project, or revenue stream. Everything is fine until that concentration point fails. Pharma companies with one API contract, textile exporters with one buyer in the EU, IT services firms with one anchor client — the risk is not in the debt level. It is in the undiversified income that services it.</p>
+    <p><strong>Failure mode 3: Covenant-triggered compression.</strong> Bank loans and NCDs often carry financial covenants — minimum DSCR (Debt Service Coverage Ratio), maximum D/E ratio, minimum promoter holding. When a business has a bad year, it may breach a covenant without actually being in financial trouble. The bank calls the loan. The business, forced to refinance or repay at the worst possible moment, tips into actual distress. This mechanism amplifies cyclical stress into existential crisis.</p>
+
+    <div class="data-block">
+      <div class="data-label">The leverage amplifier — same business, different capital structures</div>
+      <table>
+        <thead><tr><th>Scenario</th><th>All Equity</th><th>50% Debt @ 10%</th><th>80% Debt @ 10%</th></tr></thead>
+        <tbody>
+          <tr><td>Total Assets</td><td class="num">₹10 Cr</td><td class="num">₹10 Cr</td><td class="num">₹10 Cr</td></tr>
+          <tr><td>Equity</td><td class="num">₹10 Cr</td><td class="num">₹5 Cr</td><td class="num">₹2 Cr</td></tr>
+          <tr><td>EBIT (18% on assets)</td><td class="num pos">₹1.8 Cr</td><td class="num pos">₹1.8 Cr</td><td class="num pos">₹1.8 Cr</td></tr>
+          <tr><td>Interest (10%)</td><td class="num">—</td><td class="num neg">₹0.5 Cr</td><td class="num neg">₹0.8 Cr</td></tr>
+          <tr><td>Return on Equity</td><td class="num pos">18%</td><td class="num pos">26%</td><td class="num pos">50%</td></tr>
+          <tr><td>EBIT drops to 9%</td><td class="num">9%</td><td class="num">8%</td><td class="num neg">−5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 data-num="03 · The metrics that matter">DSCR, D/E, and the number founders ignore.</h2>
+    <p>Two ratios determine whether your debt level is prudent or reckless. Most founders know about them. Few calculate them regularly.</p>
+    <p><strong>Debt Service Coverage Ratio (DSCR)</strong> = EBITDA ÷ (Interest + Principal Repayment). A DSCR of 1.0x means your business barely generates enough cash to service its debt with nothing left over. A DSCR of 1.5x means you generate 50% more cash than your obligations — a reasonable buffer. Most banks want 1.25–1.5x at minimum. A business running at 1.1x DSCR in a good year has no margin of safety in a bad one.</p>
+    <p><strong>Interest Coverage Ratio</strong> = EBIT ÷ Interest Expense. This is simpler and more intuitive. A ratio of 3x means your operating profit covers your interest three times over. Anything below 2x in a cyclical business is a warning signal — one bad quarter of revenue decline can flip the ratio below 1x, at which point you are technically earning less than your interest cost.</p>
+    <p>The number founders actually ignore is <strong>free cash flow yield on debt</strong>: free cash flow (post-tax, post-capex) divided by total outstanding debt. This tells you how long it would take to repay all debt from operating cash alone, assuming no growth investment. A business generating ₹3 Cr of FCF on ₹30 Cr of debt has a 10-year payback on debt — which is fine for a 15-year infrastructure asset and deeply problematic for a 3-year working capital cycle.</p>
+
+    <h2 data-num="04 · When debt is the right call">Three legitimate uses of leverage.</h2>
+    <p>Debt is not the enemy. Misapplied debt is. There are three situations where debt is clearly the right financial choice:</p>
+    <div class="highlight-box">
+      <h4>Debt makes sense when:</h4>
+      <ul>
+        <li><strong>Return on assets is predictably and substantially above cost of debt.</strong> A manufacturing plant with a 10-year offtake agreement generating 22% ROCE, financed at 11% — that is straightforward arithmetic. The predictability of the return is as important as its level.</li>
+        <li><strong>The asset life matches the debt tenure.</strong> A 15-year project loan for a 20-year power plant. A 3-year term loan for a machine with a 5-year productive life. Mismatch destroys businesses that asset-liability match preserves.</li>
+        <li><strong>Tax shield is meaningful and accessible.</strong> Interest is tax-deductible. For a profitable company paying 25–30% corporate tax, the effective cost of 10% debt is 7–7.5%. If equity investors expect 15–18% returns, there is a genuine cost-of-capital advantage to debt for income-generating assets in a taxable entity.</li>
+      </ul>
+    </div>
+
+    <h2 data-num="05 · The honest framework">Before you borrow, answer these five questions.</h2>
+    <p>Any debt decision — whether you are a founder considering a term loan or a finance manager approving a bond issuance — should run through five questions first:</p>
+    <p><strong>1. What is the worst-case scenario for the asset or revenue stream being financed, and can the business service the debt in that scenario?</strong> Not the base case. The stress case. Revenues down 25%, margins compressed by 300 bps, key customer delays payment by 90 days. Can you still make the interest payment?</p>
+    <p><strong>2. What happens to the cost of refinancing if credit conditions tighten?</strong> Borrowing at 10% today against an asset that takes 5 years to monetise means you will need to refinance at whatever rate markets offer in 2–3 years. Have you stress-tested the P&L at 13–14%?</p>
+    <p><strong>3. Are there covenants, and have you modelled when you breach them?</strong> Run a scenario where EBITDA drops 20%. Check every covenant. Know exactly what the bank's rights are, and know that they will exercise them at the worst possible time for you.</p>
+    <p><strong>4. What is your exit from the debt?</strong> Repayment from operating cash flows (good), refinancing at maturity (acceptable if asset is performing), asset sale (only if the market is liquid). "We'll figure it out" is not an exit plan.</p>
+    <p><strong>5. Does this debt structurally change the risk profile of the business in ways that equity holders understand?</strong> Founders who take on personal guarantees for corporate debt, or who pledge promoter shares as collateral, are taking on a completely different class of risk. The business failing is survivable. The personal guarantee being called is not.</p>
+    <p>Cheap capital is available for a reason: rates are low, lenders are optimistic, credit is flowing. That is precisely the moment when the wrong debt gets taken on. The businesses that blow up on leverage almost never do it when credit is tight. They do it when credit is cheap, optimism is high, and the assumptions underneath the arithmetic feel unassailable.</p>
+  </article>
+
+  <div class="inline-nl">
+    <h3>Get the next essay in your inbox.</h3>
+    <p>Margin Notes — one framework every Monday. Ten-minute read, free forever.</p>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
+  </div>
+
+  <div class="prev-next">
+    <a href="essay-001.html">
+      <div class="pn-label">← Previous essay · № 001</div>
+      <div class="pn-title">Why every founder needs to understand the difference between profit and cash.</div>
+    </a>
+    <a href="essay-003.html">
+      <div class="pn-label">Next essay · № 003 →</div>
+      <div class="pn-title">Gross margin is not a percentage — it's a business model.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="essays.html">All essays</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+</script>
+</body>
+</html>

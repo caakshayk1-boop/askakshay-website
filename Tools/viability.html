@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viability Calculator — [ASKAKSHAY]</title>
+<meta name="description" content="Input your business model. Get LTV:CAC, breakeven month, 12-month projections, and an honest viability verdict.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--o:#E8673A;--of:rgba(232,103,58,0.1);--bg:#080c10;--s1:#0d1117;--s2:#161b22;--brd:#21262d;--t1:#e6edf3;--t2:#8b949e;--t3:#484f58;--green:#3fb950;--red:#f85149}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Mono',monospace;min-height:100vh}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:rgba(8,12,16,0.9);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--brd)}
+.nav-logo{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--t1);text-decoration:none}
+.nav-logo span{color:var(--o)}
+.nav-back{font-size:11px;color:var(--t2);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--t1)}
+.tool-header{padding:90px 1.5rem 32px;max-width:700px;margin:0 auto}
+.tool-eyebrow{font-size:10px;letter-spacing:.12em;color:var(--o);margin-bottom:.75rem}
+.tool-title{font-size:26px;font-weight:500;margin-bottom:.5rem}
+.tool-desc{font-size:13px;color:var(--t2);line-height:1.7;font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.tool-body{max-width:700px;margin:0 auto;padding:0 1.5rem 4rem}
+.tabs{display:flex;margin-bottom:1.5rem;border:0.5px solid var(--brd);border-radius:6px;overflow:hidden}
+.tab{flex:1;padding:9px 0;font-size:11px;font-weight:500;text-align:center;cursor:pointer;background:transparent;border:none;color:var(--t2);letter-spacing:.06em;font-family:'IBM Plex Mono',monospace;transition:all .15s}
+.tab.active{background:var(--o);color:#fff}
+.section{background:var(--s1);border:0.5px solid var(--brd);border-radius:6px;padding:1.25rem;margin-bottom:10px}
+.sec-lbl{font-size:10px;letter-spacing:.1em;color:var(--t2);margin-bottom:.85rem}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.field{margin-bottom:10px}
+.field:last-child{margin-bottom:0}
+label{font-size:11px;color:var(--t2);display:block;margin-bottom:5px}
+.iw{display:flex;align-items:center;border:0.5px solid var(--brd);border-radius:5px;background:var(--bg);overflow:hidden}
+.ipre,.isuf{font-size:12px;color:var(--t2);padding:0 8px;background:var(--s2);white-space:nowrap;line-height:36px}
+.ipre{border-right:0.5px solid var(--brd)}
+.isuf{border-left:0.5px solid var(--brd)}
+.iw input{flex:1;border:none;background:transparent;color:var(--t1);font-size:13px;padding:8px 8px;font-family:'IBM Plex Mono',monospace;min-width:0}
+.iw input:focus{outline:none}
+select{width:100%;font-size:13px;padding:8px 10px;border-radius:5px;border:0.5px solid var(--brd);background:var(--s1);color:var(--t1);font-family:'IBM Plex Mono',monospace}
+.sl-row{display:flex;align-items:center;gap:10px}
+input[type=range]{flex:1;accent-color:var(--o);cursor:pointer}
+.sv{font-size:12px;font-weight:500;min-width:38px;text-align:right}
+.btn{padding:10px 16px;border-radius:5px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--brd);background:transparent;color:var(--t1);letter-spacing:.04em;width:100%;font-family:'IBM Plex Mono',monospace;transition:all .15s}
+.btn:hover{border-color:var(--t2)}
+.btn.primary{background:var(--o);border-color:var(--o);color:#fff}
+.btn.primary:hover{opacity:.9}
+.verdict{border:0.5px solid var(--brd);border-radius:6px;padding:1.5rem;margin-bottom:10px;background:var(--s1)}
+.v-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}
+.v-name{font-size:15px;font-weight:500}
+.v-badge{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:500;letter-spacing:.04em}
+.viable{background:rgba(63,185,80,.12);color:var(--green);border:0.5px solid rgba(63,185,80,.3)}
+.marginal{background:var(--of);color:var(--o);border:0.5px solid rgba(232,103,58,.3)}
+.unviable{background:rgba(248,81,73,.08);color:var(--red);border:0.5px solid rgba(248,81,73,.3)}
+.metrics2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.met{background:var(--bg);border-radius:5px;padding:12px;border:0.5px solid var(--brd)}
+.met-lbl{font-size:10px;color:var(--t2);letter-spacing:.06em;margin-bottom:4px}
+.met-val{font-size:18px;font-weight:500}
+.good{color:var(--green)}.warn{color:var(--o)}.bad{color:var(--red)}
+.chart-wrap{position:relative;width:100%;height:200px;margin-bottom:1rem}
+.sig-lbl{font-size:10px;letter-spacing:.08em;color:var(--t2);margin-bottom:.5rem}
+.sig{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:12px;line-height:1.55;font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.sig-dot{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.score-arc{display:flex;flex-direction:column;align-items:center;margin:1rem 0}
+.arc-ring{position:relative;width:100px;height:100px}
+.arc-ring svg{width:100px;height:100px;transform:rotate(-90deg)}
+.arc-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.arc-big{font-size:28px;font-weight:500}
+.arc-sub{font-size:10px;color:var(--t2)}
+.dbar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.db-lbl{font-size:11px;color:var(--t2);width:80px;flex-shrink:0}
+.db-track{flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden}
+.db-fill{height:100%;border-radius:3px;transition:width .4s}
+.db-val{font-size:11px;font-weight:500;width:28px;text-align:right;flex-shrink:0}
+.action-row{display:flex;gap:8px}
+.action-row .btn{flex:1;width:auto}
+.proj-table{overflow-x:auto;font-size:12px}
+.proj-table table{width:100%;border-collapse:collapse}
+.proj-table th{font-size:10px;color:var(--t2);padding:5px 6px;text-align:right;border-bottom:0.5px solid var(--brd);letter-spacing:.04em}
+.proj-table th:first-child{text-align:left}
+.proj-table td{padding:7px 6px;text-align:right;border-bottom:0.5px solid rgba(255,255,255,0.04)}
+.proj-table td:first-child{text-align:left;color:var(--t2)}
+footer{padding:2rem 1.5rem;border-top:0.5px solid var(--brd);font-size:11px;color:var(--t3);display:flex;justify-content:space-between;max-width:700px;margin:0 auto}
+footer a{color:var(--t3);text-decoration:none}
+footer a:hover{color:var(--t2)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">[ ASK<span>AKSHAY</span> ]</a>
+  <a href="index.html" class="nav-back">← All tools</a>
+</nav>
+
+<div class="tool-header">
+  <div class="tool-eyebrow">TOOLS</div>
+  <h1 class="tool-title">Viability Calculator</h1>
+  <p class="tool-desc">Input your business model assumptions. Get a complete viability verdict — LTV:CAC ratio, breakeven month, 12-month cash projections, and an honest score.</p>
+</div>
+
+<div class="tool-body">
+  <div class="tabs">
+    <button class="tab active" onclick="go('inputs')">INPUTS</button>
+    <button class="tab" onclick="go('verdict')">VERDICT</button>
+    <button class="tab" onclick="go('projection')">12-MONTH</button>
+  </div>
+
+  <div id="tab-inputs">
+    <div class="section">
+      <div class="sec-lbl">BUSINESS MODEL</div>
+      <div class="row2">
+        <div class="field"><label>Model type</label><select id="bModel" onchange="calc()"><option value="saas">SaaS / subscription</option><option value="product">Physical product</option><option value="marketplace">Marketplace</option><option value="service">Agency / service</option><option value="media">Media / ads</option></select></div>
+        <div class="field"><label>Currency</label><select id="currency" onchange="calc()"><option value="USD" selected>USD</option><option value="SGD">SGD</option><option value="RM">RM</option><option value="INR">INR</option></select></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="sec-lbl">REVENUE</div>
+      <div class="row2">
+        <div class="field"><label>Avg price per unit / mo</label><div class="iw"><span class="ipre" id="cur-pre">USD</span><input type="number" id="price" value="99" min="0" oninput="calc()"></div></div>
+        <div class="field"><label>Customers at launch</label><div class="iw"><input type="number" id="custStart" value="10" min="0" oninput="calc()"></div></div>
+      </div>
+      <div class="field"><label>Monthly customer growth rate</label><div class="sl-row"><input type="range" min="0" max="50" step="1" value="10" id="growthRate" oninput="syncSl('growthRate','grOut','%');calc()"><span class="sv" id="grOut">10%</span></div></div>
+      <div class="field"><label>Monthly churn rate</label><div class="sl-row"><input type="range" min="0" max="30" step="1" value="5" id="churnRate" oninput="syncSl('churnRate','chOut','%');calc()"><span class="sv" id="chOut">5%</span></div></div>
+    </div>
+    <div class="section">
+      <div class="sec-lbl">UNIT ECONOMICS</div>
+      <div class="row2">
+        <div class="field"><label>Cost to acquire 1 customer (CAC)</label><div class="iw"><span class="ipre" id="cur-cac">USD</span><input type="number" id="cac" value="200" min="0" oninput="calc()"></div></div>
+        <div class="field"><label>Gross margin</label><div class="sl-row" style="margin-top:4px"><input type="range" min="0" max="100" step="1" value="70" id="margin" oninput="syncSl('margin','marOut','%');calc()"><span class="sv" id="marOut">70%</span></div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="sec-lbl">COSTS</div>
+      <div class="row2">
+        <div class="field"><label>Monthly fixed costs</label><div class="iw"><span class="ipre" id="cur-fix">USD</span><input type="number" id="fixedCost" value="3000" min="0" oninput="calc()"></div></div>
+        <div class="field"><label>Starting capital / runway</label><div class="iw"><span class="ipre" id="cur-cap">USD</span><input type="number" id="capital" value="50000" min="0" oninput="calc()"></div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="sec-lbl">QUALITATIVE FACTORS</div>
+      <div class="field"><label>Market size</label><div class="sl-row"><input type="range" min="0" max="4" step="1" value="2" id="mktSize" oninput="syncSl('mktSize','msOut');calc()"><span class="sv" id="msOut">2</span></div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:2px"><span>Tiny niche</span><span>Small</span><span>Medium</span><span>Large</span><span>Massive</span></div></div>
+      <div class="field"><label>Competition intensity</label><div class="sl-row"><input type="range" min="0" max="4" step="1" value="2" id="compInt" oninput="syncSl('compInt','ciOut');calc()"><span class="sv" id="ciOut">2</span></div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:2px"><span>None</span><span>Low</span><span>Moderate</span><span>High</span><span>Brutal</span></div></div>
+      <div class="field"><label>Founder / team fit</label><div class="sl-row"><input type="range" min="0" max="4" step="1" value="2" id="teamFit" oninput="syncSl('teamFit','tfOut');calc()"><span class="sv" id="tfOut">2</span></div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:2px"><span>No fit</span><span>Some</span><span>Good</span><span>Strong</span><span>Exceptional</span></div></div>
+    </div>
+    <button class="btn primary" onclick="go('verdict')">Calculate viability ↗</button>
+  </div>
+
+  <div id="tab-verdict" style="display:none">
+    <div class="verdict" id="verdictBox"></div>
+    <div class="action-row">
+      <button class="btn" onclick="go('projection')">12-month view</button>
+      <button class="btn" onclick="go('inputs')">← Edit inputs</button>
+    </div>
+  </div>
+
+  <div id="tab-projection" style="display:none">
+    <div class="section"><div class="sec-lbl">MONTHLY PROJECTIONS</div><div class="proj-table" id="projTable"></div></div>
+    <div class="chart-wrap"><canvas id="projChart"></canvas></div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">← askakshay.com</a>
+  <span>For illustration purposes only</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+let projChart;
+function syncSl(id,outId,suf){document.getElementById(outId).textContent=document.getElementById(id).value+(suf||'')}
+function v(id){return parseFloat(document.getElementById(id).value)||0}
+function iv(id){return parseInt(document.getElementById(id).value)||0}
+function fmt(n){const c=document.getElementById('currency').value;return c+' '+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}
+
+function getInputs(){
+  const cur=document.getElementById('currency').value;
+  ['cur-pre','cur-cac','cur-fix','cur-cap'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=cur});
+  return{price:v('price'),custStart:iv('custStart'),growth:iv('growthRate')/100,churn:iv('churnRate')/100,cac:v('cac'),margin:iv('margin')/100,fixed:v('fixedCost'),capital:v('capital'),mktSize:iv('mktSize'),comp:iv('compInt'),team:iv('teamFit'),model:document.getElementById('bModel').value}
+}
+
+function buildProjection(inp){
+  const months=[];let custs=inp.custStart,cash=inp.capital;
+  for(let m=1;m<=12;m++){
+    const newCusts=Math.round(custs*inp.growth),churned=Math.round(custs*inp.churn);
+    custs=Math.max(0,custs+newCusts-churned);
+    const rev=custs*inp.price,acqCost=newCusts*inp.cac,totalCost=inp.fixed+acqCost+rev*(1-inp.margin),netProfit=rev-totalCost;
+    cash+=netProfit;
+    months.push({m,custs,rev,totalCost,netProfit,cash,newCusts})
+  }
+  return months
+}
+
+function calcViabilityScore(inp,proj){
+  const ltv=inp.churn>0?(inp.price*inp.margin)/inp.churn:inp.price*inp.margin*24;
+  const ltvCac=inp.cac>0?ltv/inp.cac:5;
+  const runwayMonths=proj.findIndex(m=>m.cash<0);
+  let scores={
+    unitEcon:Math.min(100,Math.round(Math.min(ltvCac/5,1)*100)),
+    growth:Math.min(100,Math.round((inp.growth/0.3)*100)),
+    margins:Math.min(100,Math.round(inp.margin*100*1.2)),
+    runway:Math.min(100,runwayMonths<0?90:Math.round((runwayMonths/12)*100)),
+    market:Math.round((inp.mktSize/4)*100),
+    team:Math.round((inp.team/4)*100),
+    competition:Math.round(((4-inp.comp)/4)*100)
+  };
+  Object.keys(scores).forEach(k=>{scores[k]=Math.min(100,Math.max(0,scores[k]))});
+  const total=Math.round(scores.unitEcon*0.25+scores.growth*0.15+scores.margins*0.15+scores.runway*0.20+scores.market*0.1+scores.team*0.1+scores.competition*0.05);
+  return{scores,total,ltvCac,ltv,runwayMonths}
+}
+
+function getSignals(inp,res,proj){
+  const sigs=[],lc=res.ltvCac;
+  if(lc>=3)sigs.push({t:`LTV:CAC of ${lc.toFixed(1)}x — healthy unit economics.`,c:'#3fb950'});
+  else if(lc>=1)sigs.push({t:`LTV:CAC of ${lc.toFixed(1)}x — marginal; aim for 3x+.`,c:'#E8673A'});
+  else sigs.push({t:`LTV:CAC of ${lc.toFixed(1)}x — losing money per customer.`,c:'#f85149'});
+  const be=proj.findIndex(m=>m.netProfit>=0);
+  if(be>=0&&be<12)sigs.push({t:`Profitable by month ${be+1} of 12.`,c:'#3fb950'});
+  else sigs.push({t:'Business does not reach breakeven within 12 months.',c:'#f85149'});
+  if(inp.churn<=0.03)sigs.push({t:`Churn of ${(inp.churn*100).toFixed(0)}% — excellent retention.`,c:'#3fb950'});
+  else if(inp.churn<=0.08)sigs.push({t:`Churn of ${(inp.churn*100).toFixed(0)}% — moderate; work on retention.`,c:'#E8673A'});
+  else sigs.push({t:`Churn of ${(inp.churn*100).toFixed(0)}% — dangerous; fix before scaling.`,c:'#f85149'});
+  if(inp.margin>=0.6)sigs.push({t:`${(inp.margin*100).toFixed(0)}% gross margin — strong business quality.`,c:'#3fb950'});
+  else if(inp.margin>=0.3)sigs.push({t:`${(inp.margin*100).toFixed(0)}% gross margin — acceptable but pressured.`,c:'#E8673A'});
+  else sigs.push({t:`${(inp.margin*100).toFixed(0)}% gross margin — low; cost structure needs work.`,c:'#f85149'});
+  if(res.runwayMonths<0)sigs.push({t:'Capital lasts beyond 12 months at current trajectory.',c:'#3fb950'});
+  else if(res.runwayMonths>=6)sigs.push({t:`Cash runway of ~${res.runwayMonths} months — plan fundraise now.`,c:'#E8673A'});
+  else sigs.push({t:`Cash runs out around month ${res.runwayMonths} — critical.`,c:'#f85149'});
+  return sigs
+}
+
+function buildVerdictHTML(inp,res,proj){
+  const sigs=getSignals(inp,res,proj),total=res.total;
+  const cls=total>=65?'viable':total>=40?'marginal':'unviable';
+  const label=total>=65?'Viable':total>=40?'Marginal':'Not viable';
+  const scoreColor=total>=65?'#3fb950':total>=40?'#E8673A':'#f85149';
+  const circ=Math.PI*2*40;
+  const be=proj.findIndex(m=>m.netProfit>=0),ltvCac=res.ltvCac;
+  const payback=inp.cac>0&&inp.price>0?Math.ceil(inp.cac/(inp.price*inp.margin)):0;
+  const dimRows=[{lbl:'Unit econ',val:res.scores.unitEcon},{lbl:'Growth',val:res.scores.growth},{lbl:'Margins',val:res.scores.margins},{lbl:'Runway',val:res.scores.runway},{lbl:'Market',val:res.scores.market},{lbl:'Team fit',val:res.scores.team}].map(d=>{const c=d.val>=65?'#3fb950':d.val>=40?'#E8673A':'#f85149';return`<div class="dbar-row"><div class="db-lbl">${d.lbl}</div><div class="db-track"><div class="db-fill" style="width:${d.val}%;background:${c}"></div></div><div class="db-val" style="color:${c}">${d.val}</div></div>`}).join('');
+  return`<div class="v-top"><div><div class="v-name">${document.getElementById('bModel').options[document.getElementById('bModel').selectedIndex].text}</div></div><span class="v-badge ${cls}">${label}</span></div>
+    <div class="score-arc"><div class="arc-ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="#21262d" stroke-width="8" fill="none"/><circle cx="50" cy="50" r="40" stroke="${scoreColor}" stroke-width="8" fill="none" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-total/100)}" stroke-linecap="round"/></svg><div class="arc-center"><div class="arc-big" style="color:${scoreColor}">${total}</div><div class="arc-sub">/ 100</div></div></div></div>
+    <div class="metrics2"><div class="met"><div class="met-lbl">LTV : CAC</div><div class="met-val ${ltvCac>=3?'good':ltvCac>=1?'warn':'bad'}">${ltvCac.toFixed(1)}x</div></div><div class="met"><div class="met-lbl">PAYBACK PERIOD</div><div class="met-val ${payback<=12?'good':payback<=24?'warn':'bad'}">${payback} mo</div></div><div class="met"><div class="met-lbl">BREAKEVEN</div><div class="met-val ${be>=0&&be<12?'good':'bad'}">${be>=0?'Mo '+(be+1):'12mo+'}</div></div><div class="met"><div class="met-lbl">MO 12 REVENUE</div><div class="met-val">${fmt(proj[11].rev)}</div></div></div>
+    <div style="margin-bottom:1rem">${dimRows}</div>
+    <div><div class="sig-lbl">KEY SIGNALS</div>${sigs.map(s=>`<div class="sig"><div class="sig-dot" style="background:${s.c}"></div><span>${s.t}</span></div>`).join('')}</div>`
+}
+
+function buildProjectionTable(proj){
+  const rows=proj.map(m=>{const pc=m.netProfit>=0?'#3fb950':'#f85149',cc=m.cash>=0?'#3fb950':'#f85149';return`<tr><td>Mo ${m.m}</td><td>${m.custs}</td><td>${fmt(m.rev)}</td><td style="color:${pc}">${m.netProfit>=0?'+':''}${fmt(m.netProfit)}</td><td style="color:${cc}">${fmt(m.cash)}</td></tr>`}).join('');
+  document.getElementById('projTable').innerHTML=`<table><thead><tr><th style="text-align:left">Mo</th><th>Custs</th><th>Revenue</th><th>Net P/L</th><th>Cash</th></tr></thead><tbody>${rows}</tbody></table>`
+}
+
+function buildProjectionChart(proj){
+  const labels=proj.map(m=>`M${m.m}`),revs=proj.map(m=>Math.round(m.rev)),costs=proj.map(m=>Math.round(m.totalCost)),cash=proj.map(m=>Math.round(m.cash));
+  if(projChart)projChart.destroy();
+  projChart=new Chart(document.getElementById('projChart'),{type:'bar',data:{labels,datasets:[{label:'Revenue',data:revs,backgroundColor:'rgba(232,103,58,0.7)',order:2},{label:'Total costs',data:costs,backgroundColor:'rgba(248,81,73,0.4)',order:3},{label:'Cash balance',data:cash,type:'line',borderColor:'#3fb950',borderWidth:2,pointRadius:0,tension:0.3,fill:false,order:1,yAxisID:'y2'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8b949e',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8b949e',font:{size:10},callback:n=>{const c=document.getElementById('currency').value;return c+' '+(n/1000).toFixed(0)+'k'}}},y2:{position:'right',grid:{display:false},ticks:{color:'#3fb950',font:{size:10},callback:n=>{const c=document.getElementById('currency').value;return c+' '+(n/1000).toFixed(0)+'k'}}}}}})
+}
+
+function calc(){
+  const inp=getInputs(),proj=buildProjection(inp),res=calcViabilityScore(inp,proj);
+  document.getElementById('verdictBox').innerHTML=buildVerdictHTML(inp,res,proj);
+  buildProjectionTable(proj);
+  buildProjectionChart(proj)
+}
+
+function go(t){
+  calc();
+  ['inputs','verdict','projection'].forEach(id=>document.getElementById('tab-'+id).style.display=id===t?'block':'none');
+  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',['inputs','verdict','projection'][i]===t))
+}
+calc();
+</script>
+</body>
+</html>

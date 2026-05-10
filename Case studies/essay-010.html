@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to read an annual report in thirty minutes. — Essay № 010 — askakshay</title>
+<meta name="description" content="Annual reports are designed to impress, not to inform. Most of the useful information is in five specific places. The rest is noise."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.essay-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.essay-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(34px,5.5vw,60px);line-height:1.04;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:32px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.highlight-box{margin:40px 0;padding:32px 36px;background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));border-left:3px solid var(--accent);border-radius:2px}
+.highlight-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.highlight-box ul{list-style:none}
+.highlight-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft);line-height:1.55}
+.highlight-box li:last-child{border-bottom:none;padding-bottom:0}
+.highlight-box li::before{content:'→';color:var(--accent);margin-right:12px;font-family:'JetBrains Mono',monospace}
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="essays.html" class="back-link">← All essays</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="essay-header">
+    <div class="essay-meta-top">Essay № 010 · Literacy · Apr 2026</div>
+    <h1>How to read an annual report <em>in thirty minutes.</em></h1>
+    <p class="dek">Annual reports are designed to impress, not to inform. Most of the useful information is in five specific places. The rest is noise.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>9 min</span></div>
+      <div>Topic <span>Literacy</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>A listed company's annual report is simultaneously the most information-dense and most curated document a public company produces.</strong> It is designed by lawyers, auditors, investor relations professionals, and management to comply with regulatory requirements, protect against legal liability, and present the business in the best defensible light. None of those objectives are identical to helping you, an investor or analyst, understand what is actually happening.</p>
+    <p>The good news: most of the genuinely useful information is concentrated in five specific sections. Once you know where to look, reading an annual report for insight rather than reassurance takes about 30 minutes. Here is the sequence.</p>
+
+    <h2 data-num="01 · Start here">The auditor's report — 5 minutes.</h2>
+    <p>Most investors read the annual report front-to-back, starting with the chairman's letter and ending with the financial statements. This is exactly backwards. Start with the auditor's report, buried deep in the document, usually immediately before the financial statements.</p>
+    <p>An unqualified (clean) audit opinion takes one paragraph and says nothing interesting. Read it anyway — specifically look for the <strong>Key Audit Matters (KAMs)</strong> section, which Indian listed companies are required to include under SA 701. KAMs describe areas where the auditor applied the most scrutiny: complex revenue recognition, significant provisions and estimates, related party transactions, goodwill impairment tests. Each KAM is a map of where the financial statements require the most judgment — and therefore where the most potential for aggressive accounting lives.</p>
+    <p>Also note whether the auditor changed. A mid-year or first-year auditor change at a profitable company is a yellow flag. Auditor resignations — disclosed through stock exchange filings, not the annual report — are a red flag that should trigger immediate investigation.</p>
+
+    <h2 data-num="02 · The notes, not the statements">Where the real information hides.</h2>
+    <p>The primary financial statements — P&L, balance sheet, cash flow — give you the numbers. The notes to the financial statements give you the assumptions, policies, and specific breakdowns that determine whether those numbers mean what they appear to mean.</p>
+    <p>Five notes deserve specific attention in any annual report review: <strong>Revenue recognition policy</strong> (when exactly does the company recognise revenue, and has the policy changed?); <strong>Related party transactions</strong> (what business is being done with promoter-owned entities, and on what terms?); <strong>Contingent liabilities</strong> (what lawsuits, tax demands, and regulatory proceedings exist that might crystallise into actual liabilities?); <strong>Borrowings and debt maturity schedule</strong> (what is the repayment timeline and refinancing risk?); and <strong>Segmental reporting</strong> (how do different business units perform on a standalone basis, before corporate cost allocation?).</p>
+
+    <div class="data-block">
+      <div class="data-label">Annual report reading sequence — 30-minute framework</div>
+      <table>
+        <thead><tr><th>Section</th><th>Time</th><th>What to extract</th></tr></thead>
+        <tbody>
+          <tr><td>Auditor's report + KAMs</td><td class="num">5 min</td><td class="num">Audit risk areas, auditor change</td></tr>
+          <tr><td>Cash flow statement</td><td class="num">5 min</td><td class="num">OCF vs net profit, FCF</td></tr>
+          <tr><td>Key financial notes</td><td class="num">8 min</td><td class="num">RPT, contingencies, debt schedule</td></tr>
+          <tr><td>MD&amp;A — the honest parts</td><td class="num">7 min</td><td class="num">What management is not saying</td></tr>
+          <tr><td>5-year financial summary</td><td class="num">5 min</td><td class="num">Trend analysis, ratio deterioration</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 data-num="03 · The MD&A">Reading management commentary for what it omits.</h2>
+    <p>The Management Discussion and Analysis section is the most readable part of the annual report and the least reliable. Management writes it. Their incentives are to highlight positives, contextualise negatives, and project confidence. Read it — but read it as a document with an agenda.</p>
+    <p>The useful question is not "what does management say?" but "what does management not say?" If gross margin compressed 200 bps this year and the MD&A contains three paragraphs on revenue growth and one sentence attributing margin compression to "temporary input cost headwinds" without quantifying the headwind or explaining why it is temporary — that omission is more informative than the surrounding narrative.</p>
+    <p>Compare the MD&A's explanatory framework this year to last year's. If last year's headwinds are this year's "normalised" base without any recovery in the metric that was supposed to recover, management was either wrong in their previous assessment or is characterising ongoing structural pressure as a one-time event. Track what they said would happen and compare it to what happened. The hit rate tells you how much to weight future guidance.</p>
+
+    <h2 data-num="04 · The 5-year summary">Trends reveal what single years conceal.</h2>
+    <p>Most annual reports include a 5-year or 10-year financial summary — revenue, EBITDA, PAT, EPS, return on equity, return on capital employed. This section takes 5 minutes to read and often contains more signal than 50 pages of narrative.</p>
+    <p>What to look for: <strong>ROCE trend</strong> (is the business generating higher or lower returns on capital over time?), <strong>D/E ratio trajectory</strong> (is leverage increasing without a corresponding improvement in return metrics?), <strong>Receivables and inventory as a percentage of revenue</strong> (working capital intensity creeping up is a persistent warning), and <strong>PAT growth versus OCF growth</strong> (sustained divergence is the earnings quality flag from essay № 005).</p>
+    <p>A business with 5 years of 15% revenue growth but flat ROE, rising D/E, and OCF consistently below PAT is not a compounder. It is a business that is growing while deteriorating — and the P&L alone would never tell you that.</p>
+
+    <h2 data-num="05 · The skip list">What you can safely read in 30 seconds or skip.</h2>
+    <p>Chairman's letter: read the first and last paragraph. If there is something genuinely new or important, it will be there. The rest is professionally written optimism. Corporate governance report: scan for anything unusual in board composition, audit committee meetings, or related party approval processes. Skip the compliance boilerplate. Business responsibility and sustainability reports: skip entirely unless ESG is a specific investment criterion. Director profiles: note if there have been changes — new independent directors or departures can signal governance shifts worth investigating further.</p>
+    <p>The 30-minute discipline, applied consistently across every holding in a portfolio, produces a quality of financial knowledge that most investors — even professional ones — do not have. The edge is not in reading more. It is in knowing what to read.</p>
+  </article>
+
+  <div class="inline-nl">
+    <h3>Get the next essay in your inbox.</h3>
+    <p>Margin Notes — one framework every Monday. Ten-minute read, free forever.</p>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
+  </div>
+
+  <div class="prev-next">
+    <a href="essay-009.html">
+      <div class="pn-label">← Previous essay · № 009</div>
+      <div class="pn-title">Evaluating a startup job offer — the equity math nobody teaches.</div>
+    </a>
+    <a href="essay-011.html">
+      <div class="pn-label">Next essay · № 011 →</div>
+      <div class="pn-title">Moats, decoded — the five kinds of durable advantage.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="essays.html">All essays</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+</script>
+</body>
+</html>

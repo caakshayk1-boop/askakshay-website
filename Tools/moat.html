@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moat Scorecard — [ASKAKSHAY]</title>
+<meta name="description" content="Score any company across five competitive advantage dimensions. Know what you own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--o:#E8673A;--of:rgba(232,103,58,0.1);--bg:#080c10;--s1:#0d1117;--s2:#161b22;--brd:#21262d;--t1:#e6edf3;--t2:#8b949e;--t3:#484f58;--green:#3fb950;--red:#f85149}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Mono',monospace;min-height:100vh}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:rgba(8,12,16,0.9);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--brd)}
+.nav-logo{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--t1);text-decoration:none}
+.nav-logo span{color:var(--o)}
+.nav-back{font-size:11px;color:var(--t2);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--t1)}
+.tool-header{padding:90px 1.5rem 32px;max-width:700px;margin:0 auto}
+.tool-eyebrow{font-size:10px;letter-spacing:.12em;color:var(--o);margin-bottom:.75rem}
+.tool-title{font-size:26px;font-weight:500;margin-bottom:.5rem}
+.tool-desc{font-size:13px;color:var(--t2);line-height:1.7;font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.tool-body{max-width:700px;margin:0 auto;padding:0 1.5rem 4rem}
+.tabs{display:flex;margin-bottom:1.5rem;border:0.5px solid var(--brd);border-radius:6px;overflow:hidden}
+.tab{flex:1;padding:9px 0;font-size:11px;font-weight:500;text-align:center;cursor:pointer;background:transparent;border:none;color:var(--t2);letter-spacing:.06em;font-family:'IBM Plex Mono',monospace;transition:all .15s}
+.tab.active{background:var(--o);color:#fff}
+input[type=text],select{width:100%;font-size:13px;padding:8px 10px;border-radius:5px;border:0.5px solid var(--brd);background:var(--s1);color:var(--t1);font-family:'IBM Plex Mono',monospace}
+input[type=text]:focus,select:focus{outline:none;border-color:var(--o)}
+.btn{padding:9px 16px;border-radius:5px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--brd);background:transparent;color:var(--t1);letter-spacing:.04em;font-family:'IBM Plex Mono',monospace;transition:all .15s}
+.btn:hover{border-color:var(--t2)}
+.btn.primary{background:var(--o);border-color:var(--o);color:#fff;width:100%}
+.btn.primary:hover{opacity:.9}
+.btn.ghost{flex:1}
+.company-bar{display:flex;gap:8px;margin-bottom:1.5rem}
+.company-bar input[type=text]{flex:1}
+.dimension{background:var(--s1);border:0.5px solid var(--brd);border-radius:6px;padding:1.25rem;margin-bottom:10px}
+.dim-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.dim-name{font-size:13px;font-weight:500}
+.dim-icon{font-size:16px;margin-right:6px}
+.dim-score{font-size:22px;font-weight:500;color:var(--o)}
+.dim-desc{font-size:12px;color:var(--t2);margin-bottom:14px;line-height:1.65;font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.q-row{margin-bottom:12px}
+.q-label{font-size:11px;color:var(--t2);margin-bottom:7px;line-height:1.55}
+.slider-row{display:flex;align-items:center;gap:10px}
+input[type=range]{flex:1;accent-color:var(--o);cursor:pointer}
+.slider-val{font-size:12px;font-weight:500;min-width:16px;text-align:right}
+.rubric{font-size:10px;color:var(--t3);display:flex;justify-content:space-between;margin-top:3px;padding:0 2px}
+.verdict-box{border:0.5px solid var(--brd);border-radius:6px;padding:1.5rem;margin-bottom:1rem;background:var(--s1)}
+.verdict-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}
+.verdict-company{font-size:16px;font-weight:500}
+.verdict-date{font-size:10px;color:var(--t2);margin-top:4px}
+.moat-badge{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:500;letter-spacing:.05em}
+.moat-wide{background:rgba(63,185,80,.12);color:var(--green);border:0.5px solid rgba(63,185,80,.3)}
+.moat-narrow{background:var(--of);color:var(--o);border:0.5px solid rgba(232,103,58,.3)}
+.moat-none{background:rgba(248,81,73,.1);color:var(--red);border:0.5px solid rgba(248,81,73,.3)}
+.score-ring-wrap{display:flex;flex-direction:column;align-items:center;margin:1rem 0}
+.score-ring{position:relative;width:110px;height:110px}
+.score-ring svg{width:110px;height:110px;transform:rotate(-90deg)}
+.score-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-big{font-size:30px;font-weight:500}
+.score-max{font-size:11px;color:var(--t2)}
+.dim-bars{margin:1rem 0}
+.dbar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dbar-lbl{font-size:11px;color:var(--t2);width:100px;flex-shrink:0}
+.dbar-track{flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden}
+.dbar-fill{height:100%;border-radius:3px;background:var(--o);transition:width .4s}
+.dbar-val{font-size:11px;font-weight:500;width:28px;text-align:right;flex-shrink:0}
+.strengths{margin-top:1rem}
+.str-title{font-size:10px;letter-spacing:.08em;color:var(--t2);margin-bottom:.5rem}
+.str-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:12px;line-height:1.55;font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.str-bullet{width:6px;height:6px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.action-row{display:flex;gap:8px;margin-top:1rem}
+.saved-card{background:var(--s1);border:0.5px solid var(--brd);border-radius:6px;padding:1.25rem;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+.saved-card:hover{border-color:var(--o)}
+.sc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.sc-name{font-size:14px;font-weight:500}
+.sc-badge{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:500}
+.sc-bars{display:flex;gap:4px;align-items:flex-end;height:28px;margin-bottom:6px}
+.sc-bar{width:14px;border-radius:2px 2px 0 0;background:var(--o);opacity:.6}
+.sc-meta{font-size:10px;color:var(--t2)}
+.empty-state{text-align:center;padding:3rem 1rem;color:var(--t2);font-size:12px;line-height:1.8}
+footer{padding:2rem 1.5rem;border-top:0.5px solid var(--brd);font-size:11px;color:var(--t3);display:flex;justify-content:space-between;max-width:700px;margin:0 auto}
+footer a{color:var(--t3);text-decoration:none}
+footer a:hover{color:var(--t2)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">[ ASK<span>AKSHAY</span> ]</a>
+  <a href="index.html" class="nav-back">← All tools</a>
+</nav>
+
+<div class="tool-header">
+  <div class="tool-eyebrow">TOOLS</div>
+  <h1 class="tool-title">Moat Scorecard</h1>
+  <p class="tool-desc">Score any company across five dimensions of competitive advantage. Wide moat, narrow moat, or no moat — know what you own before you invest.</p>
+</div>
+
+<div class="tool-body">
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('score')">SCORE</button>
+    <button class="tab" onclick="switchTab('result')">VERDICT</button>
+    <button class="tab" onclick="switchTab('saved')">SAVED</button>
+  </div>
+
+  <div id="tab-score">
+    <div class="company-bar">
+      <input type="text" id="companyName" placeholder="Company name (e.g. Nestle Malaysia)" />
+      <button class="btn ghost" onclick="switchTab('result')">Score ↗</button>
+    </div>
+    <div id="dimensions"></div>
+  </div>
+
+  <div id="tab-result" style="display:none">
+    <div class="verdict-box" id="verdictBox"></div>
+    <div class="action-row">
+      <button class="btn ghost" onclick="saveCard()">Save scorecard</button>
+      <button class="btn ghost" onclick="switchTab('score')">← Edit scores</button>
+    </div>
+  </div>
+
+  <div id="tab-saved" style="display:none">
+    <div id="savedList"></div>
+    <button class="btn" style="width:100%;margin-top:.5rem" onclick="clearSaved()">Clear all saved</button>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">← askakshay.com</a>
+  <span>Saved scorecards stored locally</span>
+</footer>
+
+<script>
+const DIMS=[
+  {id:'network',icon:'◈',name:'Network effects',desc:'Does the product become more valuable as more users join? Stronger when each new user adds direct value to all others.',questions:[{q:'Each additional user makes the product meaningfully better for existing users.',rubric:['No effect','Slight','Moderate','Strong','Essential']},{q:'Competitors would need to replicate the entire user base, not just the product.',rubric:['Easy to copy','Modest barrier','Hard','Very hard','Impossible']},{q:'Users actively bring in other users (virality, referrals, ecosystems).',rubric:['Rare','Occasional','Common','Frequent','Core engine']}]},
+  {id:'switching',icon:'⇄',name:'Switching costs',desc:'How painful is it for a customer to leave? High switching costs create captive revenue even without continuous product superiority.',questions:[{q:'Customers would incur significant financial or time cost to switch to a rival.',rubric:['Trivial','Low','Moderate','High','Prohibitive']},{q:'Deep integration into customer workflows, data, or contracts lock them in.',rubric:['None','Surface','Medium','Deep','Mission-critical']},{q:'Churn rate is structurally low — customers renew without active selling.',rubric:['High churn','Moderate','Low','Very low','Near-zero']}]},
+  {id:'cost',icon:'↓',name:'Cost advantage',desc:'Can this company produce at materially lower cost than rivals? Driven by scale, location, unique resources, or process innovation.',questions:[{q:'The company has lower unit costs than competitors at comparable quality.',rubric:['Higher costs','Slight edge','Moderate','Significant','Industry-lowest']},{q:'Cost advantage is structural (scale, geography, IP) not just operational efficiency.',rubric:['Operational','Partly structural','Mostly structural','Structural','Deeply structural']},{q:'Competitors cannot easily replicate the cost structure.',rubric:['Easy to copy','Some barriers','Hard','Very hard','Impossible']}]},
+  {id:'intangible',icon:'◎',name:'Intangible assets',desc:'Brands, patents, licences, or regulatory approvals that competitors cannot easily acquire. Pricing power often traces here.',questions:[{q:'The brand commands a price premium or creates genuine customer preference.',rubric:['No premium','Marginal','Moderate','Significant','Exceptional']},{q:'Patents, trade secrets, or proprietary tech provide durable protection.',rubric:['None','Weak/short','Moderate','Strong','Fortress IP']},{q:'Licences, permits, or regulatory status create meaningful barriers.',rubric:['None','Minimal','Some','Significant','Near-monopoly']}]},
+  {id:'scale',icon:'⬡',name:'Efficient scale',desc:'Does the market size limit competition? When a niche is served by one player at capacity, new entrants earn sub-normal returns.',questions:[{q:'The market is sized such that a second entrant would make the economics unattractive.',rubric:['Large market','Slightly limited','Moderately limited','Quite limited','Natural monopoly']},{q:'The company has reached minimum efficient scale, lowering per-unit costs.',rubric:['Below scale','Approaching','At scale','Well past','Dominant scale']},{q:'Geographic or regulatory factors further constrain additional supply.',rubric:['No constraints','Slight','Moderate','High','Absolute cap']}]}
+];
+const scores={};
+DIMS.forEach(d=>{scores[d.id]=d.questions.map(()=>2)});
+
+function buildDimensions(){
+  document.getElementById('dimensions').innerHTML=DIMS.map(d=>`
+    <div class="dimension">
+      <div class="dim-top"><div class="dim-name"><span class="dim-icon">${d.icon}</span>${d.name}</div><div class="dim-score" id="dscore-${d.id}">${dimScore(d.id)}</div></div>
+      <div class="dim-desc">${d.desc}</div>
+      ${d.questions.map((q,qi)=>`
+        <div class="q-row">
+          <div class="q-label">${q.q}</div>
+          <div class="slider-row"><input type="range" min="0" max="4" step="1" value="${scores[d.id][qi]}" oninput="setScore('${d.id}',${qi},parseInt(this.value))"><span class="slider-val" id="sv-${d.id}-${qi}">${scores[d.id][qi]}</span></div>
+          <div class="rubric">${q.rubric.map(r=>`<span>${r}</span>`).join('')}</div>
+        </div>`).join('')}
+    </div>`).join('')
+}
+
+function dimScore(id){const s=scores[id];return Math.round((s.reduce((a,b)=>a+b,0)/s.length)*25)}
+function setScore(id,qi,val){scores[id][qi]=val;document.getElementById(`sv-${id}-${qi}`).textContent=val;document.getElementById(`dscore-${id}`).textContent=dimScore(id)}
+function totalScore(){return Math.round(DIMS.reduce((s,d)=>s+dimScore(d.id),0)/DIMS.length)}
+function getMoat(score){if(score>=70)return{label:'Wide moat',cls:'moat-wide'};if(score>=45)return{label:'Narrow moat',cls:'moat-narrow'};return{label:'No moat',cls:'moat-none'}}
+function getStrengths(){return DIMS.map(d=>({name:d.name,score:dimScore(d.id)})).sort((a,b)=>b.score-a.score).map(r=>{if(r.score>=70)return{text:`${r.name} is a genuine source of durable advantage.`,color:'#3fb950'};if(r.score>=45)return{text:`${r.name} provides some protection but needs monitoring.`,color:'#E8673A'};return{text:`${r.name} offers little defence — exposure to competition.`,color:'#f85149'}})}
+
+function buildVerdict(){
+  const name=document.getElementById('companyName').value||'Unnamed company';
+  const total=totalScore(),moat=getMoat(total),strengths=getStrengths();
+  const now=new Date().toLocaleDateString('en-US',{day:'numeric',month:'short',year:'numeric'});
+  const circ=Math.PI*2*44,pct=total/100;
+  const scoreColor=total>=70?'#3fb950':total>=45?'#E8673A':'#f85149';
+  const dimBars=DIMS.map(d=>{const s=dimScore(d.id);return`<div class="dbar-row"><div class="dbar-lbl">${d.name.split(' ')[0]}</div><div class="dbar-track"><div class="dbar-fill" style="width:${s}%"></div></div><div class="dbar-val">${s}</div></div>`}).join('');
+  const strItems=strengths.map(s=>`<div class="str-item"><div class="str-bullet" style="background:${s.color}"></div><span>${s.text}</span></div>`).join('');
+  document.getElementById('verdictBox').innerHTML=`
+    <div class="verdict-top"><div><div class="verdict-company">${name}</div><div class="verdict-date">Scored ${now}</div></div><div class="moat-badge ${moat.cls}">${moat.label}</div></div>
+    <div class="score-ring-wrap"><div class="score-ring"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" stroke="#21262d" stroke-width="8" fill="none"/><circle cx="55" cy="55" r="44" stroke="${scoreColor}" stroke-width="8" fill="none" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-pct)}" stroke-linecap="round"/></svg><div class="score-center"><div class="score-big" style="color:${scoreColor}">${total}</div><div class="score-max">/ 100</div></div></div></div>
+    <div class="dim-bars">${dimBars}</div>
+    <div class="strengths"><div class="str-title">DIMENSION ANALYSIS</div>${strItems}</div>`
+}
+
+function switchTab(t){
+  if(t==='result')buildVerdict();
+  if(t==='saved')renderSaved();
+  ['score','result','saved'].forEach(id=>document.getElementById('tab-'+id).style.display=id===t?'block':'none');
+  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',['score','result','saved'][i]===t))
+}
+
+function saveCard(){
+  const name=document.getElementById('companyName').value||'Unnamed company';
+  const saved=JSON.parse(localStorage.getItem('aa_moat_saved')||'[]');
+  saved.unshift({name,total:totalScore(),moat:getMoat(totalScore()).label,mclass:getMoat(totalScore()).cls,dims:DIMS.map(d=>({id:d.id,name:d.name,score:dimScore(d.id)})),scores:JSON.parse(JSON.stringify(scores)),date:new Date().toLocaleDateString('en-US',{day:'numeric',month:'short',year:'numeric'}),id:Date.now()});
+  localStorage.setItem('aa_moat_saved',JSON.stringify(saved.slice(0,20)));
+  alert(`"${name}" saved to your scorecard library.`)
+}
+
+function renderSaved(){
+  const saved=JSON.parse(localStorage.getItem('aa_moat_saved')||'[]');
+  const el=document.getElementById('savedList');
+  if(!saved.length){el.innerHTML='<div class="empty-state">No saved scorecards yet.<br>Score a company and hit "Save scorecard".</div>';return}
+  el.innerHTML=saved.map(s=>`<div class="saved-card" onclick="loadSaved(${s.id})"><div class="sc-top"><div class="sc-name">${s.name}</div><span class="sc-badge ${s.mclass}">${s.moat}</span></div><div class="sc-bars">${s.dims.map(d=>`<div class="sc-bar" style="height:${Math.max(4,d.score*0.28)}px" title="${d.name}: ${d.score}"></div>`).join('')}</div><div class="sc-meta">${s.date} · Overall ${s.total}/100</div></div>`).join('')
+}
+
+function loadSaved(id){
+  const saved=JSON.parse(localStorage.getItem('aa_moat_saved')||'[]');
+  const entry=saved.find(s=>s.id===id);if(!entry)return;
+  document.getElementById('companyName').value=entry.name;
+  Object.assign(scores,entry.scores);
+  buildDimensions();switchTab('result')
+}
+
+function clearSaved(){if(confirm('Clear all saved scorecards?')){localStorage.removeItem('aa_moat_saved');renderSaved()}}
+buildDimensions();
+</script>
+</body>
+</html>

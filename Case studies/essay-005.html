@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to read a cash flow statement — and why P&L alone deceives. — Essay № 005 — askakshay</title>
+<meta name="description" content="The income statement tells you whether a business is profitable. The cash flow statement tells you whether it is alive. Most people only read the first one."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.essay-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.essay-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(34px,5.5vw,60px);line-height:1.04;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:32px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.highlight-box{margin:40px 0;padding:32px 36px;background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));border-left:3px solid var(--accent);border-radius:2px}
+.highlight-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.highlight-box ul{list-style:none}
+.highlight-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft);line-height:1.55}
+.highlight-box li:last-child{border-bottom:none;padding-bottom:0}
+.highlight-box li::before{content:'→';color:var(--accent);margin-right:12px;font-family:'JetBrains Mono',monospace}
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="essays.html" class="back-link">← All essays</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="essay-header">
+    <div class="essay-meta-top">Essay № 005 · Literacy · Feb 2026</div>
+    <h1>How to read a cash flow statement — and why <em>P&amp;L alone deceives.</em></h1>
+    <p class="dek">The income statement tells you whether a business is profitable. The cash flow statement tells you whether it is alive. Most people only read the first one.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>8 min</span></div>
+      <div>Topic <span>Literacy</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>Every set of company accounts contains three financial statements.</strong> Most people read two. The one they skip — the cash flow statement — is the one that tells you whether the business is actually healthy or whether it is accounting for a crisis that has not yet arrived.</p>
+    <p>The P&L tells you whether revenues exceeded expenses. The balance sheet tells you what the company owns and owes. The cash flow statement tells you where money actually went. In a world where accounting rules allow significant judgment in revenue recognition, asset valuation, and expense timing, the cash flow statement is the hardest number to manipulate. Cash either moved or it did not.</p>
+
+    <h2 data-num="01 · The three sections">What each part of the cash flow statement measures.</h2>
+    <p>The cash flow statement divides cash movements into three categories, each of which tells a different story about the business.</p>
+    <p><strong>Operating Cash Flow (OCF)</strong> is cash generated by the core business activities — selling products or services, collecting from customers, paying suppliers and employees. This is the number that matters most. A business that consistently generates positive OCF is self-funding. A business that generates profit but negative OCF is converting revenue to receivables and inventory faster than it is collecting cash — a working capital problem that grows with growth.</p>
+    <p><strong>Investing Cash Flow (ICF)</strong> covers cash spent buying assets (capex, acquisitions, investments) and cash received from selling them. Negative investing cash flow is usually healthy for a growing business — it means the company is investing in future capacity. Sustained positive investing cash flow (selling assets) in a growing company is a warning signal.</p>
+    <p><strong>Financing Cash Flow (FCF)</strong> captures cash from raising debt or equity, and cash used to repay debt or return capital to shareholders (dividends, buybacks). A startup with positive financing cash flow has recently raised capital. A mature company with negative financing cash flow is returning money to shareholders or repaying debt — usually a signal of financial strength.</p>
+    <blockquote>A profitable company with negative operating cash flow is not healthy. It is profitable on paper, broke in reality.</blockquote>
+
+    <h2 data-num="02 · The OCF calculation">How to work backwards from P&L to cash.</h2>
+    <p>The indirect method starts with net profit and adjusts for non-cash items and working capital changes. Understanding this calculation destroys the illusion that P&L profit equals cash generated.</p>
+    <p>Start with net profit. Add back depreciation and amortisation — these are non-cash charges that reduced profit but involved no cash outflow. Then adjust for working capital changes: subtract any increase in receivables (revenue recognised but not yet collected), subtract any increase in inventory (cash spent on goods not yet sold), add any increase in payables (obligations incurred but not yet paid). The result approximates operating cash flow.</p>
+    <p>The gap between net profit and OCF is the working capital intensity of the business. A capital-light SaaS business collects cash before delivering service (annual subscriptions paid upfront) — its OCF systematically exceeds net profit. A growing manufacturing company extending credit to distributors will show OCF consistently below profit — often substantially below.</p>
+
+    <div class="data-block">
+      <div class="data-label">OCF bridge — manufacturing company (₹ Cr)</div>
+      <table>
+        <thead><tr><th>Item</th><th>Amount</th><th>Direction</th></tr></thead>
+        <tbody>
+          <tr><td>Net Profit (P&amp;L)</td><td class="num pos">+22.0</td><td class="num">Starting point</td></tr>
+          <tr><td>Add: Depreciation</td><td class="num pos">+8.5</td><td class="num">Non-cash charge</td></tr>
+          <tr><td>Less: Increase in Receivables</td><td class="num neg">−14.0</td><td class="num">Sold but not collected</td></tr>
+          <tr><td>Less: Increase in Inventory</td><td class="num neg">−9.0</td><td class="num">Cash tied in stock</td></tr>
+          <tr><td>Add: Increase in Payables</td><td class="num pos">+3.5</td><td class="num">Bought, not yet paid</td></tr>
+          <tr><td><strong>Operating Cash Flow</strong></td><td class="num neg"><strong>+11.0</strong></td><td class="num neg">50% of net profit</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 data-num="03 · The five signals">What to look for in a cash flow statement.</h2>
+    <p><strong>Signal 1: OCF to Net Profit ratio.</strong> Consistently below 0.7x is a warning. The business is either recognising revenue aggressively or growing its working capital requirements faster than its cash generation. Both need investigation.</p>
+    <p><strong>Signal 2: Free Cash Flow (FCF) = OCF minus maintenance capex.</strong> This is the cash actually available after keeping the business running at current capacity. Growth capex can be funded by debt or equity. Maintenance capex cannot — it is the minimum investment to avoid the asset base decaying. A business that cannot fund its maintenance capex from OCF is consuming its own substance.</p>
+    <p><strong>Signal 3: OCF trend relative to revenue growth.</strong> If revenue is growing 30% and OCF is growing 5%, working capital is absorbing the growth. This is common and manageable in early stages. If it persists for 4–6 quarters, it usually means the business model does not generate operating leverage at scale.</p>
+    <p><strong>Signal 4: Quality of receivables.</strong> Large, fast-growing receivables relative to revenue growth can indicate channel stuffing (pushing inventory to distributors at quarter-end to hit revenue targets) or collection deterioration. Compare days sales outstanding (DSO) over 6–8 quarters. Rising DSO is a consistent early warning of a revenue quality problem.</p>
+    <p><strong>Signal 5: Financing cash flow dependency.</strong> If a company's total cash position is only stable because of recurring capital raises (positive financing CF offsetting negative operating CF), the business is not self-sustaining. This is fine for early-stage startups. It is a terminal problem for mature businesses that have not yet achieved cash self-sufficiency.</p>
+
+    <h2 data-num="04 · The fraud detection tool">Why auditors and investigators read cash flow first.</h2>
+    <p>Earnings can be managed through accounting choices: accelerating revenue recognition, capitalising expenses that should be expensed, delaying provisions. Cash is harder to fake. The most reliable forensic accounting check is to compare net profit to OCF over multiple years. Sustained, large, and growing gaps between the two — in a mature business — almost always indicate either aggressive accounting or a deteriorating business masked by accrual-basis numbers.</p>
+    <p>Satyam Computers, Kingfisher Airlines, and several mid-cap Indian companies that collapsed in the 2010s showed this pattern clearly in hindsight: profits growing, operating cash flows flat or declining, financing cash flows masking the gap. The cash flow statement was the signal. Most investors were reading the P&L.</p>
+
+    <h2 data-num="05 · The practical habit">What to check every quarter.</h2>
+    <p>For any company you own, manage, or advise: calculate OCF to net profit ratio quarterly, check DSO trend, and verify that FCF (after maintenance capex) is positive or on a clear trajectory to becoming positive. Three minutes of work. The companies that surprise investors negatively almost always had readable warnings in their cash flow statements a year or two before the surprise arrived.</p>
+  </article>
+
+  <div class="inline-nl">
+    <h3>Get the next essay in your inbox.</h3>
+    <p>Margin Notes — one framework every Monday. Ten-minute read, free forever.</p>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
+  </div>
+
+  <div class="prev-next">
+    <a href="essay-004.html">
+      <div class="pn-label">← Previous essay · № 004</div>
+      <div class="pn-title">Unit economics, explained — the one ratio that decides fundraisability.</div>
+    </a>
+    <a href="essay-006.html">
+      <div class="pn-label">Next essay · № 006 →</div>
+      <div class="pn-title">Working capital — the number that decides if a business survives.</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="essays.html">All essays</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+</script>
+</body>
+</html>

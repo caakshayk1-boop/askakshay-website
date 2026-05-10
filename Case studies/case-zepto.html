@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zepto at $5B — Case Study № 014 — askakshay</title>
+<meta name="description" content="The quick-commerce math, stress-tested. Unit economics, moat score, and the one line that decides the outcome."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F1E8;--bg-elev:#FAF7F0;--ink:#0E1A2B;--ink-soft:#2B3A52;--ink-mute:#5A6A82;--rule:#DDD4C2;--accent:#C8541A;--accent-soft:#E8B894;--highlight:#F5E8A3;--green:#2D6B4F;--red:#9B3226;--max:780px;--wide:1100px}
+[data-theme="dark"]{--bg:#0E1A2B;--bg-elev:#152238;--ink:#F5F1E8;--ink-soft:#D8D0BE;--ink-mute:#8A94A8;--rule:#2A3650;--accent:#E8894A;--accent-soft:#5C3820;--highlight:#3A3418}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 32px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HEADER */
+.case-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
+.case-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(19px,2.2vw,24px);color:var(--ink-soft);line-height:1.4;max-width:620px;margin-bottom:36px}
+.byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
+.byline span{color:var(--ink)}
+
+/* ARTICLE */
+article{padding:64px 0 24px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:34px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
+article h2 em{font-style:italic;color:var(--accent)}
+article h2::before{content:attr(data-num);display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;margin-bottom:10px;text-transform:uppercase}
+article p{margin-bottom:20px;color:var(--ink-soft)}
+article p strong{color:var(--ink);font-weight:500}
+article p em{color:var(--ink);font-style:italic}
+article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
+
+/* DATA TABLE */
+.data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
+.data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.data-block table{width:100%;border-collapse:collapse;font-size:15px}
+.data-block th{text-align:left;padding:12px 0;border-bottom:2px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.data-block td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.data-block td:first-child{font-family:'Fraunces',serif;font-size:16px}
+.data-block td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-size:14px}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+
+/* BULL/BEAR */
+.bull-bear{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px 0}
+@media(max-width:720px){.bull-bear{grid-template-columns:1fr}}
+.case-box{padding:28px;border-radius:2px}
+.bull{background:color-mix(in srgb,var(--green) 8%,var(--bg-elev));border-left:3px solid var(--green)}
+.bear{background:color-mix(in srgb,var(--red) 8%,var(--bg-elev));border-left:3px solid var(--red)}
+.case-box h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.bull h4{color:var(--green)}
+.bear h4{color:var(--red)}
+.case-box ul{list-style:none}
+.case-box li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:14.5px;color:var(--ink);line-height:1.5}
+.case-box li:last-child{border-bottom:none;padding-bottom:0}
+.case-box li::before{content:'—';color:var(--accent);margin-right:10px}
+
+/* =========================================
+   VERDICT BLOCK — DARK BG, LIGHT TEXT
+   ========================================= */
+.case-verdict{background:var(--ink);color:#F5F1E8;padding:52px 48px;margin:56px 0;position:relative;overflow:hidden}
+.case-verdict::before{content:'§';position:absolute;top:-60px;right:-20px;font-family:'Fraunces',serif;font-size:400px;line-height:1;color:rgba(255,255,255,.04);pointer-events:none}
+.case-verdict .data-label{color:var(--accent-soft);position:relative}
+.case-verdict h3{font-family:'Fraunces',serif;font-weight:300;font-size:34px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;position:relative;color:#F5F1E8}
+.case-verdict h3 em{font-style:italic;color:var(--accent-soft)}
+.case-verdict p{opacity:.88;position:relative;color:#D8D0BE;font-size:16.5px;line-height:1.7;margin-bottom:16px}
+.case-verdict p:last-child{margin-bottom:0}
+
+/* =========================================
+   EMBEDDED MOAT SCORECARD
+   ========================================= */
+.moat-embed{background:var(--ink);color:#F5F1E8;padding:56px 0;margin:64px 0;position:relative;overflow:hidden}
+.moat-embed::before{content:'MOAT';position:absolute;bottom:-40px;right:-20px;font-family:'Fraunces',serif;font-style:italic;font-size:260px;line-height:1;color:rgba(255,255,255,.03);pointer-events:none;letter-spacing:-.05em}
+.moat-header{margin-bottom:48px;position:relative}
+.moat-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.moat-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.03em;color:#F5F1E8}
+.moat-title em{font-style:italic;color:var(--accent-soft)}
+.moat-sub{color:rgba(245,241,232,.7);font-size:16px;line-height:1.55;max-width:580px;margin-top:12px}
+.moat-dims{position:relative}
+.moat-dim{padding:32px 0;border-bottom:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:100px 1fr 300px;gap:40px;align-items:start}
+@media(max-width:900px){.moat-dim{grid-template-columns:1fr;gap:20px}}
+.moat-dim-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;padding-top:4px}
+.moat-dim h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#F5F1E8;margin-bottom:10px;line-height:1.1}
+.moat-dim p{color:rgba(245,241,232,.7);font-size:14.5px;line-height:1.55}
+.score-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:2px}
+.score-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:12px}
+.score-lbl .tag{color:var(--accent)}
+.score-display{font-family:'Fraunces',serif;font-size:52px;font-weight:300;letter-spacing:-.04em;color:#F5F1E8;line-height:1;margin-bottom:14px}
+.score-display .denom{color:rgba(245,241,232,.4);font-size:24px}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:rgba(255,255,255,.2);outline:none;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--accent);border-radius:50%;cursor:pointer;border:2px solid rgba(14,26,43,1);transition:background .2s}
+input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
+.range-marks{display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(245,241,232,.4);letter-spacing:.08em}
+
+/* COMPOSITE */
+.moat-composite{margin-top:48px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:40px;position:relative}
+.composite-score{font-family:'Fraunces',serif;font-size:clamp(80px,12vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;color:#F5F1E8;margin-bottom:8px}
+.composite-score .denom{font-size:.35em;color:rgba(245,241,232,.4)}
+.composite-tier{font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300;margin-bottom:20px;color:var(--accent-soft)}
+.composite-text{color:rgba(245,241,232,.8);font-size:16px;line-height:1.65;max-width:640px}
+.composite-breakdown{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
+@media(max-width:720px){.composite-breakdown{grid-template-columns:repeat(2,1fr);gap:16px}}
+.bd-item{border-right:1px solid rgba(255,255,255,.1);padding:0 16px}
+.bd-item:first-child{padding-left:0}
+.bd-item:last-child{border-right:none}
+.bd-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:8px}
+.bd-val{font-family:'Fraunces',serif;font-size:30px;font-weight:400;color:var(--accent-soft)}
+.bd-val.low{color:rgba(245,241,232,.3)}
+
+/* NEWSLETTER */
+.inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
+.inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.nl-form{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;max-width:440px;margin:0 auto;background:var(--bg)}
+.nl-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--ink);font-family:inherit;font-size:15px;outline:none}
+.nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--accent)}
+
+/* PREV/NEXT */
+.prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+@media(max-width:720px){.prev-next{grid-template-columns:1fr}}
+.prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
+.prev-next a:first-child{border-right:1px solid var(--rule)}
+@media(max-width:720px){.prev-next a:first-child{border-right:none;border-bottom:1px solid var(--rule)}}
+.prev-next a:hover{background:var(--bg-elev)}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.pn-title{font-family:'Fraunces',serif;font-size:20px;line-height:1.3;color:var(--ink)}
+.prev-next a:hover .pn-title{color:var(--accent)}
+.prev-next a:last-child{text-align:right}
+
+footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">ask<span>akshay.</span></a>
+    <div class="nav-right">
+      <a href="cases.html" class="back-link">← All case studies</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="case-header">
+    <div class="case-meta-top">Case Study № 014 · Consumer Internet · Apr 2026</div>
+    <h1>Zepto at $5B: the quick-commerce math, <em>stress-tested.</em></h1>
+    <p class="dek">Dark stores, ten-minute delivery, and a valuation that prices in perfection. We walk the unit economics, the category structure, and the one line in the P&L that decides the outcome.</p>
+    <div class="byline">
+      <div>By <span>Akshay Kothari</span></div>
+      <div>Read <span>12 min</span></div>
+      <div>Sector <span>Quick Commerce</span></div>
+      <div>Valuation <span>$5B</span></div>
+    </div>
+  </header>
+
+  <article>
+    <p><strong>Zepto raised at roughly $5 billion in late 2024, and investors keep buying the story.</strong> The pitch is clean: Indians now expect groceries in ten minutes, the category is vast, and whoever wins dark-store density wins the decade. All of that could be true and the investment could still be mediocre. This is a case about the difference between a real business and a reasonably priced one.</p>
+
+    <h2 data-num="01 · The business">What they actually do.</h2>
+    <p>Zepto operates a network of small, densely placed warehouses — "dark stores" — across Indian cities. Each stocks roughly 3,000 SKUs of fast-moving groceries, essentials, and increasingly general merchandise. Orders come through the app, get picked in under two minutes, and reach the customer in ten. The entire model lives or dies on store density: thinner networks mean longer trips, longer trips mean worse economics.</p>
+    <p>The category is a three-horse race: Blinkit (Zomato), Instamart (Swiggy), and Zepto. Nobody is profitable at a net level yet. Zepto claims positive contribution margin at the store level and a path to overall profitability — a claim worth examining.</p>
+
+    <h2 data-num="02 · Unit economics">The numbers, one line at a time.</h2>
+    <p>Every quick-commerce order carries roughly the same structure. A customer spends an average of about ₹450. Gross margin on groceries runs 18–22%, so contribution before delivery cost sits around ₹85–100.</p>
+    <p>Then comes the cost stack. Rider economics: a rider doing four orders per hour at ₹25 per drop costs ₹25 per order at full utilization — more when demand softens. Add dark-store opex (rent, electricity, pickers, breakage) of ~₹15 per order at maturity, and store-level contribution lands at ₹45–60 per order, <em>before</em> central marketing and HQ overhead.</p>
+
+    <div class="data-block">
+      <div class="data-label">Zepto — illustrative unit economics per order</div>
+      <table>
+        <thead><tr><th>Line item</th><th>Per order (₹)</th><th>% of AOV</th></tr></thead>
+        <tbody>
+          <tr><td>Average order value</td><td class="num">450</td><td class="num">100%</td></tr>
+          <tr><td>Cost of goods</td><td class="num neg">(360)</td><td class="num">(80%)</td></tr>
+          <tr><td>Gross contribution</td><td class="num pos">90</td><td class="num">20%</td></tr>
+          <tr><td>Delivery rider cost</td><td class="num neg">(25)</td><td class="num">(5.5%)</td></tr>
+          <tr><td>Dark store opex</td><td class="num neg">(15)</td><td class="num">(3.3%)</td></tr>
+          <tr><td><strong>Store-level contribution</strong></td><td class="num pos"><strong>50</strong></td><td class="num"><strong>11.1%</strong></td></tr>
+          <tr><td>Marketing &amp; CAC (allocated)</td><td class="num neg">(30)</td><td class="num">(6.7%)</td></tr>
+          <tr><td>HQ, tech, finance overhead</td><td class="num neg">(20)</td><td class="num">(4.4%)</td></tr>
+          <tr><td><strong>Net contribution</strong></td><td class="num pos"><strong>~0</strong></td><td class="num"><strong>0.0%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Read the table honestly. Even on friendly assumptions, net margin is approximately zero at steady state. Every rupee of profit requires either (a) raising AOV through higher-margin categories — beauty, electronics, private label — or (b) reducing per-order delivery cost through density and automation. Both are real levers. Neither is guaranteed.</p>
+    <blockquote>The business is real. The multiple is the question.</blockquote>
+
+    <h2 data-num="03 · The one number">Orders per dark store per day.</h2>
+    <p>Every quick-commerce operator's path to profitability runs through one number: daily orders per dark store. At 800, the model works. At 500, it bleeds. At 1,200, it's a generational business. The reason is fixed cost absorption — rent, picker wages, and store manager salary are roughly constant whether you do 300 or 1,300 orders.</p>
+    <p>Zepto's reported density improved from ~450 orders/store in 2022 to near 900 in its best cohorts by 2024. That's real operating leverage. It is also the <em>only</em> thing keeping the store-level P&L above water. If density flattens for four quarters, the entire profitability thesis gets repriced.</p>
+
+    <h2 data-num="04 · Bull and bear">Both cases, laid out flat.</h2>
+    <div class="bull-bear">
+      <div class="case-box bull">
+        <h4>Bull Case</h4>
+        <ul>
+          <li>Category is structurally winner-take-most — density begets density, economics reinforce.</li>
+          <li>AOV expansion into beauty, apparel, private label adds 400–600 bps gross margin.</li>
+          <li>Automation (pick-and-pack robotics) cuts 20–30% of variable cost by 2028.</li>
+          <li>Ad monetization becomes a third revenue line at 90%+ margin.</li>
+          <li>Indian consumer moves to higher frequency of small-basket purchases, growing TAM 3x.</li>
+        </ul>
+      </div>
+      <div class="case-box bear">
+        <h4>Bear Case</h4>
+        <ul>
+          <li>Contribution margin plateaus at 10–12% — not enough to cover HQ at any realistic scale.</li>
+          <li>Three-player war keeps CAC elevated indefinitely; nobody gets to rational pricing.</li>
+          <li>Dark-store real estate inflates as the model expands; unit economics degrade.</li>
+          <li>Blinkit's Zomato cross-subsidy makes Zepto's standalone math structurally worse.</li>
+          <li>Regulatory tightening on gig-worker classification adds 15–25% to delivery cost overnight.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 data-num="05 · Verdict">The call.</h2>
+    <div class="case-verdict">
+      <div class="data-label">The verdict · Case № 014</div>
+      <h3>A real business — with a <em>priced-in</em> path to profitability.</h3>
+      <p>Zepto is not a scam and it is not a bad business. It is a plausibly good business priced as if the outcome is certain. The $5B valuation requires the bull case to play out cleanly — order density continues expanding, AOV shifts toward higher-margin categories, and the competitive war calms enough to let pricing rise 4–6%.</p>
+      <p>Any one of those breaking delays profitability by 18–24 months. Two of them breaking makes the current valuation indefensible. If you are evaluating whether to invest as an employee, angel, or secondary buyer: the question is not whether Zepto will exist. It will. The question is whether the next dollar of capital earns a return above 15% from a $5B entry price. The honest answer is: only if everything goes right.</p>
+    </div>
+  </article>
+
+</div>
+
+<!-- =============================================
+     EMBEDDED MOAT SCORECARD — DARK SECTION
+     ============================================= -->
+<section class="moat-embed" id="moat">
+  <div class="wide">
+    <div class="moat-header">
+      <div class="moat-eyebrow">Embedded tool — score this business</div>
+      <div class="moat-title">Moat Scorecard: <em>Zepto.</em></div>
+      <p class="moat-sub">Use the sliders below to score Zepto across the five dimensions of durable competitive advantage. The composite verdict updates live. Use it on any business.</p>
+    </div>
+
+    <div class="moat-dims" id="moatDims"><!-- Rendered by JS --></div>
+
+    <div class="moat-composite">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:16px">Composite score · Weighted</div>
+      <div class="composite-score" id="compScore">—<span class="denom">/10</span></div>
+      <div class="composite-tier" id="compTier">Enter scores above to generate verdict</div>
+      <div class="composite-text" id="compText">Score each dimension based on what the business actually shows in its numbers and behavior — not what management says in the annual report.</div>
+      <div class="composite-breakdown" id="compBreakdown"><!-- Rendered by JS --></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="inline-nl">
+    <h3>Get the next breakdown in your inbox.</h3>
+    <p>One business dissected every Monday. Ten-minute read.</p>
+    <!-- BEEHIIV: replace action with your embed URL -->
+    <form class="nl-form" action="https://embeds.beehiiv.com/REPLACE_WITH_YOUR_FORM_ID" method="post" target="_blank">
+      <input type="email" name="email" placeholder="you@workemail.com" required/>
+      <button type="submit">Subscribe →</button>
+    </form>
+  </div>
+
+  <!-- PREV / NEXT — Fully wired to adjacent case study pages -->
+  <div class="prev-next">
+    <a href="case-dmart.html">
+      <div class="pn-label">← Previous case · № 013</div>
+      <div class="pn-title">DMart — why the cheapest operator wins.</div>
+    </a>
+    <a href="case-nykaa.html">
+      <div class="pn-label">Next case · № 015 →</div>
+      <div class="pn-title">Nykaa — is beauty really a moat?</div>
+    </a>
+  </div>
+
+  <footer>
+    <div>© 2026 Akshay Kothari.</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="cases.html">All cases</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// Theme toggle
+const t=document.getElementById('themeToggle'),r=document.documentElement;
+t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+// Moat Scorecard
+const dims=[
+  {num:'01',title:'Switching Costs',desc:'How painful, expensive, or risky is it for a customer to leave for a competitor? Stickiness enables pricing power.',weight:.22},
+  {num:'02',title:'Network Effects',desc:'Does each new user make the product more valuable for everyone else? True network effects create winner-take-most dynamics.',weight:.22},
+  {num:'03',title:'Cost Advantage',desc:'Can this business produce or deliver at a structurally lower cost than any rival — through scale, process, or location?',weight:.20},
+  {num:'04',title:'Intangible Assets',desc:'Brand, patents, licenses, regulatory moats — assets that don\'t appear at full value on the balance sheet but customers actually pay for.',weight:.20},
+  {num:'05',title:'Efficient Scale',desc:'A market small enough that one or two players profitably serve it, and new entrants would destroy everyone\'s economics.',weight:.16}
+];
+
+const dimsEl=document.getElementById('moatDims');
+const bkEl=document.getElementById('compBreakdown');
+const scores=new Array(dims.length).fill(0);
+const touched=new Array(dims.length).fill(false);
+
+const tagFor=v=>{if(v===0)return'None';if(v<=2)return'Weak';if(v<=5)return'Moderate';if(v<=8)return'Strong';return'Fortress'};
+const verdictFor=total=>{
+  if(total<2)return{tier:'Commodity business.',text:'No identifiable moat. Returns will trend to cost of capital. Only worth owning at deep discount with a catalyst.'};
+  if(total<4)return{tier:'Thin moat — erosion risk.',text:'Some advantage visible but not durable. Competitors can replicate with capital or time. Unlikely to compound undisturbed.'};
+  if(total<6)return{tier:'Workable moat.',text:'A defensible business, not a fortress. Expect steady but unspectacular returns. Price discipline matters here.'};
+  if(total<8)return{tier:'Wide moat.',text:'Genuine structural advantage. Returns on capital should persist above cost of capital for a decade. This is a compounder.'};
+  return{tier:'Fortress — generational.',text:'Multiple reinforcing moats, decades of pricing power. Extraordinarily rare. If you find one at a fair price, size up and hold.'};
+};
+
+dims.forEach((d,i)=>{
+  const el=document.createElement('div');
+  el.className='moat-dim';
+  el.innerHTML=`
+    <div class="moat-dim-num">Dim. ${d.num}</div>
+    <div>
+      <h4>${d.title}</h4>
+      <p>${d.desc}</p>
+    </div>
+    <div class="score-box">
+      <div class="score-lbl">Score · <span class="tag" id="tag-${i}">Not scored</span></div>
+      <div class="score-display"><span id="val-${i}">—</span><span class="denom">/10</span></div>
+      <input type="range" min="0" max="10" value="0" step="1" id="rng-${i}"/>
+      <div class="range-marks"><span>NONE</span><span>WEAK</span><span>MOD</span><span>STRONG</span><span>FORTRESS</span></div>
+    </div>`;
+  dimsEl.appendChild(el);
+
+  const bd=document.createElement('div');
+  bd.className='bd-item';
+  bd.innerHTML=`<div class="bd-lbl">${d.title}</div><div class="bd-val low" id="bd-${i}">—</div>`;
+  bkEl.appendChild(bd);
+});
+
+function recalc(){
+  let w=0,any=touched.some(x=>x);
+  dims.forEach((d,i)=>{w+=scores[i]*d.weight});
+  const scEl=document.getElementById('compScore');
+  const trEl=document.getElementById('compTier');
+  const txEl=document.getElementById('compText');
+  if(!any){
+    scEl.innerHTML='—<span class="denom">/10</span>';
+    trEl.textContent='Enter scores above to generate verdict';
+    txEl.textContent='Score each dimension based on what the business actually shows in its numbers and behavior.';
+  } else {
+    scEl.innerHTML=w.toFixed(1)+'<span class="denom">/10</span>';
+    const v=verdictFor(w);
+    trEl.textContent=v.tier;
+    txEl.textContent=v.text;
+  }
+  dims.forEach((d,i)=>{
+    const bd=document.getElementById(`bd-${i}`);
+    bd.textContent=touched[i]?scores[i]:'—';
+    bd.classList.toggle('low',scores[i]<5);
+  });
+}
+
+dims.forEach((d,i)=>{
+  const rng=document.getElementById(`rng-${i}`);
+  const val=document.getElementById(`val-${i}`);
+  const tag=document.getElementById(`tag-${i}`);
+  rng.addEventListener('input',e=>{
+    const v=parseInt(e.target.value);
+    scores[i]=v;touched[i]=true;
+    val.textContent=v;tag.textContent=tagFor(v);
+    recalc();
+  });
+});
+</script>
+</body>
+</html>
