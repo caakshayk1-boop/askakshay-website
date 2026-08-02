@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Nykaa — Is Beauty Really a Moat? — Case Study № 012 — askakshay</title>
-<meta name="description" content="Premium positioning, proprietary brands, physical stores. The contribution margin tells the truth the earnings call doesn't."/>
+<title>Zepto at $5B — Case Study № 014 — askakshay</title>
+<meta name="description" content="The quick-commerce math, stress-tested. Unit economics, moat score, and the one line that decides the outcome."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -17,6 +17,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;
 .container{max-width:var(--max);margin:0 auto;padding:0 32px}
 .wide{max-width:var(--wide);margin:0 auto;padding:0 32px}
 
+/* NAV */
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
 .logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
@@ -27,6 +28,7 @@ nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,
 .theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
 
+/* HEADER */
 .case-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
 .case-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
 h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.035em;margin-bottom:28px}
@@ -35,6 +37,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
 .byline span{color:var(--ink)}
 
+/* ARTICLE */
 article{padding:64px 0 24px}
 article h2{font-family:'Fraunces',serif;font-weight:400;font-size:34px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
 article h2 em{font-style:italic;color:var(--accent)}
@@ -44,6 +47,7 @@ article p strong{color:var(--ink);font-weight:500}
 article p em{color:var(--ink);font-style:italic}
 article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
 
+/* DATA TABLE */
 .data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
 .data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .data-block table{width:100%;border-collapse:collapse;font-size:15px}
@@ -54,6 +58,7 @@ article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;ma
 .pos{color:var(--green)}
 .neg{color:var(--red)}
 
+/* BULL/BEAR */
 .bull-bear{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px 0}
 @media(max-width:720px){.bull-bear{grid-template-columns:1fr}}
 .case-box{padding:28px;border-radius:2px}
@@ -67,6 +72,9 @@ article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;ma
 .case-box li:last-child{border-bottom:none;padding-bottom:0}
 .case-box li::before{content:'—';color:var(--accent);margin-right:10px}
 
+/* =========================================
+   VERDICT BLOCK — DARK BG, LIGHT TEXT
+   ========================================= */
 .case-verdict{background:var(--ink);color:#F5F1E8;padding:52px 48px;margin:56px 0;position:relative;overflow:hidden}
 .case-verdict::before{content:'§';position:absolute;top:-60px;right:-20px;font-family:'Fraunces',serif;font-size:400px;line-height:1;color:rgba(255,255,255,.04);pointer-events:none}
 .case-verdict .data-label{color:var(--accent-soft);position:relative}
@@ -75,6 +83,9 @@ article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;ma
 .case-verdict p{opacity:.88;position:relative;color:#D8D0BE;font-size:16.5px;line-height:1.7;margin-bottom:16px}
 .case-verdict p:last-child{margin-bottom:0}
 
+/* =========================================
+   EMBEDDED MOAT SCORECARD
+   ========================================= */
 .moat-embed{background:var(--ink);color:#F5F1E8;padding:56px 0;margin:64px 0;position:relative;overflow:hidden}
 .moat-embed::before{content:'MOAT';position:absolute;bottom:-40px;right:-20px;font-family:'Fraunces',serif;font-style:italic;font-size:260px;line-height:1;color:rgba(255,255,255,.03);pointer-events:none;letter-spacing:-.05em}
 .moat-header{margin-bottom:48px;position:relative}
@@ -98,6 +109,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
 .range-marks{display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(245,241,232,.4);letter-spacing:.08em}
 
+/* COMPOSITE */
 .moat-composite{margin-top:48px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:40px;position:relative}
 .composite-score{font-family:'Fraunces',serif;font-size:clamp(80px,12vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;color:#F5F1E8;margin-bottom:8px}
 .composite-score .denom{font-size:.35em;color:rgba(245,241,232,.4)}
@@ -112,6 +124,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
 .bd-val{font-family:'Fraunces',serif;font-size:30px;font-weight:400;color:var(--accent-soft)}
 .bd-val.low{color:rgba(245,241,232,.3)}
 
+/* NEWSLETTER */
 .inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
 .inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
 .inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
@@ -120,6 +133,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
 .nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
 .nl-form button:hover{background:var(--accent)}
 
+/* PREV/NEXT */
 .prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
 @media(max-width:720px){.prev-next{grid-template-columns:1fr}}
 .prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
@@ -135,8 +149,26 @@ footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(
 footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
 footer a:hover{color:var(--accent)}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/retheme.css?v=20260802b">
 </head>
 <body>
+<div class="ak-prog" aria-hidden="true"></div>
+<header class="ak-bar">
+  <div class="ak-bar-in">
+    <a href="/" class="ak-brand"><span class="br">[</span>ask<b>akshay</b><span class="br">]</span><span class="dot"></span></a>
+    <nav class="ak-links">
+      <a href="/essays.html">Essays</a>
+      <a href="/cases.html">Cases</a>
+      <a class="opt" href="/#tools">Tools</a>
+      <a class="opt" href="/#numbers">Calculators</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 
 <nav>
   <div class="nav-inner">
@@ -153,122 +185,107 @@ footer a:hover{color:var(--accent)}
 <div class="container">
 
   <header class="case-header">
-    <div class="case-meta-top">Case Study № 012 · D2C / E-Commerce · Mar 2026</div>
-    <h1>Nykaa — is <em>beauty</em> really a moat?</h1>
-    <p class="dek">Premium positioning, proprietary brands, a loyal customer cohort, and physical stores. The contribution margin tells the truth the earnings call doesn't — and the fashion bet complicates everything.</p>
+    <div class="case-meta-top">Case Study № 014 · Consumer Internet · Apr 2026</div>
+    <h1>Zepto at $5B: the quick-commerce math, <em>stress-tested.</em></h1>
+    <p class="dek">Dark stores, ten-minute delivery, and a valuation that prices in perfection. We walk the unit economics, the category structure, and the one line in the P&L that decides the outcome.</p>
     <div class="byline">
       <div>By <span>Akshay Kothari</span></div>
-      <div>Read <span>11 min</span></div>
-      <div>Sector <span>D2C · Beauty · E-Commerce</span></div>
-      <div>Market Cap <span>~₹55,000 Cr</span></div>
+      <div>Read <span>12 min</span></div>
+      <div>Sector <span>Quick Commerce</span></div>
+      <div>Valuation <span>$5B</span></div>
     </div>
   </header>
 
   <article>
-    <p><strong>Nykaa (FSN E-Commerce Ventures) went public in November 2021 at a market cap of ₹1.09 lakh crore, making founder Falguni Nayar one of India's wealthiest self-made women and triggering a wave of think-pieces about the Indian beauty economy.</strong> Three years later, the stock has corrected sharply, the fashion vertical continues to disappoint, and the core beauty business is finally — barely — profitable. The question worth asking now is simpler: does the beauty business have an actual moat, or did the IPO price in a story that the numbers don't yet support?</p>
+    <p><strong>Zepto raised at roughly $5 billion in late 2024, and investors keep buying the story.</strong> The pitch is clean: Indians now expect groceries in ten minutes, the category is vast, and whoever wins dark-store density wins the decade. All of that could be true and the investment could still be mediocre. This is a case about the difference between a real business and a reasonably priced one.</p>
 
-    <h2 data-num="01 · The business">What Nykaa actually is — and what it isn't.</h2>
-    <p>Nykaa operates as an inventory-led beauty e-commerce platform. Unlike a pure marketplace, Nykaa buys products from brands, warehouses them, and delivers to customers. This is a deliberate choice: it gives Nykaa control over the customer experience, authenticity guarantees (a real concern in luxury beauty), and supplier relationships that go beyond a simple listing fee. The trade-off is working capital intensity — inventory sits on the balance sheet until sold.</p>
-    <p>The second leg is <strong>Nykaa-owned brands</strong>: Nykaa Beauty, Nykaa Naturals, Kay Beauty (with Katrina Kaif), Nykd (lingerie), and several others. Own-brand products carry gross margins of 60–70% versus 30–35% for third-party brands. The private label mix is currently about 5–7% of beauty GMV, but it is the part of the business the market is ultimately paying for.</p>
-    <p>The third leg — the one creating the valuation confusion — is <strong>Nykaa Fashion</strong>. Launched in 2018 to extend the brand's premium positioning, Nykaa Fashion competes in apparel and footwear e-commerce against Myntra, Ajio, and increasingly Meesho. This vertical has not found product-market fit at a contribution-positive level and has been a persistent drag on the consolidated P&L. The beauty moat question and the fashion question need to be answered separately.</p>
+    <h2 data-num="01 · The business">What they actually do.</h2>
+    <p>Zepto operates a network of small, densely placed warehouses — "dark stores" — across Indian cities. Each stocks roughly 3,000 SKUs of fast-moving groceries, essentials, and increasingly general merchandise. Orders come through the app, get picked in under two minutes, and reach the customer in ten. The entire model lives or dies on store density: thinner networks mean longer trips, longer trips mean worse economics.</p>
+    <p>The category is a three-horse race: Blinkit (Zomato), Instamart (Swiggy), and Zepto. Nobody is profitable at a net level yet. Zepto claims positive contribution margin at the store level and a path to overall profitability — a claim worth examining.</p>
 
-    <h2 data-num="02 · Unit economics">The contribution margin tells the real story.</h2>
-    <p>The honest financial picture for FY2024: Nykaa's consolidated revenue was approximately ₹6,386 crore, EBITDA about ₹225 crore, and PAT around ₹40 crore. For a company trading at ₹55,000 crore of market cap, that's a P/E ratio that only makes sense if you are pricing the FY2030 business, not the FY2024 one.</p>
-    <p>But the consolidated number hides a split. The <strong>beauty vertical alone</strong> is meaningfully more profitable. Strip out the fashion losses and the beauty business operates at contribution margins of roughly 10–12% on GMV, with EBITDA margins approaching 8–9%. That's a real business. The problem is that fashion keeps funding from the same equity pool, and the beauty business is subsidising an experiment that hasn't worked in six years.</p>
+    <h2 data-num="02 · Unit economics">The numbers, one line at a time.</h2>
+    <p>Every quick-commerce order carries roughly the same structure. A customer spends an average of about ₹450. Gross margin on groceries runs 18–22%, so contribution before delivery cost sits around ₹85–100.</p>
+    <p>Then comes the cost stack. Rider economics: a rider doing four orders per hour at ₹25 per drop costs ₹25 per order at full utilization — more when demand softens. Add dark-store opex (rent, electricity, pickers, breakage) of ~₹15 per order at maturity, and store-level contribution lands at ₹45–60 per order, <em>before</em> central marketing and HQ overhead.</p>
 
     <div class="data-block">
-      <div class="data-label">Nykaa — FY2024 Segment Economics (Estimated Split)</div>
+      <div class="data-label">Zepto — illustrative unit economics per order</div>
       <table>
-        <thead><tr><th>Metric</th><th>Beauty vertical</th><th>Fashion vertical</th><th>Consolidated</th></tr></thead>
+        <thead><tr><th>Line item</th><th>Per order (₹)</th><th>% of AOV</th></tr></thead>
         <tbody>
-          <tr><td>GMV</td><td class="num">~₹9,200 Cr</td><td class="num">~₹2,700 Cr</td><td class="num">~₹11,900 Cr</td></tr>
-          <tr><td>Revenue</td><td class="num">~₹5,500 Cr</td><td class="num">~₹886 Cr</td><td class="num">₹6,386 Cr</td></tr>
-          <tr><td>Gross Margin</td><td class="num pos">36%</td><td class="num">22%</td><td class="num">33%</td></tr>
-          <tr><td>Contribution Margin</td><td class="num pos">~11%</td><td class="num neg">~(4%)</td><td class="num">~7%</td></tr>
-          <tr><td>EBITDA</td><td class="num pos">~₹440 Cr</td><td class="num neg">~(₹215 Cr)</td><td class="num">₹225 Cr</td></tr>
-          <tr><td>Own Brand Mix</td><td class="num pos">~6%</td><td class="num">~3%</td><td class="num">~5%</td></tr>
-          <tr><td>Repeat Purchase Rate</td><td class="num pos">~76%</td><td class="num">~42%</td><td class="num">~65%</td></tr>
+          <tr><td>Average order value</td><td class="num">450</td><td class="num">100%</td></tr>
+          <tr><td>Cost of goods</td><td class="num neg">(360)</td><td class="num">(80%)</td></tr>
+          <tr><td>Gross contribution</td><td class="num pos">90</td><td class="num">20%</td></tr>
+          <tr><td>Delivery rider cost</td><td class="num neg">(25)</td><td class="num">(5.5%)</td></tr>
+          <tr><td>Dark store opex</td><td class="num neg">(15)</td><td class="num">(3.3%)</td></tr>
+          <tr><td><strong>Store-level contribution</strong></td><td class="num pos"><strong>50</strong></td><td class="num"><strong>11.1%</strong></td></tr>
+          <tr><td>Marketing &amp; CAC (allocated)</td><td class="num neg">(30)</td><td class="num">(6.7%)</td></tr>
+          <tr><td>HQ, tech, finance overhead</td><td class="num neg">(20)</td><td class="num">(4.4%)</td></tr>
+          <tr><td><strong>Net contribution</strong></td><td class="num pos"><strong>~0</strong></td><td class="num"><strong>0.0%</strong></td></tr>
         </tbody>
       </table>
     </div>
 
-    <p>The 76% repeat purchase rate in beauty is the number worth anchoring on. Customers who buy beauty products on Nykaa come back. This is partly habit (a woman who discovers her foundation shade on Nykaa has no reason to go elsewhere) and partly the trust that comes from verified authentic products — a meaningful differentiator in a market where grey-market goods are common.</p>
-    <blockquote>The beauty business earns the right to exist. The fashion business earns the right to be questioned.</blockquote>
+    <p>Read the table honestly. Even on friendly assumptions, net margin is approximately zero at steady state. Every rupee of profit requires either (a) raising AOV through higher-margin categories — beauty, electronics, private label — or (b) reducing per-order delivery cost through density and automation. Both are real levers. Neither is guaranteed.</p>
+    <blockquote>The business is real. The multiple is the question.</blockquote>
 
-    <h2 data-num="03 · The one number">CAC vs LTV — the cohort truth.</h2>
-    <p>The most important question for any e-commerce business is: does a customer acquired today generate lifetime value that justifies the acquisition cost? For Nykaa beauty, the answer appears to be yes — but only in mature cohorts.</p>
-    <p>Nykaa's blended customer acquisition cost is roughly ₹1,200–1,500 per new customer. A beauty customer who has transacted for two or more years buys approximately 4–5 times per year at an average order value of ₹1,800–2,200. At 11% contribution margin per order, that's roughly ₹800–1,200 of annual contribution per active customer. <em>Payback on a new customer: 15–20 months.</em> For a beauty brand with high repeat rates, that's a reasonable LTV:CAC — typically 3.5–4.5x over a five-year customer life.</p>
-    <p>The problem is customer mix. Nykaa's customer base has two segments: loyal, high-AOV beauty enthusiasts who are genuinely profitable in year two onwards; and deal-seeking occasional buyers who respond to discounts, buy once, and churn. The latter segment pads GMV and depresses unit economics simultaneously. The ratio between these two cohorts determines whether Nykaa is building a moat or renting one.</p>
-
-    <div class="data-block">
-      <div class="data-label">Nykaa Beauty — Illustrative Customer LTV Economics</div>
-      <table>
-        <thead><tr><th>Metric</th><th>Year 1 Cohort</th><th>Year 2+ Cohort</th></tr></thead>
-        <tbody>
-          <tr><td>Orders / Year</td><td class="num">2.1</td><td class="num pos">4.6</td></tr>
-          <tr><td>Avg Order Value (₹)</td><td class="num">1,650</td><td class="num pos">2,050</td></tr>
-          <tr><td>Annual Revenue / Customer</td><td class="num">₹3,465</td><td class="num pos">₹9,430</td></tr>
-          <tr><td>Contribution Margin (11%)</td><td class="num">₹381</td><td class="num pos">₹1,037</td></tr>
-          <tr><td>CAC (amortised Y1)</td><td class="num neg">(₹1,350)</td><td class="num pos">—</td></tr>
-          <tr><td><strong>Net Year 1 Contribution</strong></td><td class="num neg"><strong>(₹969)</strong></td><td class="num pos"><strong>₹1,037</strong></td></tr>
-          <tr><td>Payback Period</td><td class="num">~16 months</td><td class="num pos">Year 2 profitable</td></tr>
-          <tr><td>5-Year LTV:CAC</td><td class="num pos">3.8x</td><td class="num pos">—</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>This math works. The catch is execution: Nykaa needs to improve the Year 1 to Year 2 conversion rate (currently losing roughly 35–40% of new customers before they reach the profitable cohort) and keep marketing spend disciplined as competition from Myntra Beauty, Tira (Reliance), and brand-direct channels intensifies. Each new entrant makes the CAC more expensive and retention more contested.</p>
+    <h2 data-num="03 · The one number">Orders per dark store per day.</h2>
+    <p>Every quick-commerce operator's path to profitability runs through one number: daily orders per dark store. At 800, the model works. At 500, it bleeds. At 1,200, it's a generational business. The reason is fixed cost absorption — rent, picker wages, and store manager salary are roughly constant whether you do 300 or 1,300 orders.</p>
+    <p>Zepto's reported density improved from ~450 orders/store in 2022 to near 900 in its best cohorts by 2024. That's real operating leverage. It is also the <em>only</em> thing keeping the store-level P&L above water. If density flattens for four quarters, the entire profitability thesis gets repriced.</p>
 
     <h2 data-num="04 · Bull and bear">Both cases, laid out flat.</h2>
     <div class="bull-bear">
       <div class="case-box bull">
         <h4>Bull Case</h4>
         <ul>
-          <li>Indian beauty market growing at 10–12% CAGR, massively underpenetrated in Tier 2/3 cities. Nykaa's brand recognition gives a head start that competitors cannot easily buy.</li>
-          <li>Own-brand mix reaching 12–15% of GMV by FY2028 dramatically changes the P&L — each percentage point of mix shift adds approximately ₹150–200 crore to EBITDA.</li>
-          <li>The "beauty authority" positioning creates word-of-mouth and influencer relationships that cost far less than paid CAC. This flywheel strengthens with time, not weakens.</li>
-          <li>Nykaa Fashion pivot or disposal unlocks beauty business at a standalone multiple — the sum-of-parts trade here is genuinely interesting.</li>
-          <li>Skincare and wellness categories still early — the premium skincare wave in India creates years of GMV tailwind without heavy discounting.</li>
+          <li>Category is structurally winner-take-most — density begets density, economics reinforce.</li>
+          <li>AOV expansion into beauty, apparel, private label adds 400–600 bps gross margin.</li>
+          <li>Automation (pick-and-pack robotics) cuts 20–30% of variable cost by 2028.</li>
+          <li>Ad monetization becomes a third revenue line at 90%+ margin.</li>
+          <li>Indian consumer moves to higher frequency of small-basket purchases, growing TAM 3x.</li>
         </ul>
       </div>
       <div class="case-box bear">
         <h4>Bear Case</h4>
         <ul>
-          <li>Tira (Reliance Industries) has 400+ physical stores, deeper supplier leverage, and an unlimited subsidy budget. If they decide to buy market share, Nykaa's economics deteriorate overnight.</li>
-          <li>Brand-direct selling (Lakme, SUGAR, Minimalist on their own apps and websites) structurally reduces Nykaa's take rate over time. The marketplace model is weaker than it looks.</li>
-          <li>The repeat purchase rate advantage disappears if competitors match on authenticity (Tira is solving this too) and delivery speed (Blinkit beauty is growing rapidly).</li>
-          <li>Fashion losses are a capital black hole — ₹200+ crore of EBITDA losses per year in a business with no clear path to profitability is a real risk to the balance sheet.</li>
-          <li>Founder-dependence: Falguni Nayar is the face, the strategy, and the supplier relationship anchor. No obvious institutional succession plan visible.</li>
+          <li>Contribution margin plateaus at 10–12% — not enough to cover HQ at any realistic scale.</li>
+          <li>Three-player war keeps CAC elevated indefinitely; nobody gets to rational pricing.</li>
+          <li>Dark-store real estate inflates as the model expands; unit economics degrade.</li>
+          <li>Blinkit's Zomato cross-subsidy makes Zepto's standalone math structurally worse.</li>
+          <li>Regulatory tightening on gig-worker classification adds 15–25% to delivery cost overnight.</li>
         </ul>
       </div>
     </div>
 
     <h2 data-num="05 · Verdict">The call.</h2>
     <div class="case-verdict">
-      <div class="data-label">The verdict · Case № 012</div>
-      <h3>Beauty has a real moat. Fashion is a <em>liability dressed as optionality.</em></h3>
-      <p>The answer to the headline question is: yes, beauty is a real moat — but a moderate one, not a fortress. Nykaa's repeat purchase rates, brand trust in authentic products, and emerging private label margin are genuine structural advantages. A beauty-only Nykaa, priced fairly, is a buy at the right multiple. The problem is that it isn't a beauty-only company.</p>
-      <p>Nykaa Fashion has consumed approximately ₹1,000–1,200 crore of losses since inception with no clear path to contribution positivity. Every rupee lost in fashion makes the beauty moat more expensive to fund. The market's current pricing of ₹55,000 crore gives management credit for eventually fixing fashion. We'd want to see two consecutive quarters of fashion contribution margin turning positive — or a decisive exit from the vertical — before paying that premium.</p>
-      <p>At 70–75x earnings on a beauty-only DCF basis, Nykaa is fairly valued. At current consolidated pricing, it is a moderately expensive bet on management doing two things right simultaneously: deepening the beauty moat and fixing or exiting fashion. That's a reasonable bet on a strong founder. It is not a no-brainer at ₹55,000 crore.</p>
+      <div class="data-label">The verdict · Case № 014</div>
+      <h3>A real business — with a <em>priced-in</em> path to profitability.</h3>
+      <p>Zepto is not a scam and it is not a bad business. It is a plausibly good business priced as if the outcome is certain. The $5B valuation requires the bull case to play out cleanly — order density continues expanding, AOV shifts toward higher-margin categories, and the competitive war calms enough to let pricing rise 4–6%.</p>
+      <p>Any one of those breaking delays profitability by 18–24 months. Two of them breaking makes the current valuation indefensible. If you are evaluating whether to invest as an employee, angel, or secondary buyer: the question is not whether Zepto will exist. It will. The question is whether the next dollar of capital earns a return above 15% from a $5B entry price. The honest answer is: only if everything goes right.</p>
     </div>
   </article>
 
 </div>
 
+<!-- =============================================
+     EMBEDDED MOAT SCORECARD — DARK SECTION
+     ============================================= -->
 <section class="moat-embed" id="moat">
   <div class="wide">
     <div class="moat-header">
       <div class="moat-eyebrow">Embedded tool — score this business</div>
-      <div class="moat-title">Moat Scorecard: <em>Nykaa.</em></div>
-      <p class="moat-sub">Use the sliders to score Nykaa across the five dimensions of durable competitive advantage. The composite verdict updates live. Score the beauty vertical separately from the consolidated entity if you want a cleaner signal.</p>
+      <div class="moat-title">Moat Scorecard: <em>Zepto.</em></div>
+      <p class="moat-sub">Use the sliders below to score Zepto across the five dimensions of durable competitive advantage. The composite verdict updates live. Use it on any business.</p>
     </div>
-    <div class="moat-dims" id="moatDims"></div>
+
+    <div class="moat-dims" id="moatDims"><!-- Rendered by JS --></div>
+
     <div class="moat-composite">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:16px">Composite score · Weighted</div>
       <div class="composite-score" id="compScore">—<span class="denom">/10</span></div>
       <div class="composite-tier" id="compTier">Enter scores above to generate verdict</div>
-      <div class="composite-text" id="compText">Score each dimension based on what Nykaa actually shows in its numbers and behavior — not the IPO prospectus.</div>
-      <div class="composite-breakdown" id="compBreakdown"></div>
+      <div class="composite-text" id="compText">Score each dimension based on what the business actually shows in its numbers and behavior — not what management says in the annual report.</div>
+      <div class="composite-breakdown" id="compBreakdown"><!-- Rendered by JS --></div>
     </div>
   </div>
 </section>
@@ -278,20 +295,22 @@ footer a:hover{color:var(--accent)}
   <div class="inline-nl">
     <h3>Get the next breakdown in your inbox.</h3>
     <p>One business dissected every Monday. Ten-minute read.</p>
+    <!-- BEEHIIV: replace action with your embed URL -->
     <form class="nl-form" action="https://embeds.beehiiv.com/REPLACE_WITH_YOUR_FORM_ID" method="post" target="_blank">
       <input type="email" name="email" placeholder="you@workemail.com" required/>
       <button type="submit">Subscribe →</button>
     </form>
   </div>
 
+  <!-- PREV / NEXT — Fully wired to adjacent case study pages -->
   <div class="prev-next">
-    <a href="cases.html">
-      <div class="pn-label">← All case studies</div>
-      <div class="pn-title">View all cases in the archive.</div>
-    </a>
     <a href="case-dmart.html">
-      <div class="pn-label">Next case · № 013 →</div>
+      <div class="pn-label">← Previous case · № 013</div>
       <div class="pn-title">DMart — why the cheapest operator wins.</div>
+    </a>
+    <a href="case-nykaa.html">
+      <div class="pn-label">Next case · № 015 →</div>
+      <div class="pn-title">Nykaa — is beauty really a moat?</div>
     </a>
   </div>
 
@@ -307,15 +326,17 @@ footer a:hover{color:var(--accent)}
 </div>
 
 <script>
+// Theme toggle
 const t=document.getElementById('themeToggle'),r=document.documentElement;
 t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
 
+// Moat Scorecard
 const dims=[
-  {num:'01',title:'Switching Costs',desc:'A Nykaa customer who has found her foundation shade, skincare routine, and saved wishlist has real switching friction. Loyalty data, saved payment info, and beauty profile add to stickiness — though a competitor matching on price can still break it.',weight:.22},
-  {num:'02',title:'Network Effects',desc:'Nykaa benefits from indirect network effects: more customers means more reviews and ratings, making the platform more useful. Beauty influencer relationships also compound with size. But these are mild — Nykaa is not a marketplace where buyers and sellers directly reinforce each other.',weight:.22},
-  {num:'03',title:'Cost Advantage',desc:'No structural cost advantage over peers. Nykaa\'s inventory model is more expensive to run than a marketplace. COGS are similar to what any large buyer gets. The only cost edge is in own-brand margins — which are real but currently a small share of GMV.',weight:.20},
-  {num:'04',title:'Intangible Assets',desc:'The Nykaa brand is a genuine intangible — it signals authenticity and curation in a category where fakes are a real problem. The "beauty authority" positioning, built over 12 years, carries real consumer trust. Luxury brand distribution relationships are also hard to replicate quickly.',weight:.20},
-  {num:'05',title:'Efficient Scale',desc:'The Indian premium beauty e-commerce market is small enough that one or two focused players can profitably serve it. Nykaa is the clear leader. New entrants face a credibility gap in authenticity that takes years to close.',weight:.16}
+  {num:'01',title:'Switching Costs',desc:'How painful, expensive, or risky is it for a customer to leave for a competitor? Stickiness enables pricing power.',weight:.22},
+  {num:'02',title:'Network Effects',desc:'Does each new user make the product more valuable for everyone else? True network effects create winner-take-most dynamics.',weight:.22},
+  {num:'03',title:'Cost Advantage',desc:'Can this business produce or deliver at a structurally lower cost than any rival — through scale, process, or location?',weight:.20},
+  {num:'04',title:'Intangible Assets',desc:'Brand, patents, licenses, regulatory moats — assets that don\'t appear at full value on the balance sheet but customers actually pay for.',weight:.20},
+  {num:'05',title:'Efficient Scale',desc:'A market small enough that one or two players profitably serve it, and new entrants would destroy everyone\'s economics.',weight:.16}
 ];
 
 const dimsEl=document.getElementById('moatDims');
@@ -390,5 +411,12 @@ dims.forEach((d,i)=>{
   });
 });
 </script>
+<footer class="ak-foot">
+  <div class="ak-foot-in">
+    <div>&copy; <span class="ak-yr">2026</span> Akshay K Kothari &middot; CA</div>
+    <div><a href="/essays.html">Essays</a> &middot; <a href="/cases.html">Cases</a> &middot; <a href="/#contact">Contact</a></div>
+  </div>
+</footer>
+<script src="assets/subpage.js?v=20260802b"></script>
 </body>
 </html>

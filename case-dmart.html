@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zepto at $5B — Case Study № 014 — askakshay</title>
-<meta name="description" content="The quick-commerce math, stress-tested. Unit economics, moat score, and the one line that decides the outcome."/>
+<title>DMart — Why the Cheapest Operator Wins — Case Study № 014 — askakshay</title>
+<meta name="description" content="No frills, no celebrity CEO, no flashy tech. DMart's moat lives entirely in the working capital cycle. We find it."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -17,7 +17,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;
 .container{max-width:var(--max);margin:0 auto;padding:0 32px}
 .wide{max-width:var(--wide);margin:0 auto;padding:0 32px}
 
-/* NAV */
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:var(--wide);margin:0 auto}
 .logo{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-style:italic}
@@ -28,7 +27,6 @@ nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,
 .theme-toggle{background:none;border:1px solid var(--rule);width:36px;height:36px;border-radius:50%;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all .2s}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
 
-/* HEADER */
 .case-header{padding:72px 0 56px;border-bottom:1px solid var(--rule)}
 .case-meta-top{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
 h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.035em;margin-bottom:28px}
@@ -37,7 +35,6 @@ h1 em{font-style:italic;color:var(--accent)}
 .byline{display:flex;gap:24px;padding-top:24px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);flex-wrap:wrap}
 .byline span{color:var(--ink)}
 
-/* ARTICLE */
 article{padding:64px 0 24px}
 article h2{font-family:'Fraunces',serif;font-weight:400;font-size:34px;letter-spacing:-.025em;line-height:1.15;margin:64px 0 18px;max-width:720px}
 article h2 em{font-style:italic;color:var(--accent)}
@@ -47,7 +44,6 @@ article p strong{color:var(--ink);font-weight:500}
 article p em{color:var(--ink);font-style:italic}
 article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;margin:32px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);font-weight:400}
 
-/* DATA TABLE */
 .data-block{margin:40px 0;padding:32px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:2px}
 .data-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .data-block table{width:100%;border-collapse:collapse;font-size:15px}
@@ -58,7 +54,6 @@ article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;ma
 .pos{color:var(--green)}
 .neg{color:var(--red)}
 
-/* BULL/BEAR */
 .bull-bear{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px 0}
 @media(max-width:720px){.bull-bear{grid-template-columns:1fr}}
 .case-box{padding:28px;border-radius:2px}
@@ -72,9 +67,6 @@ article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;ma
 .case-box li:last-child{border-bottom:none;padding-bottom:0}
 .case-box li::before{content:'—';color:var(--accent);margin-right:10px}
 
-/* =========================================
-   VERDICT BLOCK — DARK BG, LIGHT TEXT
-   ========================================= */
 .case-verdict{background:var(--ink);color:#F5F1E8;padding:52px 48px;margin:56px 0;position:relative;overflow:hidden}
 .case-verdict::before{content:'§';position:absolute;top:-60px;right:-20px;font-family:'Fraunces',serif;font-size:400px;line-height:1;color:rgba(255,255,255,.04);pointer-events:none}
 .case-verdict .data-label{color:var(--accent-soft);position:relative}
@@ -83,9 +75,6 @@ article blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 28px;ma
 .case-verdict p{opacity:.88;position:relative;color:#D8D0BE;font-size:16.5px;line-height:1.7;margin-bottom:16px}
 .case-verdict p:last-child{margin-bottom:0}
 
-/* =========================================
-   EMBEDDED MOAT SCORECARD
-   ========================================= */
 .moat-embed{background:var(--ink);color:#F5F1E8;padding:56px 0;margin:64px 0;position:relative;overflow:hidden}
 .moat-embed::before{content:'MOAT';position:absolute;bottom:-40px;right:-20px;font-family:'Fraunces',serif;font-style:italic;font-size:260px;line-height:1;color:rgba(255,255,255,.03);pointer-events:none;letter-spacing:-.05em}
 .moat-header{margin-bottom:48px;position:relative}
@@ -109,7 +98,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
 .range-marks{display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(245,241,232,.4);letter-spacing:.08em}
 
-/* COMPOSITE */
 .moat-composite{margin-top:48px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:40px;position:relative}
 .composite-score{font-family:'Fraunces',serif;font-size:clamp(80px,12vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;color:#F5F1E8;margin-bottom:8px}
 .composite-score .denom{font-size:.35em;color:rgba(245,241,232,.4)}
@@ -124,7 +112,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
 .bd-val{font-family:'Fraunces',serif;font-size:30px;font-weight:400;color:var(--accent-soft)}
 .bd-val.low{color:rgba(245,241,232,.3)}
 
-/* NEWSLETTER */
 .inline-nl{margin:72px 0;padding:44px;border:1px solid var(--rule);background:var(--bg-elev);text-align:center}
 .inline-nl h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
 .inline-nl p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
@@ -133,7 +120,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:#F5F1E8}
 .nl-form button{background:var(--ink);color:var(--bg);border:none;padding:0 22px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s}
 .nl-form button:hover{background:var(--accent)}
 
-/* PREV/NEXT */
 .prev-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
 @media(max-width:720px){.prev-next{grid-template-columns:1fr}}
 .prev-next a{padding:28px 32px;text-decoration:none;color:inherit;transition:background .2s}
@@ -149,8 +135,26 @@ footer{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(
 footer a{color:var(--ink-mute);text-decoration:none;margin-left:20px}
 footer a:hover{color:var(--accent)}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/retheme.css?v=20260802b">
 </head>
 <body>
+<div class="ak-prog" aria-hidden="true"></div>
+<header class="ak-bar">
+  <div class="ak-bar-in">
+    <a href="/" class="ak-brand"><span class="br">[</span>ask<b>akshay</b><span class="br">]</span><span class="dot"></span></a>
+    <nav class="ak-links">
+      <a href="/essays.html">Essays</a>
+      <a href="/cases.html">Cases</a>
+      <a class="opt" href="/#tools">Tools</a>
+      <a class="opt" href="/#numbers">Calculators</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 
 <nav>
   <div class="nav-inner">
@@ -167,73 +171,76 @@ footer a:hover{color:var(--accent)}
 <div class="container">
 
   <header class="case-header">
-    <div class="case-meta-top">Case Study № 014 · Consumer Internet · Apr 2026</div>
-    <h1>Zepto at $5B: the quick-commerce math, <em>stress-tested.</em></h1>
-    <p class="dek">Dark stores, ten-minute delivery, and a valuation that prices in perfection. We walk the unit economics, the category structure, and the one line in the P&L that decides the outcome.</p>
+    <div class="case-meta-top">Case Study № 014 · Retail · Mar 2026</div>
+    <h1>DMart — why the <em>cheapest operator</em> wins.</h1>
+    <p class="dek">No frills, no celebrity CEO, no flashy tech. Avenue Supermarts' moat lives entirely in the working capital cycle and a 25-year obsession with cost. We find the number that makes it work.</p>
     <div class="byline">
       <div>By <span>Akshay Kothari</span></div>
-      <div>Read <span>12 min</span></div>
-      <div>Sector <span>Quick Commerce</span></div>
-      <div>Valuation <span>$5B</span></div>
+      <div>Read <span>10 min</span></div>
+      <div>Sector <span>Organised Retail</span></div>
+      <div>Market Cap <span>~₹2.3L Cr</span></div>
     </div>
   </header>
 
   <article>
-    <p><strong>Zepto raised at roughly $5 billion in late 2024, and investors keep buying the story.</strong> The pitch is clean: Indians now expect groceries in ten minutes, the category is vast, and whoever wins dark-store density wins the decade. All of that could be true and the investment could still be mediocre. This is a case about the difference between a real business and a reasonably priced one.</p>
+    <p><strong>Avenue Supermarts — the company behind DMart — is India's most profitable large-format retailer by a significant margin.</strong> It does this without loyalty programmes, without celebrity endorsements, without an exciting e-commerce play, and without owning a single unprofitable store for long. The business is so deliberately boring that most analysts underestimate it. This case is an attempt to understand why boring, executed at scale, is worth ₹2.3 lakh crore.</p>
 
-    <h2 data-num="01 · The business">What they actually do.</h2>
-    <p>Zepto operates a network of small, densely placed warehouses — "dark stores" — across Indian cities. Each stocks roughly 3,000 SKUs of fast-moving groceries, essentials, and increasingly general merchandise. Orders come through the app, get picked in under two minutes, and reach the customer in ten. The entire model lives or dies on store density: thinner networks mean longer trips, longer trips mean worse economics.</p>
-    <p>The category is a three-horse race: Blinkit (Zomato), Instamart (Swiggy), and Zepto. Nobody is profitable at a net level yet. Zepto claims positive contribution margin at the store level and a path to overall profitability — a claim worth examining.</p>
+    <h2 data-num="01 · The business">What they actually do — and what they refuse to.</h2>
+    <p>DMart operates approximately 375 large-format hypermarkets across India, concentrated in western India (Maharashtra, Gujarat) and expanding into south and north. The model is simple to describe and extraordinarily hard to replicate: every day low prices (EDLP) on a curated range of groceries, staples, FMCG, and general merchandise. The customer who walks in knows she will not find a better price on Tata Salt or Ariel nearby. That trust is the product.</p>
+    <p>What makes DMart structurally different from every peer — from Reliance Retail to Big Bazaar to D'Mart clones — is a single decision made early and never reversed: <strong>own the land and building wherever possible.</strong> Roughly 80% of DMart stores are owned, not leased. This removes the rent escalation risk that has killed every Indian retail chain that tried to scale on leases. It also means the P&L looks worse in the early years and dramatically better after year five. Most listed companies never survive long enough to find out.</p>
+    <p>The product range is intentionally narrow. DMart stocks about 5,000–6,000 SKUs in a typical store against 40,000+ in a Western hypermarket. Every SKU earns its shelf space on velocity. Slow movers get cut without sentiment. This keeps inventory turns high and wastage negligible — a discipline that compounds quietly over decades.</p>
 
-    <h2 data-num="02 · Unit economics">The numbers, one line at a time.</h2>
-    <p>Every quick-commerce order carries roughly the same structure. A customer spends an average of about ₹450. Gross margin on groceries runs 18–22%, so contribution before delivery cost sits around ₹85–100.</p>
-    <p>Then comes the cost stack. Rider economics: a rider doing four orders per hour at ₹25 per drop costs ₹25 per order at full utilization — more when demand softens. Add dark-store opex (rent, electricity, pickers, breakage) of ~₹15 per order at maturity, and store-level contribution lands at ₹45–60 per order, <em>before</em> central marketing and HQ overhead.</p>
+    <h2 data-num="02 · Unit economics">The working capital trick nobody talks about.</h2>
+    <p>The genuine edge in DMart's business is not the low prices. It is the working capital cycle. Understanding this is understanding everything.</p>
+    <p>FMCG companies — HUL, Nestle, P&G — give DMart credit terms of roughly 20–30 days. But DMart's customers pay at the checkout counter, in cash or card, instantly. This means DMart collects payment from customers <em>before</em> it pays its suppliers. With inventory turning every 25–30 days and payables sitting at 25–30 days, the working capital gap is close to zero — sometimes slightly negative. DMart is, structurally, being funded by its own suppliers.</p>
+    <p>The consequence: even at 8% EBITDA margins (modest for any business), DMart generates very high returns on capital because the capital employed is so small. A business that needs almost no working capital and owns its buildings has a fundamentally different return profile than one that leases stores and finances inventory on credit.</p>
 
     <div class="data-block">
-      <div class="data-label">Zepto — illustrative unit economics per order</div>
+      <div class="data-label">DMart — FY2025 Financials (Avenue Supermarts)</div>
       <table>
-        <thead><tr><th>Line item</th><th>Per order (₹)</th><th>% of AOV</th></tr></thead>
+        <thead><tr><th>Metric</th><th>FY2024</th><th>FY2025E</th><th>Trend</th></tr></thead>
         <tbody>
-          <tr><td>Average order value</td><td class="num">450</td><td class="num">100%</td></tr>
-          <tr><td>Cost of goods</td><td class="num neg">(360)</td><td class="num">(80%)</td></tr>
-          <tr><td>Gross contribution</td><td class="num pos">90</td><td class="num">20%</td></tr>
-          <tr><td>Delivery rider cost</td><td class="num neg">(25)</td><td class="num">(5.5%)</td></tr>
-          <tr><td>Dark store opex</td><td class="num neg">(15)</td><td class="num">(3.3%)</td></tr>
-          <tr><td><strong>Store-level contribution</strong></td><td class="num pos"><strong>50</strong></td><td class="num"><strong>11.1%</strong></td></tr>
-          <tr><td>Marketing &amp; CAC (allocated)</td><td class="num neg">(30)</td><td class="num">(6.7%)</td></tr>
-          <tr><td>HQ, tech, finance overhead</td><td class="num neg">(20)</td><td class="num">(4.4%)</td></tr>
-          <tr><td><strong>Net contribution</strong></td><td class="num pos"><strong>~0</strong></td><td class="num"><strong>0.0%</strong></td></tr>
+          <tr><td>Revenue</td><td class="num">₹50,789 Cr</td><td class="num">₹58,500 Cr</td><td class="num pos">+15%</td></tr>
+          <tr><td>Gross Margin</td><td class="num">14.8%</td><td class="num">15.1%</td><td class="num pos">▲</td></tr>
+          <tr><td>EBITDA Margin</td><td class="num">8.6%</td><td class="num">8.5%</td><td class="num">Flat</td></tr>
+          <tr><td>PAT</td><td class="num">₹2,694 Cr</td><td class="num">₹3,100 Cr</td><td class="num pos">+15%</td></tr>
+          <tr><td>Stores (count)</td><td class="num">365</td><td class="num">~400</td><td class="num pos">+35</td></tr>
+          <tr><td>Revenue / Store</td><td class="num">₹139 Cr</td><td class="num">₹146 Cr</td><td class="num pos">+5%</td></tr>
+          <tr><td>Inventory Days</td><td class="num">28</td><td class="num">27</td><td class="num pos">▼</td></tr>
+          <tr><td>Creditor Days</td><td class="num">26</td><td class="num">25</td><td class="num">~</td></tr>
+          <tr><td>Return on Equity</td><td class="num pos">17.8%</td><td class="num pos">18.2%</td><td class="num pos">▲</td></tr>
         </tbody>
       </table>
     </div>
 
-    <p>Read the table honestly. Even on friendly assumptions, net margin is approximately zero at steady state. Every rupee of profit requires either (a) raising AOV through higher-margin categories — beauty, electronics, private label — or (b) reducing per-order delivery cost through density and automation. Both are real levers. Neither is guaranteed.</p>
-    <blockquote>The business is real. The multiple is the question.</blockquote>
+    <p>The 8.6% EBITDA margin looks unimpressive until you benchmark it. Big Bazaar (Future Retail) ran at 6–7% and couldn't service its debt. Reliance Retail crosses 9–10% but benefits from an entirely different group subsidy structure. DMart hits 8.6% on a standalone basis with no conglomerate backstop. That is the actual comparison.</p>
+    <blockquote>The moat is not the price. The moat is that nobody else can afford to match the price.</blockquote>
 
-    <h2 data-num="03 · The one number">Orders per dark store per day.</h2>
-    <p>Every quick-commerce operator's path to profitability runs through one number: daily orders per dark store. At 800, the model works. At 500, it bleeds. At 1,200, it's a generational business. The reason is fixed cost absorption — rent, picker wages, and store manager salary are roughly constant whether you do 300 or 1,300 orders.</p>
-    <p>Zepto's reported density improved from ~450 orders/store in 2022 to near 900 in its best cohorts by 2024. That's real operating leverage. It is also the <em>only</em> thing keeping the store-level P&L above water. If density flattens for four quarters, the entire profitability thesis gets repriced.</p>
+    <h2 data-num="03 · The one number">Revenue per square foot — the retail truth test.</h2>
+    <p>Every retail model gets tested by one number: how much revenue does each square foot generate? For DMart, this was approximately ₹35,000–38,000 per sq ft in FY2024. To understand why that matters, compare: Spencer's runs at ₹15,000–18,000. Big Bazaar (in its operational prime) peaked at ₹20,000–22,000. DMart's productivity is 70–100% above every listed Indian retail peer.</p>
+    <p>High sales density does two things simultaneously. First, it means the fixed cost of the store (staff, maintenance, depreciation on owned building) is spread across more rupees of revenue — driving operating leverage. Second, it signals that suppliers prefer to stock DMart because the sell-through rate is high and returns are low. That preference shows up as better trade terms: slightly longer credit, better fill rates, and occasionally exclusive early access on new SKUs.</p>
+    <p>The risk in the number is also visible. DMart's same-store sales growth (SSSG) has been decelerating — from 18–20% in FY2018–19 to 8–10% in FY2024. As the store base matures, the marginal new store is opened further from the dense urban core, in locations with lower inherent footfall. The revenue productivity of the FY2025 cohort of new stores will likely never match the FY2015 cohort. The economics are still good — just not as extraordinary.</p>
 
     <h2 data-num="04 · Bull and bear">Both cases, laid out flat.</h2>
     <div class="bull-bear">
       <div class="case-box bull">
         <h4>Bull Case</h4>
         <ul>
-          <li>Category is structurally winner-take-most — density begets density, economics reinforce.</li>
-          <li>AOV expansion into beauty, apparel, private label adds 400–600 bps gross margin.</li>
-          <li>Automation (pick-and-pack robotics) cuts 20–30% of variable cost by 2028.</li>
-          <li>Ad monetization becomes a third revenue line at 90%+ margin.</li>
-          <li>Indian consumer moves to higher frequency of small-basket purchases, growing TAM 3x.</li>
+          <li>India's organised retail penetration sits at ~12%. The runway to 25–30% is a decade of compounding with the model unchanged.</li>
+          <li>Quick-commerce disrupts unorganised kiranas, not DMart — the value-seeking customer driving a vehicle to a DMart is not switching to Blinkit for groceries.</li>
+          <li>Private label expansion from ~2% to 8–10% of GMV adds 300–400 bps gross margin structurally.</li>
+          <li>Owned store base means no rent inflation risk — as peers struggle with lease renewals, DMart's cost structure stays fixed.</li>
+          <li>D-Mart Ready (e-commerce) reaching 5–8% contribution could unlock dense urban cohorts that are currently under-served.</li>
         </ul>
       </div>
       <div class="case-box bear">
         <h4>Bear Case</h4>
         <ul>
-          <li>Contribution margin plateaus at 10–12% — not enough to cover HQ at any realistic scale.</li>
-          <li>Three-player war keeps CAC elevated indefinitely; nobody gets to rational pricing.</li>
-          <li>Dark-store real estate inflates as the model expands; unit economics degrade.</li>
-          <li>Blinkit's Zomato cross-subsidy makes Zepto's standalone math structurally worse.</li>
-          <li>Regulatory tightening on gig-worker classification adds 15–25% to delivery cost overnight.</li>
+          <li>At ~95x P/E, the stock prices in perfect execution for 10+ years. One bad year reprices it to 60–70x and destroys 30% of market cap with no operational failure.</li>
+          <li>Store opening pace is slowing as owned-real-estate pipeline in Tier 1 cities exhausts. Growth moves to Tier 2/3 where unit economics are genuinely untested at scale.</li>
+          <li>Quick-commerce advertising reach reduces FMCG brand spend — if brands can reach customers through Blinkit ads, DMart's negotiating position as a mass-reach vehicle weakens.</li>
+          <li>SSSG deceleration continues: if it falls below 6%, the store-level payback period extends beyond 8 years and destroys the capital efficiency thesis.</li>
+          <li>Succession risk. Radhakishan Damani is the strategy. The business has no evidence of institutional culture that survives founder exit at the same quality level.</li>
         </ul>
       </div>
     </div>
@@ -241,33 +248,29 @@ footer a:hover{color:var(--accent)}
     <h2 data-num="05 · Verdict">The call.</h2>
     <div class="case-verdict">
       <div class="data-label">The verdict · Case № 014</div>
-      <h3>A real business — with a <em>priced-in</em> path to profitability.</h3>
-      <p>Zepto is not a scam and it is not a bad business. It is a plausibly good business priced as if the outcome is certain. The $5B valuation requires the bull case to play out cleanly — order density continues expanding, AOV shifts toward higher-margin categories, and the competitive war calms enough to let pricing rise 4–6%.</p>
-      <p>Any one of those breaking delays profitability by 18–24 months. Two of them breaking makes the current valuation indefensible. If you are evaluating whether to invest as an employee, angel, or secondary buyer: the question is not whether Zepto will exist. It will. The question is whether the next dollar of capital earns a return above 15% from a $5B entry price. The honest answer is: only if everything goes right.</p>
+      <h3>One of India's best businesses — at a price that forgives <em>no mistakes.</em></h3>
+      <p>DMart is a genuinely exceptional business: real cost advantage, real working capital efficiency, real returns on equity, and a customer value proposition that is structurally difficult to replicate. The moat is proven — 25 years of operation without a single year of losses, through demonetisation, GST disruption, and a pandemic.</p>
+      <p>The investment question is whether ₹2.3 lakh crore of market cap is the right price for those facts. At ~95x trailing earnings, the market is pricing in SSSG of 12–15% indefinitely, margin expansion to 9–10%, and continued execution as the store base moves into lower-productivity geographies. That is an optimistic set of assumptions. Any two of them disappointing simultaneously — slower SSSG and flat margins, for instance — produces a fair value closer to ₹3,500–4,000 per share, against a current price well above that.</p>
+      <p>The business deserves to trade at a premium. The question is whether this premium already prices in the optimism. Our read: DMart is a hold for long-term investors who own it. For new capital at current prices, the margin of safety is thin. Wait for a 20–25% correction that brings the P/E to 70–75x — still a premium, but one that leaves room for reality to be slightly imperfect.</p>
     </div>
   </article>
 
 </div>
 
-<!-- =============================================
-     EMBEDDED MOAT SCORECARD — DARK SECTION
-     ============================================= -->
 <section class="moat-embed" id="moat">
   <div class="wide">
     <div class="moat-header">
       <div class="moat-eyebrow">Embedded tool — score this business</div>
-      <div class="moat-title">Moat Scorecard: <em>Zepto.</em></div>
-      <p class="moat-sub">Use the sliders below to score Zepto across the five dimensions of durable competitive advantage. The composite verdict updates live. Use it on any business.</p>
+      <div class="moat-title">Moat Scorecard: <em>DMart.</em></div>
+      <p class="moat-sub">Use the sliders to score DMart across the five dimensions of durable competitive advantage. The composite verdict updates live. Adjust the scores to reflect your own read of the evidence.</p>
     </div>
-
-    <div class="moat-dims" id="moatDims"><!-- Rendered by JS --></div>
-
+    <div class="moat-dims" id="moatDims"></div>
     <div class="moat-composite">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-bottom:16px">Composite score · Weighted</div>
       <div class="composite-score" id="compScore">—<span class="denom">/10</span></div>
       <div class="composite-tier" id="compTier">Enter scores above to generate verdict</div>
-      <div class="composite-text" id="compText">Score each dimension based on what the business actually shows in its numbers and behavior — not what management says in the annual report.</div>
-      <div class="composite-breakdown" id="compBreakdown"><!-- Rendered by JS --></div>
+      <div class="composite-text" id="compText">Score each dimension based on what DMart actually shows in its numbers and behavior — not what management says in the annual report.</div>
+      <div class="composite-breakdown" id="compBreakdown"></div>
     </div>
   </div>
 </section>
@@ -277,22 +280,18 @@ footer a:hover{color:var(--accent)}
   <div class="inline-nl">
     <h3>Get the next breakdown in your inbox.</h3>
     <p>One business dissected every Monday. Ten-minute read.</p>
-    <!-- BEEHIIV: replace action with your embed URL -->
-    <form class="nl-form" action="https://embeds.beehiiv.com/REPLACE_WITH_YOUR_FORM_ID" method="post" target="_blank">
-      <input type="email" name="email" placeholder="you@workemail.com" required/>
-      <button type="submit">Subscribe →</button>
-    </form>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<iframe src="https://subscribe-forms.beehiiv.com/f0772f91-6a07-4185-bf0b-e1637abe0abf" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:320px;border:none;background:transparent;display:block;margin:0 auto;border-radius:4px;"></iframe>
   </div>
 
-  <!-- PREV / NEXT — Fully wired to adjacent case study pages -->
   <div class="prev-next">
-    <a href="case-dmart.html">
-      <div class="pn-label">← Previous case · № 013</div>
-      <div class="pn-title">DMart — why the cheapest operator wins.</div>
-    </a>
     <a href="case-nykaa.html">
-      <div class="pn-label">Next case · № 015 →</div>
+      <div class="pn-label">← Previous case · № 013</div>
       <div class="pn-title">Nykaa — is beauty really a moat?</div>
+    </a>
+    <a href="case-zepto.html">
+      <div class="pn-label">Next case · № 015 →</div>
+      <div class="pn-title">Zepto at $5B — the quick-commerce math, stress-tested.</div>
     </a>
   </div>
 
@@ -308,17 +307,15 @@ footer a:hover{color:var(--accent)}
 </div>
 
 <script>
-// Theme toggle
 const t=document.getElementById('themeToggle'),r=document.documentElement;
 t.addEventListener('click',()=>r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark'));
 
-// Moat Scorecard
 const dims=[
-  {num:'01',title:'Switching Costs',desc:'How painful, expensive, or risky is it for a customer to leave for a competitor? Stickiness enables pricing power.',weight:.22},
-  {num:'02',title:'Network Effects',desc:'Does each new user make the product more valuable for everyone else? True network effects create winner-take-most dynamics.',weight:.22},
-  {num:'03',title:'Cost Advantage',desc:'Can this business produce or deliver at a structurally lower cost than any rival — through scale, process, or location?',weight:.20},
-  {num:'04',title:'Intangible Assets',desc:'Brand, patents, licenses, regulatory moats — assets that don\'t appear at full value on the balance sheet but customers actually pay for.',weight:.20},
-  {num:'05',title:'Efficient Scale',desc:'A market small enough that one or two players profitably serve it, and new entrants would destroy everyone\'s economics.',weight:.16}
+  {num:'01',title:'Switching Costs',desc:'How painful is it for a DMart shopper to switch to Spencer\'s or Reliance Smart? Price trust, location habit, and familiarity with store layout create mild but real stickiness.',weight:.22},
+  {num:'02',title:'Network Effects',desc:'Does DMart benefit from more customers making it better for all customers? Indirect — more footfall improves supplier terms which improves prices which attracts more footfall.',weight:.22},
+  {num:'03',title:'Cost Advantage',desc:'Can DMart produce at a structurally lower cost than any rival? This is the core moat: owned real estate, superior working capital cycle, and 25 years of supply chain optimisation.',weight:.20},
+  {num:'04',title:'Intangible Assets',desc:'Brand trust ("DMart price is the best price") is a genuine intangible. Regulatory and zoning approvals for large-format retail are also quietly valuable barriers.',weight:.20},
+  {num:'05',title:'Efficient Scale',desc:'Indian organised large-format retail is large enough that many players can coexist — efficient scale is weaker here. DMart doesn\'t operate in a niche.',weight:.16}
 ];
 
 const dimsEl=document.getElementById('moatDims');
@@ -393,5 +390,12 @@ dims.forEach((d,i)=>{
   });
 });
 </script>
+<footer class="ak-foot">
+  <div class="ak-foot-in">
+    <div>&copy; <span class="ak-yr">2026</span> Akshay K Kothari &middot; CA</div>
+    <div><a href="/essays.html">Essays</a> &middot; <a href="/cases.html">Cases</a> &middot; <a href="/#contact">Contact</a></div>
+  </div>
+</footer>
+<script src="assets/subpage.js?v=20260802b"></script>
 </body>
 </html>
