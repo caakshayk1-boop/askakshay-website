@@ -205,32 +205,11 @@ h2.sh em{font-style:normal;color:var(--lime)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s} .rv.d2{transition-delay:.16s} .rv.d3{transition-delay:.24s}
 
-/* ═══════════════════ PRODUCT FEATURE ═══════════════════ */
-.feat{position:relative;overflow:hidden;border:1px solid var(--line);border-left:2px solid var(--lime);
-  background:linear-gradient(135deg,var(--surface) 0%,var(--bg2) 100%);border-radius:16px;
-  padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,48px)}
-@media(max-width:900px){.feat{grid-template-columns:1fr}}
-.feat::after{content:'';position:absolute;top:-120px;right:-120px;width:320px;height:320px;
-  background:radial-gradient(circle,rgba(184,239,67,.10) 0%,transparent 70%);pointer-events:none}
-.pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9.5px;
-  letter-spacing:1.6px;text-transform:uppercase;padding:4px 10px;border-radius:100px;
-  border:1px solid var(--lime-line);background:var(--lime-soft);color:var(--lime)}
-.pill i{width:5px;height:5px;border-radius:50%;background:var(--lime);animation:pulse 1.8s infinite}
-.feat h3{font-size:clamp(22px,3.2vw,34px);font-weight:800;letter-spacing:-1.1px;line-height:1.12;
-  margin:16px 0 12px}
-.feat p{color:var(--muted);line-height:1.72;max-width:62ch;margin-bottom:10px}
-.feat .stackline{font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:20px}
+/* ═══════════════════ PRODUCT CHIPS ═══════════════════ */
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
 .chip{font-family:var(--mono);font-size:10px;letter-spacing:.6px;padding:5px 10px;border-radius:6px;
   border:1px solid var(--line);color:var(--muted);transition:border-color .25s,color .25s}
 .chip:hover{border-color:var(--line2);color:var(--text)}
-.chip.hot{border-color:var(--lime-line);color:var(--lime);background:var(--lime-soft)}
-.featstats{display:flex;flex-direction:column;gap:10px;min-width:190px}
-.fs{border:1px solid var(--line);background:var(--surface2);border-radius:12px;padding:14px 16px}
-.fs .k{font-family:var(--mono);font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;
-  color:var(--dim);margin-bottom:6px}
-.fs .v{font-family:var(--mono);font-size:20px;font-weight:700;letter-spacing:-.6px}
-.fs .s{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:3px}
 
 /* ═══════════════════ CARD GRIDS ═══════════════════ */
 .grid{display:grid;gap:14px}
@@ -565,7 +544,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
   <div class="statrail">
     <div class="stat"><div class="v num"><span data-count="10">0</span><sup>YRS</sup></div><div class="k">FP&amp;A + Finance</div></div>
     <div class="stat"><div class="v num">$<span data-count="100">0</span>M<sup>+</sup></div><div class="k">P&amp;L Managed</div></div>
-    <div class="stat"><div class="v num"><span data-count="3">0</span><sup>LIVE</sup></div><div class="k">AI Tools Shipped</div></div>
     <div class="stat"><div class="v num"><span data-count="12">0</span></div><div class="k">Essays Published</div></div>
   </div>
 </section>
@@ -583,41 +561,11 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
     <div>
       <div class="kicker">§ 00 — What I Build</div>
       <h2 class="sh">Boring tools. <em>Real revenue.</em></h2>
-      <p class="sdesc">Most AI builders lack domain knowledge. Most finance operators can't build. I do both. These are the products — live, shipped, operational.</p>
-    </div>
-    <a class="slink" href="https://terminal.askakshay.com" target="_blank" rel="noopener">Open the terminal ↗</a>
-  </div>
-
-  <div class="feat rv">
-    <div style="position:relative">
-      <span class="pill"><i></i>Live · Indian markets · Built from scratch</span>
-      <h3>Dhruvedge — swing trading OS for NSE</h3>
-      <p>No platform gave me the full picture in one place. So I built Dhruvedge — conviction-graded setups (A+/A/B/C), live NSE prices, behavioural coaching, and a ₹5L verified paper portfolio run in public. Every signal tracked. Wins and losses shown. Nothing hidden.</p>
-      <div class="stackline">Next.js · Yahoo Finance · TradingView · NSE live · Conviction Engine</div>
-      <div class="chips">
-        <span class="chip hot">Conviction Engine A+/A/B/C</span>
-        <span class="chip">Live NSE prices</span>
-        <span class="chip">TradingView charts</span>
-        <span class="chip">Market bias</span>
-        <span class="chip">Sector heatmap</span>
-        <span class="chip">Behavioural coach</span>
-        <span class="chip">Trade journal</span>
-        <span class="chip">Portfolio health</span>
-        <span class="chip">Verified performance</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <a class="btn solid" href="https://terminal.askakshay.com" target="_blank" rel="noopener">Open Dhruvedge <span>↗</span></a>
-        <span class="meta">Free · NSE live · No login required</span>
-      </div>
-    </div>
-    <div class="featstats">
-      <div class="fs"><div class="k">Signal types</div><div class="v" style="color:var(--lime)">5 types</div><div class="s">Swing · Breakout · 4H · Commodity</div></div>
-      <div class="fs"><div class="k">Stock universe</div><div class="v">Nifty 500</div><div class="s">+ 16 sectors + commodities</div></div>
-      <div class="fs"><div class="k">EOD alerts</div><div class="v">3:45 PM</div><div class="s">IST · Mon–Fri · Telegram</div></div>
+      <p class="sdesc">Most AI builders lack domain knowledge. Most finance operators can't build. I do both. Explore my live project and what's in development.</p>
     </div>
   </div>
 
-  <div class="posbar rv" style="margin-top:20px">
+  <div class="posbar rv">
     <span class="side">Finance operators</span>
     <span class="rule"></span>
     <span class="mid">Domain knowledge + execution</span>
@@ -626,28 +574,14 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
   </div>
 
   <div class="grid g3">
-    <a class="card rv" href="https://terminal.askakshay.com" target="_blank" rel="noopener">
-      <div class="ctop"><span class="ceyebrow">Investor terminal</span><span class="badge live">Live</span></div>
-      <h3>Dhruvedge</h3>
-      <p>NSE investor OS. Portfolio attribution, risk radar, behavioural coaching. Open it before markets — know exactly what to do.</p>
-      <div class="chips"><span class="chip">Next.js</span><span class="chip">NSE live</span><span class="chip">Conviction engine</span></div>
-      <div class="cfoot"><span class="meta">terminal.askakshay.com</span><span class="go">Open <span>↗</span></span></div>
-    </a>
-    <a class="card rv d1" href="https://signal.askakshay.com" target="_blank" rel="noopener">
-      <div class="ctop"><span class="ceyebrow">Markets, every morning</span><span class="badge live">Live</span></div>
-      <h3>Signal</h3>
-      <p>A research screen over 1,000 NSE names &mdash; one call per stock, the levels drawn to scale, and a public trade ledger that shows the losses as well as the wins.</p>
-      <div class="chips"><span class="chip">Cloudflare Workers</span><span class="chip">1,000 NSE names</span><span class="chip">Public ledger</span></div>
-      <div class="cfoot"><span class="meta">signal.askakshay.com</span><span class="go">Open <span>&#8599;</span></span></div>
-    </a>
-    <a class="card rv d2" href="https://gems.askakshay.com" target="_blank" rel="noopener">
+    <a class="card rv" href="https://gems.askakshay.com" target="_blank" rel="noopener">
       <div class="ctop"><span class="ceyebrow">One page, every morning</span><span class="badge live">Live</span></div>
       <h3>Gems</h3>
       <p>The whole Indian market on a single page: breadth, the one setup worth reading, institutional flow, IPO books and the honest record. Built to be read on a phone before the open.</p>
       <div class="chips"><span class="chip">Mobile-first</span><span class="chip">Institutional flow</span><span class="chip">IPO books</span></div>
       <div class="cfoot"><span class="meta">gems.askakshay.com</span><span class="go">Open <span>&#8599;</span></span></div>
     </a>
-    <a class="card rv d2" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20early%20access%20to%20Codex" target="_blank" rel="noopener">
+    <a class="card rv d1" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20early%20access%20to%20Codex" target="_blank" rel="noopener">
       <div class="ctop"><span class="ceyebrow">FP&amp;A automation</span><span class="badge wip">Waitlist</span></div>
       <h3>Codex</h3>
       <p>Upload Excel → get variance commentary, budget tracking and an executive summary automatically. Eight hours of reporting work in twenty minutes.</p>
@@ -1047,7 +981,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
       <h5>Work</h5>
       <a href="#services">Services</a>
       <a href="#contact">Digital card</a>
-      <a href="https://terminal.askakshay.com" target="_blank" rel="noopener">Dhruvedge ↗</a>
       <a href="https://news.askakshay.com" target="_blank" rel="noopener">The Daily Signal ↗</a>
     </div>
   </div>
@@ -1106,7 +1039,6 @@ var TICK = [
   {n:'FP&A',    t:'Board reporting'},
   {n:'IFRS 16', t:'Leases & retail'},
   {n:'NPV·IRR', t:'Investment analysis'},
-  {n:'3',       t:'AI tools live'},
   {n:'12',      t:'Essays published'},
   {n:'52',      t:'Issues per year'},
   {n:'MYR·INR·AED·USD', t:'Multi-currency'}
