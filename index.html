@@ -457,6 +457,37 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
   transition:opacity .35s var(--ease),transform .35s var(--ease)}
 .fab.on{opacity:1;pointer-events:auto;transform:none}
 
+/* ═══════════════════ DIGITAL STORE ═══════════════════ */
+.book-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.book-card{position:relative;display:flex;gap:22px;align-items:stretch;border:1px solid var(--line);
+  background:linear-gradient(135deg,var(--surface),var(--surface2));border-radius:16px;padding:20px;
+  overflow:hidden;transition:border-color .35s var(--ease),transform .35s var(--ease),background .35s}
+.book-card:hover{border-color:var(--line2);transform:translateY(-3px);background:var(--surface2)}
+.book-cover{position:relative;flex:0 0 132px;min-height:186px;border-radius:10px;overflow:hidden;padding:16px 13px;
+  display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:10px 12px 26px rgba(0,0,0,.28)}
+.book-cover::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 42%,rgba(0,0,0,.28));pointer-events:none}
+.book-cover.blue{background:radial-gradient(circle at 70% 28%,rgba(91,189,255,.8),transparent 22%),linear-gradient(145deg,#2a120a,#0b1723 72%,#4a2410)}
+.book-cover.roam{background:radial-gradient(circle at 80% 18%,rgba(122,184,255,.55),transparent 25%),linear-gradient(145deg,#32421f,#1d2714 60%,#5a3f2e)}
+.cover-kicker,.cover-foot{position:relative;font-family:var(--mono);font-size:8px;letter-spacing:1.8px;text-transform:uppercase;color:#9ddcff}
+.book-cover.roam .cover-kicker,.book-cover.roam .cover-foot{color:#9dc8f0}
+.cover-title{position:relative;font-family:Georgia,serif;font-size:24px;line-height:.95;font-weight:700;letter-spacing:-1px}
+.cover-title em{display:block;color:#75d4ff;font-style:normal}
+.book-cover.roam .cover-title em{color:#fff}
+.book-info{display:flex;flex-direction:column;min-width:0;flex:1}
+.book-info .ctop{margin-bottom:11px}
+.book-info h3{font-size:22px;line-height:1.1;letter-spacing:-.8px;margin-bottom:9px}
+.book-info p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.book-points{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;margin-bottom:16px}
+.book-points span{font-family:var(--mono);font-size:9px;letter-spacing:.7px;text-transform:uppercase;color:var(--dim);
+  border:1px solid var(--line);padding:4px 7px;border-radius:5px}
+.book-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:13px;border-top:1px solid var(--line)}
+.book-actions .go{font-size:10px}
+.store-note{margin-top:16px;padding:16px 18px;border:1px solid var(--lime-line);background:var(--lime-soft);
+  border-radius:12px;color:var(--muted);font-size:13px;line-height:1.65}
+.store-note b{color:var(--text)}
+@media(max-width:820px){.book-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.book-card{gap:14px;padding:15px}.book-cover{flex-basis:106px;min-height:160px;padding:12px 10px}.cover-title{font-size:20px}.book-info h3{font-size:19px}}
+
 /* ═══════════════════ REDUCED MOTION ═══════════════════ */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -509,14 +540,15 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <nav class="nav" aria-label="Section navigation">
   <div class="nav-in" id="navin">
     <a href="#build"><i>00</i>Build</a>
-    <a href="#tools"><i>01</i>Tools</a>
-    <a href="#services"><i>02</i>Services</a>
-    <a href="#numbers"><i>03</i>Numbers</a>
-    <a href="#cases"><i>04</i>Cases</a>
-    <a href="#proof"><i>05</i>Proof</a>
-    <a href="#essays"><i>06</i>Essays</a>
-    <a href="#notes"><i>07</i>Notes</a>
-    <a href="#contact"><i>08</i>Contact</a>
+    <a href="#store"><i>01</i>Store</a>
+    <a href="#tools"><i>02</i>Tools</a>
+    <a href="#services"><i>03</i>Services</a>
+    <a href="#numbers"><i>04</i>Numbers</a>
+    <a href="#cases"><i>05</i>Cases</a>
+    <a href="#proof"><i>06</i>Proof</a>
+    <a href="#essays"><i>07</i>Essays</a>
+    <a href="#notes"><i>08</i>Notes</a>
+    <a href="#contact"><i>09</i>Contact</a>
   </div>
 </nav>
 
@@ -539,6 +571,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
   <p class="hero-sub">Domain knowledge most AI builders don't have. Execution most finance operators can't do. The gap is monetizable — that's exactly where I operate.</p>
   <div class="hero-cta">
     <a class="btn solid" href="#contact">Work with me <span>↗</span></a>
+    <a class="btn ghost" href="store.html">Shop the guides <span>↗</span></a>
     <a class="btn ghost" href="#build">See what I build →</a>
   </div>
   <div class="statrail">
@@ -588,11 +621,54 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
   </div>
 </section>
 
+<!-- ═══ 01 · STORE ═══ -->
+<section class="sec" id="store">
+  <div class="shead rv">
+    <div>
+      <div class="kicker">§ 01 — Digital Store</div>
+      <h2 class="sh">Useful ideas, <em>packaged to keep.</em></h2>
+      <p class="sdesc">Two editorial PDFs for builders, founders and thoughtful operators. Read a page, do the exercise, and use the idea the same day.</p>
+    </div>
+    <a class="slink" href="store.html">Open the store →</a>
+  </div>
+  <div class="book-grid">
+    <article class="book-card rv">
+      <div class="book-cover blue" aria-label="The App Builder’s Bluebook cover preview">
+        <div class="cover-kicker">The Bluebook Series</div>
+        <div class="cover-title">THE APP<em>BUILDER'S</em>BLUEBOOK</div>
+        <div class="cover-foot">55 capsules · basic to advanced</div>
+      </div>
+      <div class="book-info">
+        <div class="ctop"><span class="ceyebrow">Build with AI · 76 pages</span><span class="badge live">New</span></div>
+        <h3>The App Builder’s Bluebook</h3>
+        <p>A practical path from a daily problem to a useful, protectable, launchable app — with validation, Claude Code/Codex prompts, testing, security and operating rhythms.</p>
+        <div class="book-points"><span>55 capsules</span><span>AI-assisted build</span><span>Templates</span></div>
+        <div class="book-actions"><a class="go" href="store.html#bluebook">View product <span>↗</span></a><span class="meta">Launch price · ₹1,499 / $19</span></div>
+      </div>
+    </article>
+    <article class="book-card rv d1">
+      <div class="book-cover roam" aria-label="The Roam Edit cover preview">
+        <div class="cover-kicker">The Pill Edition</div>
+        <div class="cover-title">The Roam<br><em>Edit</em></div>
+        <div class="cover-foot">17 pills · 30 + 90 day plans</div>
+      </div>
+      <div class="book-info">
+        <div class="ctop"><span class="ceyebrow">Travel media · 91 pages</span><span class="badge live">New</span></div>
+        <h3>The Roam Edit</h3>
+        <p>Seventeen digestible lessons for turning travel taste into useful content, a loyal audience and a real business — without fake growth or generic advice.</p>
+        <div class="book-points"><span>17 pills</span><span>5 templates</span><span>90-day plan</span></div>
+        <div class="book-actions"><a class="go" href="store.html#roam">View product <span>↗</span></a><span class="meta">Launch price · ₹1,199 / $15</span></div>
+      </div>
+    </article>
+  </div>
+  <div class="store-note rv"><b>Want a taste first?</b> Download the free sampler with selected pages from both books. Full PDFs are delivered after payment; until a Razorpay/Stripe payment link is added, the store opens a pre-filled WhatsApp request so you can complete the sale manually.</div>
+</section>
+
 <!-- ═══ 01 · TOOLS ═══ -->
 <section class="sec" id="tools">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 01 — Free Tools</div>
+      <div class="kicker">§ 02 — Free Tools</div>
       <h2 class="sh">Tools that do the <em>thinking</em> before you spend.</h2>
       <p class="sdesc">Battle-tested in corporate finance. Built for founders and finance teams who'd rather see the answer than guess it. All free, all in-browser, no sign-up.</p>
     </div>
@@ -647,7 +723,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="services">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 02 — How I Help</div>
+      <div class="kicker">§ 03 — How I Help</div>
       <h2 class="sh">Finance that <em>moves</em> with the business.</h2>
       <p class="sdesc">Six engagements — from the async review that pays for itself, to fractional CFO inside your business. Each one hands-on, never templated.</p>
     </div>
@@ -678,7 +754,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="numbers">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 03 — Run the Numbers</div>
+      <div class="kicker">§ 04 — Run the Numbers</div>
       <h2 class="sh">Three decisions, answered in <em>seconds.</em></h2>
       <p class="sdesc">No sign-up. No spreadsheet download. Type the numbers, hit calculate, read the verdict.</p>
     </div>
@@ -760,7 +836,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="cases">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 04 — Case Studies</div>
+      <div class="kicker">§ 05 — Case Studies</div>
       <h2 class="sh">Real businesses. <em>Broken down</em> frame by frame.</h2>
       <p class="sdesc">Startups and listed companies dissected on unit economics, moat and capital decisions. Same six-part template every time. The goal is reasoning, not forecasting.</p>
     </div>
@@ -792,7 +868,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="proof">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 05 — Client Results</div>
+      <div class="kicker">§ 06 — Client Results</div>
       <h2 class="sh">Results, not <em>promises.</em></h2>
       <p class="sdesc">From founders who've worked through the models, and readers of Margin Notes.</p>
     </div>
@@ -833,7 +909,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="essays">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 06 — Essays</div>
+      <div class="kicker">§ 07 — Essays</div>
       <h2 class="sh">Financial literacy, above the <em>textbook</em> line.</h2>
       <p class="sdesc">Numbered, not dated. Reading in sequence builds a framework; reading randomly still works.</p>
     </div>
@@ -859,7 +935,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="notes">
   <div class="nl rv">
     <div>
-      <div class="kicker">§ 07 — Newsletter</div>
+      <div class="kicker">§ 08 — Newsletter</div>
       <h2>Margin <em>Notes.</em></h2>
       <p class="lead">The ten-minute weekly read for people who think about business and money for a living. One case study, one framework, one chart, one tool — every Monday at 7am IST. Free forever.</p>
       <div class="free">Subscribers also get the startup financial model template — free.</div>
@@ -890,7 +966,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="sec" id="contact">
   <div class="shead rv">
     <div>
-      <div class="kicker">§ 08 — Pocket Reference</div>
+      <div class="kicker">§ 09 — Pocket Reference</div>
       <h2 class="sh">Save the card, keep the <em>line open.</em></h2>
       <p class="sdesc">Tap once to call, email or save to contacts. Share it before you forget the conversation.</p>
     </div>
@@ -957,6 +1033,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
     </div>
     <div class="fcol">
       <h5>Read</h5>
+      <a href="store.html">Digital guides</a>
       <a href="essays.html">All essays</a>
       <a href="cases.html">Case studies</a>
       <a href="#notes">Margin Notes</a>
@@ -973,6 +1050,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
     <div class="fcol">
       <h5>Work</h5>
       <a href="#services">Services</a>
+      <a href="store.html#sampler">Free book sampler</a>
       <a href="#contact">Digital card</a>
       <a href="https://vision.askakshay.com" target="_blank" rel="noopener">Vision ↗</a>
     </div>
