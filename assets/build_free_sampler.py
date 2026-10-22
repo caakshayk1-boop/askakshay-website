@@ -16,7 +16,7 @@ from reportlab.platypus import Paragraph
 
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "askakshay-free-sampler.pdf"
+OUT = ROOT / "askakshay-free-sampler-v2.pdf"
 BUILD = ROOT / ".sampler-build"
 
 BLUEBOOK = Path(
