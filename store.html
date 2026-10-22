@@ -22,30 +22,31 @@
 <style>
   .store-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:end}
   .store-hero .lead{max-width:62ch}
-  .store-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--line);background:var(--line);border-radius:12px;overflow:hidden}
-  .store-rail div{background:var(--surface);padding:15px}
+  .store-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;border:1px solid var(--line);background:var(--line);border-radius:12px;overflow:hidden}
+  .store-rail div{background:var(--surface);padding:15px;min-width:0}
   .store-rail b{display:block;font-family:var(--mono);font-size:18px;color:var(--lime)}
-  .store-rail span{display:block;margin-top:5px;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--dim)}
+  .store-rail span{display:block;margin-top:5px;font-size:10px;letter-spacing:1.3px;line-height:1.25;text-transform:uppercase;color:var(--dim);overflow-wrap:anywhere}
   .products{display:grid;gap:18px;margin-top:14px}
-  .product{display:grid;grid-template-columns:180px 1fr 170px;gap:26px;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:24px}
+  .product{display:grid;grid-template-columns:minmax(160px,180px) minmax(0,1fr) minmax(190px,210px);gap:22px;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:24px;overflow:hidden}
   .product:hover{border-color:var(--line2)}
-  .mock-cover{min-height:242px;border-radius:11px;padding:17px 15px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:14px 16px 28px rgba(0,0,0,.28)}
+  .product-copy,.price-box{min-width:0}
+  .mock-cover{width:100%;max-width:180px;min-width:0;min-height:242px;border-radius:11px;padding:17px 15px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:14px 16px 28px rgba(0,0,0,.28);overflow:hidden}
   .mock-cover.blue{background:radial-gradient(circle at 72% 28%,rgba(91,189,255,.85),transparent 24%),linear-gradient(145deg,#2a120a,#0b1723 70%,#4a2410)}
   .mock-cover.roam{background:radial-gradient(circle at 80% 18%,rgba(122,184,255,.6),transparent 26%),linear-gradient(145deg,#32421f,#1d2714 60%,#5a3f2e)}
   .mock-cover .k,.mock-cover .f{font-family:var(--mono);font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:#9ddcff}
   .mock-cover.roam .k,.mock-cover.roam .f{color:#afd3f0}
-  .mock-cover h3{font-family:Georgia,serif;font-size:31px;line-height:.95;letter-spacing:-1.5px;color:#fff}
-  .mock-cover h3 em{display:block;color:#75d4ff;font-style:normal}
-  .mock-cover.roam h3 em{color:#fff}
+  .mock-cover-title{font-family:Georgia,serif;font-size:clamp(24px,2.3vw,30px);line-height:.95;letter-spacing:-1.5px;color:#fff;max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+  .mock-cover-title em{display:block;color:#75d4ff;font-style:normal}
+  .mock-cover.roam .mock-cover-title em{color:#fff}
   .product-copy .tag{font-family:var(--mono);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--lime)}
   .product-copy h2{font-size:clamp(25px,3.4vw,41px);line-height:1.02;letter-spacing:-1.5px;margin-top:10px}
   .product-copy p{color:var(--muted);font-size:15px;line-height:1.7;margin-top:13px;max-width:53ch}
   .product-copy ul{list-style:none;display:grid;gap:7px;margin-top:17px;color:var(--text);font-size:13px}
   .product-copy li::before{content:'↳';color:var(--lime);font-family:var(--mono);margin-right:8px}
-  .price-box{border-left:1px solid var(--line);padding-left:22px}
-  .price-box .price{font-family:var(--mono);font-size:23px;color:var(--text);font-weight:700}
-  .price-box .alt{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:5px}
-  .price-box .btn{display:flex;justify-content:center;margin-top:18px;text-align:center}
+  .price-box{border-left:1px solid var(--line);padding-left:22px;min-width:0}
+  .price-box .price{font-family:var(--mono);font-size:23px;color:var(--text);font-weight:700;line-height:1.1}
+  .price-box .alt{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:5px;line-height:1.35;overflow-wrap:anywhere}
+  .price-box .btn,.sample .btn{display:flex;justify-content:center;width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.25;padding:12px 12px;margin-top:18px;text-align:center}
   .sample{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;margin-top:28px;border:1px solid var(--lime-line);background:var(--lime-soft);border-radius:16px;padding:22px}
   .sample h3{font-size:23px;letter-spacing:-.7px}
   .sample p{color:var(--muted);font-size:13.5px;line-height:1.65;margin-top:7px;max-width:62ch}
@@ -55,8 +56,10 @@
   .step h3{font-size:17px;margin-top:8px}
   .step p{font-size:13px;color:var(--muted);line-height:1.6;margin-top:6px}
   .fine{font-size:12px;color:var(--dim);line-height:1.65;margin-top:16px}
-  @media(max-width:820px){.store-hero{grid-template-columns:1fr}.product{grid-template-columns:150px 1fr}.price-box{grid-column:1 / -1;border-left:0;border-top:1px solid var(--line);padding:17px 0 0;display:flex;align-items:center;justify-content:space-between;gap:16px}.price-box .btn{margin-top:0}.steps{grid-template-columns:1fr}}
-  @media(max-width:560px){.product{grid-template-columns:1fr}.mock-cover{min-height:220px;max-width:180px}.price-box{display:block}.price-box .btn{margin-top:15px}.sample{grid-template-columns:1fr}}
+  @media(max-width:820px){.store-hero{grid-template-columns:1fr}.product{grid-template-columns:150px minmax(0,1fr)}.price-box{grid-column:1 / -1;border-left:0;border-top:1px solid var(--line);padding:17px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(190px,1fr);align-items:center;gap:16px}.price-box .btn{margin-top:0}.steps{grid-template-columns:1fr}}
+  @media(max-width:680px){.price-box{display:block}.price-box .btn{margin-top:15px}}
+  @media(max-width:560px){.product{grid-template-columns:1fr}.mock-cover{min-height:220px;max-width:220px}.price-box{display:block}.sample{grid-template-columns:1fr}}
+  @media(max-width:360px){.store-rail div{padding:12px 8px}.store-rail span{font-size:9px;letter-spacing:1px;line-height:1.25}.eyebrow{letter-spacing:1.7px;line-height:1.35;max-width:100%}}
 </style>
 </head>
 <body>
@@ -83,15 +86,15 @@
 
   <section id="bluebook" class="products rv">
     <article class="product">
-      <div class="mock-cover blue" aria-label="The App Builder’s Bluebook cover preview"><div class="k">The Bluebook Series</div><h3>THE APP<em>BUILDER'S</em>BLUEBOOK</h3><div class="f">55 capsules · October 2026</div></div>
+      <div class="mock-cover blue" role="img" aria-label="The App Builder’s Bluebook cover preview"><div class="k">The Bluebook Series</div><div class="mock-cover-title" aria-hidden="true">THE APP<em>BUILDER'S</em>BLUEBOOK</div><div class="f">55 capsules · October 2026</div></div>
       <div class="product-copy"><div class="tag">Product 01 · Build with AI</div><h2>The App Builder’s Bluebook</h2><p>From a daily problem to a real business. A 55-capsule field manual covering evidence, product design, Claude Code and Codex, data, permissions, payments, testing, launch and the long game of becoming a product owner.</p><ul><li>Read one capsule in two minutes</li><li>Use the “Do this” exercise the same day</li><li>Keep the templates, prompts and checklists</li></ul></div>
-      <div class="price-box"><div class="price">₹1,499</div><div class="alt">Launch price · approx. $19</div><a class="btn" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20to%20buy%20The%20App%20Builder%27s%20Bluebook%20PDF" target="_blank" rel="noopener">Request payment link ↗</a></div>
+      <div class="price-box"><div class="price">₹1,499</div><div class="alt">Launch price · approx. $19</div><a class="btn" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20to%20buy%20The%20App%20Builder%27s%20Bluebook%20PDF" target="_blank" rel="noopener noreferrer">Request payment ↗</a></div>
     </article>
 
     <article id="roam" class="product">
-      <div class="mock-cover roam" aria-label="The Roam Edit cover preview"><div class="k">The Pill Edition</div><h3>The Roam<br><em>Edit</em></h3><div class="f">17 pills · 30 + 90 days</div></div>
+      <div class="mock-cover roam" role="img" aria-label="The Roam Edit cover preview"><div class="k">The Pill Edition</div><div class="mock-cover-title" aria-hidden="true">The Roam<br><em>Edit</em></div><div class="f">17 pills · 30 + 90 days</div></div>
       <div class="product-copy"><div class="tag">Product 02 · Travel media</div><h2>The Roam Edit</h2><p>Seventeen digestible lessons for turning travel taste into useful content, a loyal audience and a real business. Choose a niche, build the content machine, grow honestly, sell the next useful step and learn from the numbers.</p><ul><li>Carousels, Reels, Stories and lives</li><li>Affiliate and sponsored-work trust rules</li><li>30-day launch and 90-day operating plan</li></ul></div>
-      <div class="price-box"><div class="price">₹1,199</div><div class="alt">Launch price · approx. $15</div><a class="btn" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20to%20buy%20The%20Roam%20Edit%20PDF" target="_blank" rel="noopener">Request payment link ↗</a></div>
+      <div class="price-box"><div class="price">₹1,199</div><div class="alt">Launch price · approx. $15</div><a class="btn" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20to%20buy%20The%20Roam%20Edit%20PDF" target="_blank" rel="noopener noreferrer">Request payment ↗</a></div>
     </article>
   </section>
 
