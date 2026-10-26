@@ -1,0 +1,25 @@
+/* askakshay.com design system layer (2026-10-26): shared "next step" block, scroll reveal, focus + motion rules.
+   Loaded after hub.css / retheme.css. Canonical values match the homepage tokens. */
+:root{--ak-lime:#B8EF43;--ak-lime-soft:rgba(184,239,67,.12);--ak-line:rgba(255,255,255,.08);--ak-line2:rgba(255,255,255,.15);
+  --ak-surface:#121316;--ak-surface2:#17181C;--ak-text:#F0F0F0;--ak-muted:#8A9099;--ak-dim:#5A6068;
+  --ak-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;--ak-sans:'Fira Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --ak-ease:cubic-bezier(.22,1,.36,1)}
+.ak-next{max-width:1100px;margin:clamp(40px,6vw,72px) auto;padding:0 clamp(16px,4vw,40px);font-family:var(--ak-sans)}
+.ak-next-k{font-family:var(--ak-mono);font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--ak-lime);
+  display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ak-next-k::before{content:'';width:22px;height:1px;background:var(--ak-lime)}
+.ak-next-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ak-next a{display:flex;flex-direction:column;gap:6px;padding:20px;border:1px solid var(--ak-line);border-radius:14px;
+  background:var(--ak-surface);color:var(--ak-text);text-decoration:none;
+  transition:border-color .3s var(--ak-ease),transform .3s var(--ak-ease),background .3s}
+.ak-next a:hover{border-color:rgba(184,239,67,.3);transform:translateY(-3px);background:var(--ak-surface2)}
+.ak-next a.primary{border-color:rgba(184,239,67,.3);background:linear-gradient(160deg,var(--ak-lime-soft),var(--ak-surface))}
+.ak-next b{font-size:17px;font-weight:700;letter-spacing:-.4px;line-height:1.25}
+.ak-next span{font-size:13px;color:var(--ak-muted);line-height:1.6;flex:1}
+.ak-next em{font-style:normal;font-family:var(--ak-mono);font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--ak-lime);margin-top:8px}
+@media(max-width:760px){.ak-next-grid{grid-template-columns:1fr}}
+/* scroll reveal: only armed by system.js, so no-JS visitors always see content */
+.ak-rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ak-ease),transform .7s var(--ak-ease)}
+.ak-rv.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--ak-lime);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.ak-rv{opacity:1;transform:none;transition:none}.ak-next a{transition:none}}
