@@ -498,6 +498,48 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
   .hero-sub,.hero-cta,.statrail{opacity:1}
   .tick{animation:none}
 }
+
+/* ═══ DESIGN PREVIEW: hero + store ═══ */
+.hero{padding-bottom:clamp(28px,4vw,48px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(24px,4vw,64px);align-items:center}
+h1.hl{font-size:clamp(38px,5.9vw,82px);max-width:15ch;line-height:.96;letter-spacing:-2.6px}
+.hero-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:30px;opacity:0;animation:fadeUp .8s var(--ease) .95s forwards}
+.hero-paths a{display:flex;flex-direction:column;gap:3px;padding:14px 15px;border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  transition:border-color .3s var(--ease),transform .3s var(--ease),background .3s}
+.hero-paths a:hover{border-color:var(--lime-line);transform:translateY(-3px);background:var(--surface2)}
+.hero-paths i{font-style:normal;font-family:var(--mono);font-size:9.5px;color:var(--lime);letter-spacing:1.5px}
+.hero-paths b{font-size:14px;font-weight:700;letter-spacing:-.3px}
+.hero-paths span{font-size:12px;color:var(--muted);line-height:1.45}
+.hero-viz{border:1px solid var(--line);background:linear-gradient(160deg,var(--surface),var(--bg2));border-radius:18px;padding:clamp(18px,2.4vw,28px);
+  opacity:0;animation:fadeUp .9s var(--ease) .8s forwards;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.viz-k{font-family:var(--mono);font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.viz-row{display:grid;grid-template-columns:52px 1fr 54px;align-items:center;gap:12px;margin-bottom:14px}
+.vl{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.vbar{position:relative;height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.vbar i{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:6px;animation:grow 1.3s var(--ease) 1.2s forwards}
+.vbar i.pos{background:var(--up)} .vbar i.neg{background:var(--down)}
+@keyframes grow{to{width:var(--w)}}
+.vv{font-size:15px;font-weight:700;text-align:right}
+.viz-foot{margin:22px 0 16px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.65}
+.viz-foot b{color:var(--text)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-paths{grid-template-columns:1fr}}
+/* store */
+.sec{padding:clamp(48px,6.5vw,84px) 0}
+.book-grid{align-items:stretch}
+.book-card{padding:22px}
+.book-card .corner{position:absolute;top:14px;right:14px;margin:0}
+.book-info .ctop{margin-bottom:9px;padding-right:46px}
+.book-info .ceyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.book-actions{margin-top:auto;justify-content:space-between}
+.price{font-family:var(--mono);font-size:15px;font-weight:700;display:flex;flex-direction:column;line-height:1.2;color:var(--text)}
+.price small{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);font-weight:500;margin-bottom:2px}
+.price em{font-style:normal;color:var(--muted);font-weight:500;font-size:12px}
+.book-actions .go{font-size:11px;padding:10px 16px;border-radius:100px;background:var(--lime);color:#000}
+.cover-title{font-size:clamp(15px,1.2vw,18px);letter-spacing:-.5px}
+.book-card:hover .book-cover{transform:rotate(-1.5deg) translateY(-2px)}
+.book-cover{transition:transform .5s var(--ease)}
+@media(max-width:520px){.book-card{flex-direction:column}.book-cover{flex-basis:auto;min-height:150px;width:100%}}
+@media(prefers-reduced-motion:reduce){.vbar i{animation:none;width:var(--w)}.hero-viz,.hero-paths{animation:none;opacity:1}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Akshay K Kothari",
@@ -558,23 +600,32 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
 <section class="hero">
   <div class="orb a" aria-hidden="true"></div>
   <div class="orb b" aria-hidden="true"></div>
-  <div class="eyebrow">CA · FP&amp;A · AI Builder</div>
-  <h1 class="hl">
-    <span class="w"><span style="--d:.05s">CA</span></span>
-    <span class="w"><span style="--d:.11s">+</span></span>
-    <span class="w"><span style="--d:.17s">FP&amp;A</span></span>
-    <span class="w"><span style="--d:.23s">operator.</span></span>
-    <span class="w"><span style="--d:.31s">Building</span></span>
-    <span class="w"><span style="--d:.37s">AI</span></span>
-    <span class="w"><span style="--d:.43s">tools</span></span>
-    <span class="w"><span style="--d:.49s"><em>companies</em></span></span>
-    <span class="w"><span style="--d:.55s"><em>pay&nbsp;for.</em></span></span>
-  </h1>
-  <p class="hero-sub">Domain knowledge most AI builders don't have. Execution most finance operators can't do. The gap is monetizable — that's exactly where I operate.</p>
-  <div class="hero-cta">
-    <a class="btn solid" href="#contact">Work with me <span>↗</span></a>
-    <a class="btn ghost" href="store.html">Shop the guides <span>↗</span></a>
-    <a class="btn ghost" href="#build">See what I build →</a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">CA · FP&amp;A · AI Builder</div>
+      <h1 class="hl">
+        <span class="w"><span style="--d:.05s">Numbers</span></span>
+        <span class="w"><span style="--d:.15s">you can</span></span>
+        <span class="w"><span style="--d:.25s"><em>decide on.</em></span></span>
+      </h1>
+      <p class="hero-sub">I'm Akshay, a CA with 10 years in FP&amp;A. I build the models, tools and workflows that founders and finance teams use to make money decisions, and I match them with vetted specialists when the job is bigger than my desk.</p>
+      <div class="hero-cta">
+        <a class="btn solid" href="https://wa.me/919836665840?text=Hi%20Akshay%2C%20I%27d%20like%20to%20discuss%20a%20Business%20Case%20Review" target="_blank" rel="noopener">Book a Business Case Review <span>↗</span></a>
+        <a class="btn ghost" href="#numbers">Try a free tool →</a>
+      </div>
+      <div class="hero-paths" role="list">
+        <a role="listitem" href="#services"><i>01</i><b>I need finance help</b><span>Services and the vetted network</span></a>
+        <a role="listitem" href="#essays"><i>02</i><b>I want to learn</b><span>Essays and Margin Notes</span></a>
+        <a role="listitem" href="sponsor.html"><i>03</i><b>I'm a brand</b><span>Sponsor the newsletter</span></a>
+      </div>
+    </div>
+    <aside class="hero-viz" aria-label="Illustrative example: profit is not cash">
+      <div class="viz-k">Illustrative · one credit sale</div>
+      <div class="viz-row"><span class="vl">Profit</span><span class="vbar"><i class="pos" style="--w:40%"></i></span><span class="vv up num">+400</span></div>
+      <div class="viz-row"><span class="vl">Cash</span><span class="vbar neg"><i class="neg" style="--w:60%"></i></span><span class="vv dn num">−600</span></div>
+      <div class="viz-foot"><b>Profitable and still broke.</b> The gap is receivables. Every model I build shows it before it hurts.</div>
+      <a class="slink" href="essay-001.html">Read why →</a>
+    </aside>
   </div>
   <div class="statrail">
     <div class="stat"><div class="v num"><span data-count="10">0</span><sup>YRS</sup></div><div class="k">FP&amp;A + Finance</div></div>
@@ -641,11 +692,12 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
         <div class="cover-foot">55 capsules · basic to advanced</div>
       </div>
       <div class="book-info">
-        <div class="ctop"><span class="ceyebrow">Build with AI · 76 pages</span><span class="badge live">New</span></div>
+        <span class="badge live corner">New</span>
+        <div class="ctop"><span class="ceyebrow">Build with AI · 76 pages</span></div>
         <h3>The App Builder’s Bluebook</h3>
         <p>A practical path from a daily problem to a useful, protectable, launchable app — with validation, Claude Code/Codex prompts, testing, security and operating rhythms.</p>
         <div class="book-points"><span>55 capsules</span><span>AI-assisted build</span><span>Templates</span></div>
-        <div class="book-actions"><a class="go" href="store.html#bluebook">View product <span>↗</span></a><span class="meta">Launch price · ₹1,499 / $19</span></div>
+        <div class="book-actions"><a class="go" href="store.html#bluebook">View product <span>↗</span></a><span class="price"><small>Launch price</small><span>₹1,499 <em>/ $19</em></span></span></div>
       </div>
     </article>
     <article class="book-card rv d1">
@@ -655,11 +707,12 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:v
         <div class="cover-foot">17 pills · 30 + 90 day plans</div>
       </div>
       <div class="book-info">
-        <div class="ctop"><span class="ceyebrow">Travel media · 91 pages</span><span class="badge live">New</span></div>
+        <span class="badge live corner">New</span>
+        <div class="ctop"><span class="ceyebrow">Travel media · 91 pages</span></div>
         <h3>The Roam Edit</h3>
         <p>Seventeen digestible lessons for turning travel taste into useful content, a loyal audience and a real business — without fake growth or generic advice.</p>
         <div class="book-points"><span>17 pills</span><span>5 templates</span><span>90-day plan</span></div>
-        <div class="book-actions"><a class="go" href="store.html#roam">View product <span>↗</span></a><span class="meta">Launch price · ₹1,199 / $15</span></div>
+        <div class="book-actions"><a class="go" href="store.html#roam">View product <span>↗</span></a><span class="price"><small>Launch price</small><span>₹1,199 <em>/ $15</em></span></span></div>
       </div>
     </article>
   </div>
